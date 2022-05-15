@@ -27,6 +27,7 @@ class UserStore: Object {
             DatabaseKeys.User.email.rawValue: email,
             DatabaseKeys.User.firstName.rawValue: firstName,
             DatabaseKeys.User.lastName.rawValue: lastName,
+            DatabaseKeys.User.username.rawValue: username,
             DatabaseKeys.User.displayName.rawValue: displayName,
             DatabaseKeys.User.created.rawValue: created,
             DatabaseKeys.User.dateOfBirth.rawValue: dateOfBirth
@@ -39,6 +40,7 @@ class UserStore: Object {
             DatabaseKeys.User.email.rawValue: email,
             DatabaseKeys.User.firstName.rawValue: firstName,
             DatabaseKeys.User.lastName.rawValue: lastName,
+            DatabaseKeys.User.username.rawValue: username,
             DatabaseKeys.User.displayName.rawValue: displayName,
             DatabaseKeys.User.created.rawValue: Timestamp(date: created),
             DatabaseKeys.User.dateOfBirth.rawValue: Timestamp(date: dateOfBirth)
