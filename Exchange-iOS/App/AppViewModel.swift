@@ -6,6 +6,7 @@
 //
 
 import Firebase
+import RealmSwift
 
 final class AppViewModel {
     
@@ -15,7 +16,26 @@ final class AppViewModel {
     }
     
     public static func currentScene() -> AppScenes {
-        return Auth.auth().currentUser == nil ? .auth : .home
+        guard let currentUser = Auth.auth().currentUser else { return .auth }
+        
+        do {
+            
+            let realm = try Realm()
+            guard let user: UserStore = realm.object(ofType: UserStore.self, forPrimaryKey: currentUser.uid),
+                  (!user.email.isEmpty && !user.firstName.isEmpty) else {
+                try Auth.auth().signOut()
+                return .auth
+            }
+            
+            return .home
+            
+        } catch {
+            
+            try? Auth.auth().signOut()
+            return .auth
+            
+        }
+        
     }
     
 }
