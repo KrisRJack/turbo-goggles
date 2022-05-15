@@ -82,7 +82,7 @@ class UserStore: Object {
     
     public func saveToDisk() throws {
         let realm = try Realm()
-        try realm.write { self }
+        try realm.write { realm.add(self, update: .modified) }
     }
     
 }
