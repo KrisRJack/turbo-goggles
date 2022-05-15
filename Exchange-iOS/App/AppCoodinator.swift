@@ -61,6 +61,9 @@ extension AppCoordinator: AuthCoordinatorDelegate {
     
     func navigateToHomeCoordinator(from coordinator: AuthCoordinator) {
         rootViewController = HomeTabBarController()
+        guard let tabBarController = rootViewController as? UITabBarController else { return }
+        let homeCoodinator = HomeCoodinator(tabBarController: tabBarController)
+        homeCoodinator.start()
         makeKeyAndVisible(withAnimation: true)
     }
     
