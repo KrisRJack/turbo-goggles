@@ -1,0 +1,190 @@
+/* 
+  Localizable.strings
+  Exchange
+
+  Created by Kristopher Jackson on 2/3/21.
+  
+*/
+
+/*********************
+
+ - Headers
+
+ *********************/
+
+"ONBOARD_HEADER" = "Profile";
+
+"DOB_HEADER" = "Date of Birth";
+
+"USER_NAME_HEADER" = "Username";
+
+"FIRST_NAME_HEADER" = "First Name";
+
+"LAST_NAME_HEADER" = "Last Name";
+
+"EMAIL_HEADER" = "Email Address";
+
+"PASSWORD_HEADER" = "Password";
+
+"LISTING_SIZE_HEADER" = "Size";
+
+"LISTING_TAG_HEADER" = "Tags";
+
+"LISTING_TITLE_HEADER" = "Title";
+
+"LISTING_PRICE_HEADER" = "Price";
+
+"LISTING_DESCRIPTION_HEADER" = "Description";
+
+"LISTING_HEADER" = "New Listing";
+
+"OPENING_HEADER" = "Welcome to\nExchange";
+
+"CAMERA_DISABLED_HEADER" = "Camera Disabled";
+
+
+/*********************
+
+ - Subheaders
+
+ *********************/
+
+"RESET_PASSWORD_SUBHEADER" = "Fill out the field below and we'll send you an email to reset your password.";
+
+"OPENING_SUBHEADER" = "Sell your items • Search for things\nyou need • Shop for something new";
+
+
+/*********************
+
+ - Error
+
+ *********************/
+
+"REQUIRED_FIELDS_ERROR" = "All fields are required.";
+
+"USER_NAME_ERROR" = "The username that you entered is not valid. All usernames must be between 5-20 characters and may only contain letters, numbers, underscores, hyphens, or decimals.";
+
+"DEVELOPER_ERROR" = "We are unable to process your request due to a development error. Please contact our support team.";
+
+
+/*********************
+
+ - Placeholders
+
+ *********************/
+
+"DOB_PLACEHOLDER" = "Select your date of birth...";
+
+"USER_NAME_PLACEHOLDER" = "Enter a unique username...";
+
+"FIRST_NAME_PLACEHOLDER" = "First name here...";
+
+"LAST_NAME_PLACEHOLDER" = "Last name here...";
+
+"LISTING_TAG_PLACEHOLDER" = "Add your tags...";
+
+"LISTING_TITLE_PLACEHOLDER" = "Name your listing...";
+
+"LISTING_PRICE_PLACEHOLDER" = "Price your listing...";
+
+"LISTING_DESCRIPTION_PLACEHOLDER" = "Describe your items...";
+
+"DEFAULT_PLACEHOLDER" = "Placeholder";
+
+"EMAIL_PLACEHOLDER" = "Enter your email here...";
+
+"PASSWORD_PLACEHOLDER" = "Enter your password here...";
+
+"NEW_EMAIL_PLACEHOLDER" = "Enter your email here...";
+
+"NEW_PASSWORD_PLACEHOLDER" = "Enter a password...";
+
+"CONFIRM_PASSWORD_PLACEHOLDER" = "Confirm your password...";
+
+"TEXT_POST_PLACEHOLDER" = "Describe your items";
+
+"IMAGE_CAPTION_PLACEHOLDER" = "Add a description...";
+
+"LISTING_SIZE_PLACEHOLDER" = "Add a size...";
+
+
+/*********************
+
+ - Buttons
+
+ *********************/
+
+"DONE" = "Done";
+
+"GET_STARTED" = "Get Started";
+
+"GO_TO_SETTING_BUTTON" = "Go to Settings";
+
+"CONTINUE_BUTTON" = "Continue";
+
+"DISMISS_BUTTON" = "Dismiss";
+
+"CONTINUE_TO_LISTING_BUTTON" = "Continue To Listing";
+
+
+/*********************
+ 
+ - Alert Title
+ 
+ *********************/
+
+"GENERIC_ALERT_TITLE" = "Something Went Wrong!";
+
+"MAX_IMAGE_ALERT_TITLE" = "Max Images Reached";
+
+"IMAGE_ERROR_ALERT_TITLE" = "There was an error loading your images.";
+
+"LISTING_IMAGE_ALERT_TITLE" = "Images Required";
+
+"LISTING_TITLE_ALERT_TITLE" = "Title Required";
+
+"LISTING_PRICE_ALERT_TITLE" = "Price Required";
+
+"LISTING_DESCRIPTION_ALERT_TITLE" = "Description Required";
+
+
+/*********************
+ 
+ - Alert Message
+ 
+ *********************/
+
+"IMAGE_ERROR_ALERT_MESSAGE" = "There was an error loading one or more of your images. Please try a different image or try again later.";
+
+"MAX_IMAGE_ALERT_MESSAGE" = "You have reach the maximum number of images.";
+
+"LISTING_IMAGE_ALERT_MESSAGE" = "At least one image of your item is required. Be sure to capture all damages and multiple angles.";
+
+"LISTING_TITLE_ALERT_MESSAGE" = "Please enter a title to let others know what you are selling.";
+
+"LISTING_PRICE_ALERT_MESSAGE" = "If your item is FREE, please enter 0. Otherwise, please enter the price of your items.";
+
+"LISTING_DESCRIPTION_ALERT_MESSAGE" = "Describe the items that you are selling including damages and any other useful information for buyers.";
+
+
+/*********************
+
+ - General Text
+
+ *********************/
+
+"RESET_PASSWORD_SUCCESS_TEXT" = "Email has been sent! Open the link in the email to reset your password. Be sure to check your spam or junk folder.";
+
+"LEGAL_TEXT" = "By signing up, you agree to the Terms of Service and Privacy Policy.";
+
+"CAMERA_DISABLED_TEXT" = "Due to your privacy settings, we are unable to access your camera. To enable, go to Settings • Privacy • Camera.";
+
+"LISTING_IMAGE_TEXT" = "Select photos of a single item or multiple listings. Be sure to capture any damages and imperfections.";
+
+"LISTING_TAG_TEXT" = "OPTIONAL: Tags are related words or phrases (separated by a comma \",\") to help others find your items in search.";
+
+"LISTING_SIZE_TEXT" = "OPTIONAL: For clothing and accessories, we recommend disclosing the size of your items if appropriate.";
+
+"LISTING_CONDITION_PICKER_TEXT" = "OPTIONAL: Please select the condition that best describes your items.";
+
+"LISTING_CATEGORY_PICKER_TEXT" = "OPTIONAL: Please select the category that best describes your items.";
