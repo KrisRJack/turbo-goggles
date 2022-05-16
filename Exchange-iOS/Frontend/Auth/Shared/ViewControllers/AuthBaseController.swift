@@ -23,14 +23,14 @@ open class AuthBaseController: UIViewController {
         view.addSubview(watermarkImageView)
         [watermarkImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
          watermarkImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-         watermarkImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 62),
+         watermarkImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
          watermarkImageView.widthAnchor.constraint(equalTo: watermarkImageView.heightAnchor),
         ].activate()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if window?.safeAreaInsets.bottom ?? 0 > 0 {
+        if (window?.safeAreaInsets.bottom ?? 0 > 0) && !isModal {
             self.view.layer.cornerRadius = 40
             self.view.layer.masksToBounds = true
         }
@@ -39,7 +39,7 @@ open class AuthBaseController: UIViewController {
     
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if window?.safeAreaInsets.bottom ?? 0 > 0 {
+        if (window?.safeAreaInsets.bottom ?? 0 > 0) && !isModal {
             self.view.layer.cornerRadius = 0
             self.view.layer.masksToBounds = true
         }
@@ -47,7 +47,7 @@ open class AuthBaseController: UIViewController {
     
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if window?.safeAreaInsets.bottom ?? 0 > 0 {
+        if (window?.safeAreaInsets.bottom ?? 0 > 0) && !isModal {
             self.view.layer.cornerRadius = 40
             self.view.layer.masksToBounds = true
         }
