@@ -237,6 +237,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		180072B828325A5C00731C17 /* Coodinators */ = {
+			isa = PBXGroup;
+			children = (
+				1876AFF22831193A001E89F4 /* AppCoodinator.swift */,
+				185EBA6A280DADDD00DB2017 /* AuthCoodinator.swift */,
+				1876AFF6283129AB001E89F4 /* HomeCoodinator.swift */,
+			);
+			path = Coodinators;
+			sourceTree = "<group>";
+		};
 		183F28242814285000F70501 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,8 +275,9 @@
 		185EBA4D280DAA3500DB2017 /* Frontend */ = {
 			isa = PBXGroup;
 			children = (
+				1876AFEC2831163F001E89F4 /* HomeTabBarController.swift */,
 				185EBA4E280DAAB500DB2017 /* Auth */,
-				1876AFE9283115CD001E89F4 /* Home */,
+				1876AFEE283116D7001E89F4 /* Feed */,
 			);
 			path = Frontend;
 			sourceTree = "<group>";
@@ -274,7 +285,6 @@
 		185EBA4E280DAAB500DB2017 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				185EBA6A280DADDD00DB2017 /* AuthCoodinator.swift */,
 				185EBA6C280DAE0400DB2017 /* AuthNavigationController.swift */,
 				180072AD2831EF9000731C17 /* ForgotPassword */,
 				185EBA82280DAF9800DB2017 /* Login */,
@@ -399,7 +409,6 @@
 		185EBA99280DB18C00DB2017 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				1876AFF22831193A001E89F4 /* AppCoodinator.swift */,
 				1876AFF42831207C001E89F4 /* AppViewModel.swift */,
 				1895E929280D9B4D00FCFE7E /* AppDelegate.swift */,
 				1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */,
@@ -536,16 +545,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		1876AFE9283115CD001E89F4 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				1876AFF6283129AB001E89F4 /* HomeCoodinator.swift */,
-				1876AFEC2831163F001E89F4 /* HomeTabBarController.swift */,
-				1876AFEE283116D7001E89F4 /* Feed */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		1876AFEE283116D7001E89F4 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,6 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				185EBA99280DB18C00DB2017 /* App */,
+				180072B828325A5C00731C17 /* Coodinators */,
 				185EBA6F280DAEE700DB2017 /* Extensions */,
 				185EBA4D280DAA3500DB2017 /* Frontend */,
 				185EBA6E280DAEC800DB2017 /* Miscellaneous */,
