@@ -11,6 +11,7 @@
 		180072AC2831EDB900731C17 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072AB2831EDB900731C17 /* UIViewController.swift */; };
 		180072B12831EFBD00731C17 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B02831EFBD00731C17 /* ForgotPasswordViewController.swift */; };
 		180072B32831EFF400731C17 /* ForgotPasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B22831EFF400731C17 /* ForgotPasswordTableViewCell.swift */; };
+		180072B628324C8600731C17 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B528324C8600731C17 /* ForgotPasswordViewModel.swift */; };
 		183F28262814285C00F70501 /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F28252814285C00F70501 /* AuthResult.swift */; };
 		183F282C28144FDC00F70501 /* UsernameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282B28144FDC00F70501 /* UsernameService.swift */; };
 		183F282E2814A77200F70501 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282D2814A77200F70501 /* Username.swift */; };
@@ -97,6 +98,7 @@
 		180072AB2831EDB900731C17 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		180072B02831EFBD00731C17 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		180072B22831EFF400731C17 /* ForgotPasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordTableViewCell.swift; sourceTree = "<group>"; };
+		180072B528324C8600731C17 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		183F28252814285C00F70501 /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		183F282B28144FDC00F70501 /* UsernameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameService.swift; sourceTree = "<group>"; };
 		183F282D2814A77200F70501 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				180072AF2831EFA400731C17 /* Cells */,
+				180072B428324C6700731C17 /* ViewModel */,
 				180072AE2831EF9B00731C17 /* ViewControllers */,
 			);
 			path = ForgotPassword;
@@ -224,6 +227,14 @@
 				180072B22831EFF400731C17 /* ForgotPasswordTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		180072B428324C6700731C17 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				180072B528324C8600731C17 /* ForgotPasswordViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		183F28242814285000F70501 /* Models */ = {
@@ -929,6 +940,7 @@
 				1876AFE528306384001E89F4 /* MaterialTextfieldCell.swift in Sources */,
 				185EBABB280E37AC00DB2017 /* UserStore.swift in Sources */,
 				183F28262814285C00F70501 /* AuthResult.swift in Sources */,
+				180072B628324C8600731C17 /* ForgotPasswordViewModel.swift in Sources */,
 				185EBAB0280DB59D00DB2017 /* DatabaseKeys.swift in Sources */,
 				185EBA7C280DAF3300DB2017 /* UIColor.swift in Sources */,
 				185EBA87280DAFED00DB2017 /* LoginTableViewCell.swift in Sources */,

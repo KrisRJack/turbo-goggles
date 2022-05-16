@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol ForgotPasswordNavigationDelegate {
+    func success(from viewController: ForgotPasswordViewController)
+    func presentError(from viewController: ForgotPasswordViewController, withMessage message: String)
+}
+
 final class ForgotPasswordViewController: AuthBaseController {
     
+    private var viewModel: ForgotPasswordViewModel!
     private let tableViewCell: ForgotPasswordTableViewCell!
+    public var navigationDelegate: ForgotPasswordNavigationDelegate?
     
     private let tableView: UITableView = .build { tableView in
         tableView.separatorStyle = .none
@@ -21,6 +28,24 @@ final class ForgotPasswordViewController: AuthBaseController {
     init() {
         tableViewCell = ForgotPasswordTableViewCell()
         super.init(nibName: nil, bundle: nil)
+        
+        let credentials = ForgotPasswordViewModel.Credentials(
+            email: { [weak self] in
+                self?.tableViewCell.emailText
+            }
+        )
+        
+        viewModel = ForgotPasswordViewModel(credentials: credentials)
+        
+        viewModel.didSendResetEmail = { [weak self] in
+            guard let self = self else { return }
+            self.navigationDelegate?.success(from: self)
+        }
+        
+        viewModel.error = { [weak self] error in
+            guard let self = self else { return }
+            self.navigationDelegate?.presentError(from: self, withMessage: error)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -31,6 +56,7 @@ final class ForgotPasswordViewController: AuthBaseController {
         super.viewDidLoad()
         view.fill(with: tableView)
         tableView.dataSource = self
+        tableViewCell.delegate = self
     }
     
 }
@@ -40,15 +66,25 @@ final class ForgotPasswordViewController: AuthBaseController {
 extension ForgotPasswordViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.numberOfRowsInSection
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return tableViewCell
+    }
+    
+}
+
+// MARK: - ForgotPasswordTableViewCellDelegate
+
+extension ForgotPasswordViewController: ForgotPasswordTableViewCellDelegate {
+    
+    func didTapSendEmailButton() {
+        viewModel.sendEmailToResetPassword()
     }
     
 }

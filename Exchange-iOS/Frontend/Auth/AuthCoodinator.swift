@@ -69,7 +69,8 @@ extension AuthCoordinator: LoginNavigationDelegate {
     
     func navigateToForgotPassword(from viewController: LoginViewController) {
         let viewController = ForgotPasswordViewController()
-        navigationController?.present(viewController, animated: true)
+        viewController.navigationDelegate = self
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func navigateToSignUp(from viewController: LoginViewController) {
@@ -112,6 +113,24 @@ extension AuthCoordinator: OnboardNavigationDelegate {
     }
     
     func presentError(from viewController: OnboardViewController, withMessage message: String) {
+        displayError(withMessage: message)
+    }
+    
+}
+
+extension AuthCoordinator: ForgotPasswordNavigationDelegate {
+    
+    func success(from viewController: ForgotPasswordViewController) {
+        let message =  NSLocalizedString("RESET_PASSWORD_SUCCESS_TEXT", comment: "Description")
+        let alertController = UIAlertController(title: "Email Sent 🎉", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Done", style: .default, handler: { [weak self] action in
+            guard let self = self else { return }
+            self.navigationController?.popViewController(animated: true)
+        }))
+        navigationController?.present(alertController, animated: true)
+    }
+    
+    func presentError(from viewController: ForgotPasswordViewController, withMessage message: String) {
         displayError(withMessage: message)
     }
     
