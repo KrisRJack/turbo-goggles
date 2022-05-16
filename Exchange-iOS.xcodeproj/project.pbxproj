@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13945902CDF4379B5C50AB9C /* Pods_Exchange_iOS_Exchange_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A2174904F14881B2817334 /* Pods_Exchange_iOS_Exchange_iOSUITests.framework */; };
+		180072AC2831EDB900731C17 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072AB2831EDB900731C17 /* UIViewController.swift */; };
 		183F28262814285C00F70501 /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F28252814285C00F70501 /* AuthResult.swift */; };
 		183F282C28144FDC00F70501 /* UsernameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282B28144FDC00F70501 /* UsernameService.swift */; };
 		183F282E2814A77200F70501 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282D2814A77200F70501 /* Username.swift */; };
@@ -91,6 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180072AB2831EDB900731C17 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		183F28252814285C00F70501 /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		183F282B28144FDC00F70501 /* UsernameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameService.swift; sourceTree = "<group>"; };
 		183F282D2814A77200F70501 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				185EBA76280DAF3300DB2017 /* UIFont.swift */,
 				185EBA88280DB01E00DB2017 /* UITableViewCell.swift */,
 				185EBA77280DAF3300DB2017 /* UIView.swift */,
+				180072AB2831EDB900731C17 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -878,6 +881,7 @@
 				185EBA7A280DAF3300DB2017 /* Array.swift in Sources */,
 				185EBAA3280DB29300DB2017 /* SignUpViewModel.swift in Sources */,
 				185EBA98280DB17300DB2017 /* Window.swift in Sources */,
+				180072AC2831EDB900731C17 /* UIViewController.swift in Sources */,
 				1876AFF1283116EB001E89F4 /* FeedViewController.swift in Sources */,
 				1868B13C28116FF100ACA238 /* OnboardTableViewCell.swift in Sources */,
 				185EBA7F280DAF3300DB2017 /* UIFont.swift in Sources */,
