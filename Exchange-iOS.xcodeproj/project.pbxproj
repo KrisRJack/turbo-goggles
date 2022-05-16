@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		13945902CDF4379B5C50AB9C /* Pods_Exchange_iOS_Exchange_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A2174904F14881B2817334 /* Pods_Exchange_iOS_Exchange_iOSUITests.framework */; };
 		180072AC2831EDB900731C17 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072AB2831EDB900731C17 /* UIViewController.swift */; };
+		180072B12831EFBD00731C17 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B02831EFBD00731C17 /* ForgotPasswordViewController.swift */; };
+		180072B32831EFF400731C17 /* ForgotPasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B22831EFF400731C17 /* ForgotPasswordTableViewCell.swift */; };
 		183F28262814285C00F70501 /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F28252814285C00F70501 /* AuthResult.swift */; };
 		183F282C28144FDC00F70501 /* UsernameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282B28144FDC00F70501 /* UsernameService.swift */; };
 		183F282E2814A77200F70501 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282D2814A77200F70501 /* Username.swift */; };
@@ -93,6 +95,8 @@
 
 /* Begin PBXFileReference section */
 		180072AB2831EDB900731C17 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		180072B02831EFBD00731C17 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		180072B22831EFF400731C17 /* ForgotPasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordTableViewCell.swift; sourceTree = "<group>"; };
 		183F28252814285C00F70501 /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		183F282B28144FDC00F70501 /* UsernameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameService.swift; sourceTree = "<group>"; };
 		183F282D2814A77200F70501 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
@@ -197,6 +201,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180072AD2831EF9000731C17 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				180072AF2831EFA400731C17 /* Cells */,
+				180072AE2831EF9B00731C17 /* ViewControllers */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		180072AE2831EF9B00731C17 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				180072B02831EFBD00731C17 /* ForgotPasswordViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		180072AF2831EFA400731C17 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				180072B22831EFF400731C17 /* ForgotPasswordTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		183F28242814285000F70501 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +265,7 @@
 			children = (
 				185EBA6A280DADDD00DB2017 /* AuthCoodinator.swift */,
 				185EBA6C280DAE0400DB2017 /* AuthNavigationController.swift */,
+				180072AD2831EF9000731C17 /* ForgotPassword */,
 				185EBA82280DAF9800DB2017 /* Login */,
 				185EBAB1280DB98A00DB2017 /* Onboard */,
 				185EBA4F280DAAB900DB2017 /* Opening */,
@@ -877,10 +907,12 @@
 				183F282E2814A77200F70501 /* Username.swift in Sources */,
 				185EBAAC280DB51E00DB2017 /* StorageService.swift in Sources */,
 				185EBA91280DB0F600DB2017 /* LoginViewModel.swift in Sources */,
+				180072B32831EFF400731C17 /* ForgotPasswordTableViewCell.swift in Sources */,
 				185EBA81280DAF3300DB2017 /* CharacterSet.swift in Sources */,
 				185EBA7A280DAF3300DB2017 /* Array.swift in Sources */,
 				185EBAA3280DB29300DB2017 /* SignUpViewModel.swift in Sources */,
 				185EBA98280DB17300DB2017 /* Window.swift in Sources */,
+				180072B12831EFBD00731C17 /* ForgotPasswordViewController.swift in Sources */,
 				180072AC2831EDB900731C17 /* UIViewController.swift in Sources */,
 				1876AFF1283116EB001E89F4 /* FeedViewController.swift in Sources */,
 				1868B13C28116FF100ACA238 /* OnboardTableViewCell.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 protocol LoginNavigationDelegate {
     func navigateToHome(from viewController: LoginViewController)
     func navigateToSignUp(from viewController: LoginViewController)
+    func navigateToForgotPassword(from viewController: LoginViewController)
     func presentError(from viewController: LoginViewController, withMessage message: String)
     func navigateToOnboard(from viewController: LoginViewController, withResult result: AuthResult)
 }
@@ -105,6 +106,10 @@ extension LoginViewController: LoginTableViewCellDelegate {
     
     func didTapSignUpButton() {
         navigationDelegate?.navigateToSignUp(from: self)
+    }
+    
+    func didTapForgotPasswordButton() {
+        navigationDelegate?.navigateToForgotPassword(from: self)
     }
     
 }

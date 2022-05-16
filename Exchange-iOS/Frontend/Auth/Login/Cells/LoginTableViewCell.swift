@@ -11,6 +11,7 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 protocol LoginTableViewCellDelegate {
     func didTapLogInButton()
     func didTapSignUpButton()
+    func didTapForgotPasswordButton()
 }
 
 final class LoginTableViewCell: UITableViewCell {
@@ -106,6 +107,7 @@ final class LoginTableViewCell: UITableViewCell {
     private func addTargets() {
         logInButton.addTarget(self, action: #selector(logInTapped), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
+        forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordTapped), for: .touchUpInside)
     }
     
     private func addSubviews() {
@@ -156,6 +158,11 @@ final class LoginTableViewCell: UITableViewCell {
     @objc
     private func signUpTapped() {
         delegate?.didTapSignUpButton()
+    }
+    
+    @objc
+    private func forgotPasswordTapped() {
+        delegate?.didTapForgotPasswordButton()
     }
     
 }

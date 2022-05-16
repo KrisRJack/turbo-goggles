@@ -67,6 +67,11 @@ extension AuthCoordinator: LoginNavigationDelegate {
         displayError(withMessage: message)
     }
     
+    func navigateToForgotPassword(from viewController: LoginViewController) {
+        let viewController = ForgotPasswordViewController()
+        navigationController?.present(viewController, animated: true)
+    }
+    
     func navigateToSignUp(from viewController: LoginViewController) {
         let viewController = SignUpViewController()
         viewController.navigationDelegate = self
