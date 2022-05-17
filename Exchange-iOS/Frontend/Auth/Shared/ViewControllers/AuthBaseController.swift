@@ -17,9 +17,8 @@ open class AuthBaseController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setNavigationController()
         view.backgroundColor = .white
-        
         view.addSubview(watermarkImageView)
         [watermarkImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
          watermarkImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -51,6 +50,14 @@ open class AuthBaseController: UIViewController {
             self.view.layer.cornerRadius = 40
             self.view.layer.masksToBounds = true
         }
+    }
+    
+    private func setNavigationController() {
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.shadowImage = UIImage()
+        let image = UIImage(systemName: "arrow.left")
+        navigationController?.navigationBar.backIndicatorImage = image
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = image
     }
     
 }
