@@ -7,52 +7,33 @@
 
 import UIKit
 
-final class AppCoordinator {
+final class AppCoordinator: Coordinator {
     
-    private var window: UIWindow?
+    var childCoordinators: [Coordinator] = []
+    var navigationController: UINavigationController?
     
-    private var windowScene: UIWindowScene? {
-        set { window?.windowScene = newValue }
-        get { return window?.windowScene }
-    }
-    
-    private var rootViewController: UIViewController? {
-        set { window?.rootViewController = newValue }
-        get { return window?.rootViewController }
-    }
-    
-    init(window: UIWindow, windowScene: UIWindowScene) {
-        self.window = window
-        self.windowScene = windowScene
+    init(_ navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     
     func start() {
         switch AppViewModel.currentScene() {
         case .auth:
-            rootViewController = AuthNavigationController()
-            guard let navigationController = rootViewController as? UINavigationController else { return }
-            let authCoordinator = AuthCoordinator(navigationController: navigationController)
+        
+            guard let navigationController = navigationController else { return }
+            let authCoordinator = AuthCoordinator(navigationController)
             authCoordinator.delegate = self
             authCoordinator.start()
+            childCoordinators = [authCoordinator]
+            
         case .home:
-            rootViewController = HomeTabBarController()
-            guard let tabBarController = rootViewController as? UITabBarController else { return }
-            let homeCoodinator = HomeCoodinator(tabBarController: tabBarController)
+            
+            guard let navigationController = navigationController else { return }
+            let homeCoodinator = HomeCoodinator(navigationController)
             homeCoodinator.start()
+            childCoordinators = [homeCoodinator]
+            
         }
-        makeKeyAndVisible()
-    }
-    
-    private func makeKeyAndVisible(withAnimation: Bool = false) {
-        guard let window = window else { return }
-        withAnimation
-        ? UIView.transition(
-            with: window,
-            duration: 0.3,
-            options: .transitionCrossDissolve,
-            animations: nil
-        )
-        : window.makeKeyAndVisible()
     }
     
 }
@@ -60,11 +41,12 @@ final class AppCoordinator {
 extension AppCoordinator: AuthCoordinatorDelegate {
     
     func navigateToHomeCoordinator(from coordinator: AuthCoordinator) {
-        rootViewController = HomeTabBarController()
-        guard let tabBarController = rootViewController as? UITabBarController else { return }
-        let homeCoodinator = HomeCoodinator(tabBarController: tabBarController)
+        
+        guard let navigationController = navigationController else { return }
+        let homeCoodinator = HomeCoodinator(navigationController)
         homeCoodinator.start()
-        makeKeyAndVisible(withAnimation: true)
+        childCoordinators = [homeCoodinator]
+        
     }
     
 }

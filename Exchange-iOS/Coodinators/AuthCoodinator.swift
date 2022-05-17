@@ -17,7 +17,7 @@ class AuthCoordinator: Coordinator {
     public var delegate: AuthCoordinatorDelegate?
     private let navigationController: UINavigationController?
     
-    required init(navigationController: UINavigationController) {
+    required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     

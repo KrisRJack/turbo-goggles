@@ -7,18 +7,31 @@
 
 import UIKit
 
-class HomeCoodinator {
+class HomeCoodinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
-    private let tabBarController: UITabBarController?
+    var navigationController: UINavigationController?
     
-    required init(tabBarController: UITabBarController) {
-        self.tabBarController = tabBarController
+    let feedViewController = FeedViewController()
+    let listingViewController = ListingViewController()
+    
+    required init(_ navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     
     func start() {
-        let viewController = FeedViewController()
-        tabBarController?.viewControllers = [viewController]
+        let tabBarController = HomeTabBarController()
+        tabBarController.viewControllers = [feedViewController, listingViewController]
+        rootChangeAnimation()
+        navigationController?.setViewControllers([tabBarController], animated: false)
+    }
+    
+    private func rootChangeAnimation() {
+        let transition = CATransition()
+        transition.duration = 0.2
+        transition.timingFunction = .init(name: .easeInEaseOut)
+        transition.type = .fade
+        navigationController?.view.layer.add(transition, forKey: nil)
     }
     
 }

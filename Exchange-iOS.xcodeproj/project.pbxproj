@@ -12,6 +12,7 @@
 		180072B12831EFBD00731C17 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B02831EFBD00731C17 /* ForgotPasswordViewController.swift */; };
 		180072B32831EFF400731C17 /* ForgotPasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B22831EFF400731C17 /* ForgotPasswordTableViewCell.swift */; };
 		180072B628324C8600731C17 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B528324C8600731C17 /* ForgotPasswordViewModel.swift */; };
+		180072C028325DE500731C17 /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072BF28325DE500731C17 /* ListingViewController.swift */; };
 		183F28262814285C00F70501 /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F28252814285C00F70501 /* AuthResult.swift */; };
 		183F282C28144FDC00F70501 /* UsernameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282B28144FDC00F70501 /* UsernameService.swift */; };
 		183F282E2814A77200F70501 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282D2814A77200F70501 /* Username.swift */; };
@@ -27,7 +28,6 @@
 		185EBA66280DAD7800DB2017 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 185EBA65280DAD7800DB2017 /* RealmSwift */; };
 		185EBA69280DADB800DB2017 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 185EBA68280DADB800DB2017 /* SDWebImage */; };
 		185EBA6B280DADDD00DB2017 /* AuthCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBA6A280DADDD00DB2017 /* AuthCoodinator.swift */; };
-		185EBA6D280DAE0400DB2017 /* AuthNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBA6C280DAE0400DB2017 /* AuthNavigationController.swift */; };
 		185EBA7A280DAF3300DB2017 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBA71280DAF3300DB2017 /* Array.swift */; };
 		185EBA7B280DAF3300DB2017 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBA72280DAF3300DB2017 /* NSLayoutConstraint.swift */; };
 		185EBA7C280DAF3300DB2017 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBA73280DAF3300DB2017 /* UIColor.swift */; };
@@ -99,13 +99,13 @@
 		180072B02831EFBD00731C17 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		180072B22831EFF400731C17 /* ForgotPasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordTableViewCell.swift; sourceTree = "<group>"; };
 		180072B528324C8600731C17 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		180072BF28325DE500731C17 /* ListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
 		183F28252814285C00F70501 /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		183F282B28144FDC00F70501 /* UsernameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameService.swift; sourceTree = "<group>"; };
 		183F282D2814A77200F70501 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
 		183F282F2814B1F200F70501 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		185EBA52280DAAEE00DB2017 /* OpeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
 		185EBA6A280DADDD00DB2017 /* AuthCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoodinator.swift; sourceTree = "<group>"; };
-		185EBA6C280DAE0400DB2017 /* AuthNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationController.swift; sourceTree = "<group>"; };
 		185EBA71280DAF3300DB2017 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		185EBA72280DAF3300DB2017 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
 		185EBA73280DAF3300DB2017 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -247,6 +247,22 @@
 			path = Coodinators;
 			sourceTree = "<group>";
 		};
+		180072B928325B6700731C17 /* Listing */ = {
+			isa = PBXGroup;
+			children = (
+				180072BE28325D9A00731C17 /* ViewControllers */,
+			);
+			path = Listing;
+			sourceTree = "<group>";
+		};
+		180072BE28325D9A00731C17 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				180072BF28325DE500731C17 /* ListingViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		183F28242814285000F70501 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +294,7 @@
 				1876AFEC2831163F001E89F4 /* HomeTabBarController.swift */,
 				185EBA4E280DAAB500DB2017 /* Auth */,
 				1876AFEE283116D7001E89F4 /* Feed */,
+				180072B928325B6700731C17 /* Listing */,
 			);
 			path = Frontend;
 			sourceTree = "<group>";
@@ -285,7 +302,6 @@
 		185EBA4E280DAAB500DB2017 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				185EBA6C280DAE0400DB2017 /* AuthNavigationController.swift */,
 				180072AD2831EF9000731C17 /* ForgotPassword */,
 				185EBA82280DAF9800DB2017 /* Login */,
 				185EBAB1280DB98A00DB2017 /* Onboard */,
@@ -409,8 +425,8 @@
 		185EBA99280DB18C00DB2017 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				1876AFF42831207C001E89F4 /* AppViewModel.swift */,
 				1895E929280D9B4D00FCFE7E /* AppDelegate.swift */,
+				1876AFF42831207C001E89F4 /* AppViewModel.swift */,
 				1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */,
 			);
 			path = App;
@@ -902,13 +918,13 @@
 				185EBAA1280DB27900DB2017 /* SignUpViewController.swift in Sources */,
 				1876AFF52831207C001E89F4 /* AppViewModel.swift in Sources */,
 				185EBA53280DAAEE00DB2017 /* OpeningViewController.swift in Sources */,
+				180072C028325DE500731C17 /* ListingViewController.swift in Sources */,
 				185EBA8A280DB01E00DB2017 /* UITableViewCell.swift in Sources */,
 				185EBA7D280DAF3300DB2017 /* CGFloat.swift in Sources */,
 				185EBA8B280DB01E00DB2017 /* UICollectionViewCell.swift in Sources */,
 				1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */,
 				185EBAAA280DB43200DB2017 /* DatabaseService.swift in Sources */,
 				1876AFED2831163F001E89F4 /* HomeTabBarController.swift in Sources */,
-				185EBA6D280DAE0400DB2017 /* AuthNavigationController.swift in Sources */,
 				183F282C28144FDC00F70501 /* UsernameService.swift in Sources */,
 				185EBAAE280DB57300DB2017 /* DatabaseKeyType.swift in Sources */,
 				185EBA7B280DAF3300DB2017 /* NSLayoutConstraint.swift in Sources */,
