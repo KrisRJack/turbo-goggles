@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol HomeTabBarControllerNavigationDelegate {
+    func navigateToCreateListing()
+}
+
 class HomeTabBarController: UITabBarController {
+    
+    var navigationDelegate: HomeTabBarControllerNavigationDelegate?
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -20,6 +26,7 @@ class HomeTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
         setUpTabBarAppearance()
     }
     
@@ -36,4 +43,19 @@ class HomeTabBarController: UITabBarController {
         tabBar.clipsToBounds = true
     }
     
+}
+
+extension HomeTabBarController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        if viewController is ListingViewController {
+            navigationDelegate?.navigateToCreateListing()
+            return false
+        }
+        
+        return true
+        
+    }
+
 }
