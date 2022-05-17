@@ -73,6 +73,7 @@
 		1895E95F280D9C5400FCFE7E /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95A280D9C5400FCFE7E /* background.jpg */; };
 		1895E960280D9C5400FCFE7E /* profile_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95B280D9C5400FCFE7E /* profile_2.jpg */; };
 		1895E961280D9C5400FCFE7E /* profile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95C280D9C5400FCFE7E /* profile.jpg */; };
+		18CC2B6A2833BDCB00E609CD /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B692833BDCB00E609CD /* UINavigationController.swift */; };
 		5418D19895A93981BEA7C9DD /* Pods_Exchange_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77157AEA73FF12F10877E701 /* Pods_Exchange_iOS.framework */; };
 		7C59ADBA100A94692566132A /* Pods_Exchange_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4164ABB15C7D7A1762535629 /* Pods_Exchange_iOSTests.framework */; };
 /* End PBXBuildFile section */
@@ -155,6 +156,7 @@
 		1895E95A280D9C5400FCFE7E /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		1895E95B280D9C5400FCFE7E /* profile_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile_2.jpg; sourceTree = "<group>"; };
 		1895E95C280D9C5400FCFE7E /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
+		18CC2B692833BDCB00E609CD /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		4164ABB15C7D7A1762535629 /* Pods_Exchange_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Exchange_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58582D2DC2F3222414CCFEA5 /* Pods-Exchange-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exchange-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Exchange-iOSTests/Pods-Exchange-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		65898117092B70B19F9359A9 /* Pods-Exchange-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exchange-iOS.release.xcconfig"; path = "Target Support Files/Pods-Exchange-iOS/Pods-Exchange-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				185EBA89280DB01E00DB2017 /* UICollectionViewCell.swift */,
 				185EBA73280DAF3300DB2017 /* UIColor.swift */,
 				185EBA76280DAF3300DB2017 /* UIFont.swift */,
+				18CC2B692833BDCB00E609CD /* UINavigationController.swift */,
 				185EBA88280DB01E00DB2017 /* UITableViewCell.swift */,
 				185EBA77280DAF3300DB2017 /* UIView.swift */,
 				180072AB2831EDB900731C17 /* UIViewController.swift */,
@@ -922,6 +925,7 @@
 				185EBA8A280DB01E00DB2017 /* UITableViewCell.swift in Sources */,
 				185EBA7D280DAF3300DB2017 /* CGFloat.swift in Sources */,
 				185EBA8B280DB01E00DB2017 /* UICollectionViewCell.swift in Sources */,
+				18CC2B6A2833BDCB00E609CD /* UINavigationController.swift in Sources */,
 				1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */,
 				185EBAAA280DB43200DB2017 /* DatabaseService.swift in Sources */,
 				1876AFED2831163F001E89F4 /* HomeTabBarController.swift in Sources */,

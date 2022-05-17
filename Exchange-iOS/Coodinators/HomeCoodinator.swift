@@ -22,16 +22,8 @@ class HomeCoodinator: Coordinator {
     func start() {
         let tabBarController = HomeTabBarController()
         tabBarController.viewControllers = [feedViewController, listingViewController]
-        rootChangeAnimation()
+        navigationController?.rootTransitionAnimation()
         navigationController?.setViewControllers([tabBarController], animated: false)
-    }
-    
-    private func rootChangeAnimation() {
-        let transition = CATransition()
-        transition.duration = 0.2
-        transition.timingFunction = .init(name: .easeInEaseOut)
-        transition.type = .fade
-        navigationController?.view.layer.add(transition, forKey: nil)
     }
     
 }

@@ -24,6 +24,7 @@ class AuthCoordinator: Coordinator {
     func start() {
         let viewController = OpeningViewController()
         viewController.navigationDelegate = self
+        navigationController?.rootTransitionAnimation()
         navigationController?.viewControllers = [viewController]
     }
     
