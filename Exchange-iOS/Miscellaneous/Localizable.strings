@@ -177,7 +177,7 @@
 
 "LEGAL_TEXT" = "By signing up, you agree to the Terms of Service and Privacy Policy.";
 
-"CAMERA_DISABLED_TEXT" = "Due to your privacy settings, we are unable to access your camera. To enable, go to Settings • Privacy • Camera.";
+"CAMERA_DISABLED_TEXT" = "Due to your privacy settings, we are unable to access your camera.";
 
 "LISTING_IMAGE_TEXT" = "Select photos of a single item or multiple listings. Be sure to capture any damages and imperfections.";
 
