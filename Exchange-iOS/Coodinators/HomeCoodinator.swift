@@ -13,7 +13,7 @@ class HomeCoodinator: Coordinator {
     var navigationController: UINavigationController?
     
     let feedViewController = FeedViewController()
-    let listingViewController = ListingViewController()
+    let listingViewController = ListingBaseViewController()
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController

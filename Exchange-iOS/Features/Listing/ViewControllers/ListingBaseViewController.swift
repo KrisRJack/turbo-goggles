@@ -1,5 +1,5 @@
 //
-//  ListingViewController.swift
+//  ListingBaseViewController.swift
 //  Exchange-iOS
 //
 //  Created by Kristopher Jackson on 5/16/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ListingViewController: UIViewController {
+final class ListingBaseViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
