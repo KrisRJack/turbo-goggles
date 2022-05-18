@@ -39,6 +39,18 @@ extension UIColor {
         }
     }
     
+    static var captureButtonColor: UIColor {
+        get {
+            return .white
+        }
+    }
+    
+    static var captureButtonSelectedColor: UIColor {
+        get {
+            return UIColor(red: 1, green: 1, blue: 1, alpha: 0.3)
+        }
+    }
+    
     // MARK: - init(rgb: )
     
     public convenience init(rgb: Int) {
