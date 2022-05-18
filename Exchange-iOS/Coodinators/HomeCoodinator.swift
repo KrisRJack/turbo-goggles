@@ -21,9 +21,33 @@ class HomeCoodinator: Coordinator {
     
     func start() {
         let tabBarController = HomeTabBarController()
+        tabBarController.navigationDelegate = self
         tabBarController.viewControllers = [feedViewController, listingViewController]
         navigationController?.rootTransitionAnimation()
         navigationController?.setViewControllers([tabBarController], animated: false)
+    }
+    
+}
+
+extension HomeCoodinator: HomeTabBarControllerNavigationDelegate {
+    
+    func navigateToCreateListing() {
+        let listingNavigationController = UINavigationController()
+        listingNavigationController.modalPresentationStyle = .fullScreen
+        let listingCoordinator = ListingCoordinator(listingNavigationController)
+        listingCoordinator.navigationDelegate = self
+        listingCoordinator.start()
+        childCoordinators.append(listingCoordinator)
+        navigationController?.present(listingNavigationController, animated: true)
+    }
+    
+}
+
+extension HomeCoodinator: ListingCoordinatorDelegate {
+    
+    func didFinish(from coordinator: ListingCoordinator) {
+        navigationController?.dismiss(animated: true)
+        childCoordinators.removeLast()
     }
     
 }

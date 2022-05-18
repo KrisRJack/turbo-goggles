@@ -73,6 +73,8 @@
 		1895E960280D9C5400FCFE7E /* profile_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95B280D9C5400FCFE7E /* profile_2.jpg */; };
 		1895E961280D9C5400FCFE7E /* profile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95C280D9C5400FCFE7E /* profile.jpg */; };
 		18CC2B6A2833BDCB00E609CD /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B692833BDCB00E609CD /* UINavigationController.swift */; };
+		18CC2B752834151600E609CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B742834151600E609CD /* CameraViewController.swift */; };
+		18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */; };
 		5418D19895A93981BEA7C9DD /* Pods_Exchange_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77157AEA73FF12F10877E701 /* Pods_Exchange_iOS.framework */; };
 		7C59ADBA100A94692566132A /* Pods_Exchange_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4164ABB15C7D7A1762535629 /* Pods_Exchange_iOSTests.framework */; };
 /* End PBXBuildFile section */
@@ -155,6 +157,8 @@
 		1895E95B280D9C5400FCFE7E /* profile_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile_2.jpg; sourceTree = "<group>"; };
 		1895E95C280D9C5400FCFE7E /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
 		18CC2B692833BDCB00E609CD /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		18CC2B742834151600E609CD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCoordinator.swift; sourceTree = "<group>"; };
 		4164ABB15C7D7A1762535629 /* Pods_Exchange_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Exchange_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58582D2DC2F3222414CCFEA5 /* Pods-Exchange-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exchange-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Exchange-iOSTests/Pods-Exchange-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		65898117092B70B19F9359A9 /* Pods-Exchange-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exchange-iOS.release.xcconfig"; path = "Target Support Files/Pods-Exchange-iOS/Pods-Exchange-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				1876AFF22831193A001E89F4 /* AppCoodinator.swift */,
 				185EBA6A280DADDD00DB2017 /* AuthCoodinator.swift */,
 				1876AFF6283129AB001E89F4 /* HomeCoodinator.swift */,
+				18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */,
 			);
 			path = Coodinators;
 			sourceTree = "<group>";
@@ -595,24 +600,41 @@
 		18CC2B6E2833CF5000E609CD /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				18CC2B702834149F00E609CD /* Camera */,
 				1876AFEE283116D7001E89F4 /* Feed */,
 				180072AD2831EF9000731C17 /* ForgotPassword */,
+				18CC2B6F2833CF9600E609CD /* Home */,
 				180072B928325B6700731C17 /* Listing */,
 				185EBA82280DAF9800DB2017 /* Login */,
 				185EBAB1280DB98A00DB2017 /* Onboard */,
 				185EBA4F280DAAB900DB2017 /* Opening */,
 				185EBA9C280DB24600DB2017 /* SignUp */,
-				18CC2B6F2833CF9600E609CD /* TabBar */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		18CC2B6F2833CF9600E609CD /* TabBar */ = {
+		18CC2B6F2833CF9600E609CD /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				1876AFEC2831163F001E89F4 /* HomeTabBarController.swift */,
 			);
-			path = TabBar;
+			path = Home;
+			sourceTree = "<group>";
+		};
+		18CC2B702834149F00E609CD /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				18CC2B71283414AB00E609CD /* ViewControllers */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		18CC2B71283414AB00E609CD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				18CC2B742834151600E609CD /* CameraViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		BF96AD13D59B46B4086445A2 /* Pods */ = {
@@ -926,10 +948,12 @@
 				180072B12831EFBD00731C17 /* ForgotPasswordViewController.swift in Sources */,
 				180072AC2831EDB900731C17 /* UIViewController.swift in Sources */,
 				1876AFF1283116EB001E89F4 /* FeedViewController.swift in Sources */,
+				18CC2B752834151600E609CD /* CameraViewController.swift in Sources */,
 				1868B13C28116FF100ACA238 /* OnboardTableViewCell.swift in Sources */,
 				185EBA7F280DAF3300DB2017 /* UIFont.swift in Sources */,
 				185EBA80280DAF3300DB2017 /* UIView.swift in Sources */,
 				185EBA95280DB14100DB2017 /* AuthBaseController.swift in Sources */,
+				18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */,
 				1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */,
 				1876AFF32831193A001E89F4 /* AppCoodinator.swift in Sources */,
 				185EBA8F280DB0ED00DB2017 /* LoginViewController.swift in Sources */,
@@ -1116,6 +1140,8 @@
 				DEVELOPMENT_TEAM = FW36D52GL8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Exchange-iOS/PropertyLists/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This will give you the ability to take a picture of your items.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This will give you the ability to import pictures from your photo library of your item.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1145,6 +1171,8 @@
 				DEVELOPMENT_TEAM = FW36D52GL8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Exchange-iOS/PropertyLists/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This will give you the ability to take a picture of your items.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This will give you the ability to import pictures from your photo library of your item.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
