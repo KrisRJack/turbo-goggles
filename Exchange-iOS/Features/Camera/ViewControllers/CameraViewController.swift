@@ -48,8 +48,9 @@ final class CameraViewController: UIViewController {
     private lazy var slider: UISlider = .build { slider in
         slider.value = 3
         slider.minimumValue = 1
-        slider.maximumValue = 5
+        slider.maximumValue = 4
         slider.tintColor = .systemYellow
+        slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
     }
     
     private lazy var photoLibButton: BlurButton = {
@@ -81,6 +82,7 @@ final class CameraViewController: UIViewController {
     }()
     
     public var navigationDelegate: CameraNavigationDelegate?
+    private var zoomFactor: CGFloat = 1.0
     private var captureSession: AVCaptureSession = .init()
     
     override func viewDidLoad() {
@@ -145,13 +147,14 @@ final class CameraViewController: UIViewController {
     private func requestCameraPermissions() {
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] permissionGranted in
             guard let self = self else { return }
-            if permissionGranted {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if permissionGranted {
                     self.setUpVideoPreview()
                     self.captureSession.startRunning()
+                } else {
+                    self.navigationDelegate?.showPermissionMessage(from: self)
                 }
-            } else {
-                self.navigationDelegate?.showPermissionMessage(from: self)
+                self.slider.isUserInteractionEnabled = permissionGranted
             }
         }
     }
@@ -184,6 +187,20 @@ final class CameraViewController: UIViewController {
     @objc private func captureButtonTouchRelease() {
         UIView.animate(withDuration: 0.2) {
             self.captureButton.borderColor = .captureButtonColor
+        }
+    }
+    
+    /// Zoom in the camera when user interacts with the slider
+    @objc func sliderValueChanged() {
+        guard let device = AVCaptureDevice.default(for: .video) else { return }
+        do {
+            try device.lockForConfiguration()
+            defer { device.unlockForConfiguration() }
+            let newZoomFactor = CGFloat(slider.value)
+            zoomFactor = newZoomFactor
+            device.videoZoomFactor = newZoomFactor
+        } catch {
+            navigationDelegate?.presentError(from: self, withMessage: error.localizedDescription)
         }
     }
     
