@@ -14,10 +14,10 @@ protocol CameraNavigationDelegate {
 }
 
 final class CameraViewController: UIViewController {
-    
-    let closeButtonSize: CGFloat = 32
-    let photosButtonSize: CGFloat = 50
-    let captureButtonSize: CGFloat = 80
+
+    private let closeButtonSize: CGFloat = 32
+    private let photosButtonSize: CGFloat = 50
+    private let captureButtonSize: CGFloat = 80
     
     private lazy var closeButton: BlurButton = {
         let button = BlurButton(style: .systemUltraThinMaterialLight)
@@ -88,6 +88,7 @@ final class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        addPinchGesture()
         setUpConstraints()
         addPreviewLayerToView()
         requestCameraPermissions()
@@ -137,6 +138,11 @@ final class CameraViewController: UIViewController {
          slider.bottomAnchor.constraint(equalTo: captureButton.topAnchor, constant: -30),
          
         ].activate()
+    }
+            
+    private func addPinchGesture() {
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchToZoom(_:)))
+        view.addGestureRecognizer(pinchGesture)
     }
     
     private func addPreviewLayerToView() {
@@ -202,6 +208,39 @@ final class CameraViewController: UIViewController {
         } catch {
             navigationDelegate?.presentError(from: self, withMessage: error.localizedDescription)
         }
+    }
+    
+    /// Zoom in and out when user pinches screen
+    @objc func pinchToZoom(_ sender: Any) {
+        guard let pinch = sender as? UIPinchGestureRecognizer else { return}
+        guard let device = AVCaptureDevice.default(for: .video) else { return }
+        func minMaxZoom(_ factor: CGFloat) -> CGFloat { min(max(factor, 1), 4) }
+        
+        func update(scale factor: CGFloat) {
+            do {
+                try device.lockForConfiguration()
+                defer { device.unlockForConfiguration() }
+                device.videoZoomFactor = factor
+            } catch {
+                navigationDelegate?.presentError(from: self, withMessage: error.localizedDescription)
+            }
+        }
+        
+        let newScaleFactor = minMaxZoom(pinch.scale * self.zoomFactor)
+        self.slider.value = Float(newScaleFactor)
+
+        switch pinch.state {
+        case .began:
+            fallthrough
+        case .changed:
+            update(scale: newScaleFactor)
+        case .ended:
+            self.zoomFactor = minMaxZoom(newScaleFactor)
+            update(scale: self.zoomFactor)
+        default:
+            break
+        }
+        
     }
     
 }
