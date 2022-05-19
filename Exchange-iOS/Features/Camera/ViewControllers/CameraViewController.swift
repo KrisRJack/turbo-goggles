@@ -114,7 +114,6 @@ final class CameraViewController: UIViewController {
             DispatchQueue.main.async {
                 self.slider.setValue(self.viewModel.minimumZoomFactor.halfOf, animated: true)
                 self.viewModel.configureCameraPreview()
-                self.viewModel.cameraPreview(.startRunning)
             }
         }
         
@@ -164,6 +163,32 @@ final class CameraViewController: UIViewController {
         configureCaptureButtonTapAnimation()
         viewModel.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if window?.safeAreaInsets.bottom ?? 0 > 0 {
+            view.layer.cornerRadius = 30
+            view.layer.masksToBounds = true
+        }
+        viewModel.cameraPreview(.startRunning)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if window?.safeAreaInsets.bottom ?? 0 > 0 {
+            self.view.layer.cornerRadius = 0
+            self.view.layer.masksToBounds = true
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if window?.safeAreaInsets.bottom ?? 0 > 0 {
+            view.layer.cornerRadius = 30
+            view.layer.masksToBounds = true
+        }
+        viewModel.cameraPreview(.stopRunning)
     }
     
     override func viewDidAppear(_ animated: Bool) {
