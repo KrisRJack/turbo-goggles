@@ -121,6 +121,24 @@ final class CameraViewModel {
         session.commitConfiguration()
     }
     
+    public func tapToFocusCamera(focusPoint: CGPoint, viewSize size: CGSize) {
+        guard let device = device else { return }
+        let focusScaledPointX = focusPoint.x / size.width
+        let focusScaledPointY = focusPoint.y / size.height
+        if device.isFocusModeSupported(.autoFocus) && device.isFocusPointOfInterestSupported {
+            do {
+                try device.lockForConfiguration()
+                defer { device.unlockForConfiguration() }
+                device.focusMode = .continuousAutoFocus
+                device.exposureMode = .continuousAutoExposure
+                device.focusPointOfInterest = CGPoint(x: focusScaledPointX, y: focusScaledPointY)
+                device.exposurePointOfInterest = CGPoint(x: focusScaledPointX, y: focusScaledPointY)
+            } catch {
+                self.error?(error.localizedDescription)
+            }
+        }
+    }
+    
     // MARK: - PRIVATE
     
     private func minMaxZoom(_ factor: CGFloat) -> CGFloat {

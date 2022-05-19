@@ -142,7 +142,7 @@ final class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        addPinchGesture()
+        addViewGestures()
         setUpConstraints()
         addPreviewLayerToView()
         configureCaptureButtonTapAnimation()
@@ -194,8 +194,10 @@ final class CameraViewController: UIViewController {
         ].activate()
     }
             
-    private func addPinchGesture() {
+    private func addViewGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToFocusCamera(_:)))
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchToZoom(_:)))
+        view.addGestureRecognizer(tapGesture)
         view.addGestureRecognizer(pinchGesture)
     }
     
@@ -234,6 +236,11 @@ final class CameraViewController: UIViewController {
     
     @objc private func flipCameraPressed() {
         viewModel.flipCamera()
+    }
+    
+    @objc private func tapToFocusCamera(_ sender: Any) {
+        guard let sender = sender as? UITapGestureRecognizer else { return }
+        viewModel.tapToFocusCamera(focusPoint: sender.location(in: view), viewSize: view.frame.size)
     }
     
 }
