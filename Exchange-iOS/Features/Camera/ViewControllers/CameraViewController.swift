@@ -120,7 +120,7 @@ final class CameraViewController: UIViewController {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.slider.isUserInteractionEnabled = false
-                self.slider.setValue(self.viewModel.maximumZoomFactor.halfOf, animated: true)
+                self.slider.setValue((self.viewModel.maximumZoomFactor + 1).halfOf, animated: true)
                 self.navigationDelegate?.showPermissionMessage(from: self)
             }
         }
