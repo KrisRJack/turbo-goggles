@@ -27,6 +27,7 @@ final class CameraViewModel {
     public var cameraNotPermitted: (() -> Void)?
     public var error: ((_ string: String) -> Void)?
     public var updateSlider: ((_ value: Float) -> Void)?
+    public var setFlashMode: ((_ flashMode: AVCaptureDevice.FlashMode) -> Void)?
     public var didRotateCamera: ((_ position: AVCaptureDevice.Position) -> Void)?
     
     private var zoomFactor: CGFloat!
@@ -36,9 +37,18 @@ final class CameraViewModel {
     private var captureSession: AVCaptureSession? { cameraListener.captureSession() }
     private var photoOutput: AVCapturePhotoOutput? { cameraListener.photoOutput() }
     
+    private var flashMode: AVCaptureDevice.FlashMode = .auto {
+        willSet { setFlashMode?(newValue) }
+    }
+    
     init(camera: Camera) {
         cameraListener = camera
         zoomFactor = CGFloat(minimumZoomFactor)
+    }
+    
+    public func viewDidLoad() {
+        flashMode = .auto
+        requestCameraPermissionStatus()
     }
     
     /// Inital set up needed to show preview in the camera view
@@ -94,6 +104,10 @@ final class CameraViewModel {
         default:
             break
         }
+    }
+    
+    public func flashModeTapped() {
+        flashMode = AVCaptureDevice.FlashMode(rawValue: (flashMode.rawValue + 1) % 3) ?? .auto
     }
     
     public func flipCamera() {

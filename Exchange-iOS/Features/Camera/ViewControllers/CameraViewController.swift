@@ -38,11 +38,8 @@ final class CameraViewController: UIViewController {
     
     private lazy var flashButton: BlurButton = {
         let button = BlurButton(style: .systemUltraThinMaterialLight)
-        button.tintColor = .black
-        button.hideBlurView = true
-        button.backgroundColor = .systemYellow
         button.cornerRadius = self.closeButtonSize.halfOf
-        button.setImage(UIImage(systemName: "bolt.badge.a.fill"), for: .normal)
+        button.addTarget(self, action: #selector(flashModePressed), for: .touchUpInside)
         return button
     }()
     
@@ -135,6 +132,21 @@ final class CameraViewController: UIViewController {
             self.viewModel.updateZoomFactorToMatchSliderValue()
         }
         
+        viewModel.setFlashMode = { [weak self] flashMode in
+            guard let self = self else { return }
+            switch flashMode {
+            case .on:
+                self.flashButton.setImage(UIImage(systemName: "bolt.fill"), for: .normal)
+            case .off:
+                self.flashButton.setImage(UIImage(systemName: "bolt.slash.fill"), for: .normal)
+            default:
+                self.flashButton.setImage(UIImage(systemName: "bolt.badge.a.fill"), for: .normal)
+            }
+            self.flashButton.hideBlurView = flashMode == .auto
+            self.flashButton.tintColor = flashMode == .auto ? .black : .white
+            self.flashButton.backgroundColor = flashMode == .auto ? .systemYellow : .clear
+        }
+        
     }
     
     required init?(coder: NSCoder) {
@@ -148,7 +160,7 @@ final class CameraViewController: UIViewController {
         setUpConstraints()
         addPreviewLayerToView()
         configureCaptureButtonTapAnimation()
-        viewModel.requestCameraPermissionStatus()
+        viewModel.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
     }
     
@@ -238,6 +250,10 @@ final class CameraViewController: UIViewController {
     
     @objc private func flipCameraPressed() {
         viewModel.flipCamera()
+    }
+    
+    @objc private func flashModePressed() {
+        viewModel.flashModeTapped()
     }
     
     @objc private func tapToFocusCamera(_ sender: Any) {
