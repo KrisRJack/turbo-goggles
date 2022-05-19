@@ -180,6 +180,7 @@ final class CameraViewController: UIViewController {
             self.view.layer.cornerRadius = 0
             self.view.layer.masksToBounds = true
         }
+        navigationController?.navigationBar.barStyle = .black
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -189,11 +190,6 @@ final class CameraViewController: UIViewController {
             view.layer.masksToBounds = true
         }
         viewModel.cameraPreview(.stopRunning)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.navigationBar.barStyle = .black
     }
     
     override func viewDidDisappear(_ animated: Bool) {
