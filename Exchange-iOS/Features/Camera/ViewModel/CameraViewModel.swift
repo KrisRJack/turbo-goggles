@@ -68,9 +68,15 @@ final class CameraViewModel {
     public func cameraPreview(_ state: PreviewState) {
         switch state {
         case .startRunning:
+            #if !targetEnvironment(simulator)
             captureSession?.startRunning()
+            #endif
+            break
         case .stopRunning:
+            #if !targetEnvironment(simulator)
             captureSession?.stopRunning()
+            #endif
+            break
         }
     }
     
