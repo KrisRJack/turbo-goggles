@@ -27,6 +27,12 @@ final class ListingCoordinator: Coordinator {
         navigationController?.viewControllers = [cameraViewController]
     }
     
+    private func displayError(withMessage message: String) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Done", style: .default))
+        navigationController?.present(alertController, animated: true)
+    }
+    
 }
 
 extension ListingCoordinator: CameraNavigationDelegate {
@@ -57,10 +63,11 @@ extension ListingCoordinator: CameraNavigationDelegate {
     }
     
     func presentError(from viewController: CameraViewController, withMessage message: String) {
-        
+        displayError(withMessage: message)
     }
     
-    
-    
+    func dismiss(from viewController: CameraViewController) {
+        navigationController?.dismiss(animated: true)
+    }
     
 }

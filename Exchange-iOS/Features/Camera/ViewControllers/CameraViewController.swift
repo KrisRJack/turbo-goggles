@@ -9,6 +9,7 @@ import UIKit
 import AVFoundation
 
 protocol CameraNavigationDelegate {
+    func dismiss(from viewController: CameraViewController)
     func showPermissionMessage(from viewController: CameraViewController)
     func presentError(from viewController: CameraViewController, withMessage message: String)
 }
@@ -24,6 +25,7 @@ final class CameraViewController: UIViewController {
         button.tintColor = .captureButtonColor
         button.cornerRadius = self.closeButtonSize.halfOf
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.addTarget(self, action: #selector(closeButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -225,6 +227,10 @@ final class CameraViewController: UIViewController {
         captureButton.addTarget(self, action: #selector(captureButtonTouchDown), for: .touchDragEnter)
         captureButton.addTarget(self, action: #selector(captureButtonTouchRelease), for: .touchUpInside)
         captureButton.addTarget(self, action: #selector(captureButtonTouchRelease), for: .touchDragExit)
+    }
+    
+    @objc private func closeButtonPressed() {
+        navigationDelegate?.dismiss(from: self)
     }
     
     @objc private func captureButtonTouchDown() {
