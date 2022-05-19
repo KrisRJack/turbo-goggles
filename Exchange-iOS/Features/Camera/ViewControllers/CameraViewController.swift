@@ -32,6 +32,7 @@ final class CameraViewController: UIViewController {
         button.tintColor = .captureButtonColor
         button.cornerRadius = self.closeButtonSize.halfOf
         button.setImage(UIImage(systemName: "arrow.triangle.2.circlepath"), for: .normal)
+        button.addTarget(self, action: #selector(flipCameraPressed), for: .touchUpInside)
         return button
     }()
     
@@ -125,6 +126,13 @@ final class CameraViewController: UIViewController {
             }
         }
         
+        viewModel.didRotateCamera = { [weak self] position in
+            guard let self = self else { return }
+            self.slider.isHidden = position == .front
+            self.slider.value = Float(self.viewModel.minimumZoomFactor)
+            self.viewModel.updateZoomFactorToMatchSliderValue()
+        }
+        
     }
     
     required init?(coder: NSCoder) {
@@ -215,13 +223,17 @@ final class CameraViewController: UIViewController {
         }
     }
     
-    @objc func sliderValueChanged() {
+    @objc private func sliderValueChanged() {
         viewModel.updateZoomFactorToMatchSliderValue()
     }
     
-    @objc func pinchToZoom(_ sender: Any) {
+    @objc private func pinchToZoom(_ sender: Any) {
         guard let pinch = sender as? UIPinchGestureRecognizer else { return }
         viewModel.pinchDidUpdate(to: pinch.state, scale: pinch.scale)
+    }
+    
+    @objc private func flipCameraPressed() {
+        viewModel.flipCamera()
     }
     
 }

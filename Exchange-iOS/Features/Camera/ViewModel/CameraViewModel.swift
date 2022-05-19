@@ -27,6 +27,7 @@ final class CameraViewModel {
     public var cameraNotPermitted: (() -> Void)?
     public var error: ((_ string: String) -> Void)?
     public var updateSlider: ((_ value: Float) -> Void)?
+    public var didRotateCamera: ((_ position: AVCaptureDevice.Position) -> Void)?
     
     private let cameraListener: Camera!
     private var zoomFactor: CGFloat = 1.0
@@ -94,7 +95,33 @@ final class CameraViewModel {
         }
     }
     
-    // MARK: PRIVATE
+    public func flipCamera() {
+        guard let session = captureSession else { return }
+        guard let input: AVCaptureDeviceInput = session.inputs.first as? AVCaptureDeviceInput else { return }
+        
+        session.beginConfiguration()
+        session.removeInput(input)
+        
+        var newCamera: AVCaptureDevice!
+        if input.device.position == .back {
+            didRotateCamera?(.front)
+            newCamera = cameraWithPosition(position: .front)
+        } else {
+            didRotateCamera?(.back)
+            newCamera = cameraWithPosition(position: .back)
+        }
+            
+        do {
+            let newVideoInput = try AVCaptureDeviceInput(device: newCamera)
+            session.addInput(newVideoInput)
+        } catch {
+            self.error?(error.localizedDescription)
+        }
+
+        session.commitConfiguration()
+    }
+    
+    // MARK: - PRIVATE
     
     private func minMaxZoom(_ factor: CGFloat) -> CGFloat {
         min(max(factor, minimumZoomFactor), maximumZoomFactor)
@@ -109,6 +136,23 @@ final class CameraViewModel {
         } catch {
             self.error?(error.localizedDescription)
         }
+    }
+    
+    /// Find a camera with the specified AVCaptureDevicePosition, returns `nil` if one is not found
+    private func cameraWithPosition(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+        let discoverySession = AVCaptureDevice.DiscoverySession(
+            deviceTypes: [.builtInWideAngleCamera],
+            mediaType: AVMediaType.video,
+            position: .unspecified
+        )
+        
+        for device in discoverySession.devices {
+            if device.position == position {
+                return device
+            }
+        }
+        
+        return nil
     }
     
 }
