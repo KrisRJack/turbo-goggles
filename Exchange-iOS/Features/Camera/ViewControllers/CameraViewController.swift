@@ -46,10 +46,9 @@ final class CameraViewController: UIViewController {
     }()
     
     private lazy var slider: UISlider = .build { slider in
-        slider.value = 3
-        slider.minimumValue = 1
-        slider.maximumValue = 4
         slider.tintColor = .systemYellow
+        slider.minimumValue = Float(self.viewModel.minimumZoomFactor)
+        slider.maximumValue = Float(self.viewModel.maximumZoomFactor)
         slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
     }
     
@@ -81,9 +80,56 @@ final class CameraViewController: UIViewController {
         return previewLayer
     }()
     
+    public var viewModel: CameraViewModel!
     public var navigationDelegate: CameraNavigationDelegate?
-    private var zoomFactor: CGFloat = 1.0
     private var captureSession: AVCaptureSession = .init()
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        
+        let camera = CameraViewModel.Camera(
+            captureSession: { [weak self] in
+                self?.captureSession
+            }, photoOutput: { [weak self] in
+                self?.capturePhotoOutput
+            }, sliderValue: { [weak self] in
+                self?.slider.value
+            }
+        )
+        
+        viewModel = CameraViewModel(camera: camera)
+        
+        viewModel.error = { [weak self] error in
+            guard let self = self else { return }
+            self.navigationDelegate?.presentError(from: self, withMessage: error)
+        }
+        
+        viewModel.updateSlider = { [weak self] newValue in
+            guard let self = self else { return }
+            self.slider.value = newValue
+        }
+        
+        viewModel.cameraPermitted = { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.viewModel.configureCameraPreview()
+                self.viewModel.cameraPreview(.startRunning)
+            }
+        }
+        
+        viewModel.cameraNotPermitted = { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.slider.isUserInteractionEnabled = false
+                self.navigationDelegate?.showPermissionMessage(from: self)
+            }
+        }
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,8 +137,8 @@ final class CameraViewController: UIViewController {
         addPinchGesture()
         setUpConstraints()
         addPreviewLayerToView()
-        requestCameraPermissions()
         configureCaptureButtonTapAnimation()
+        viewModel.requestCameraPermissionStatus()
         navigationController?.navigationBar.isHidden = true
     }
     
@@ -150,33 +196,6 @@ final class CameraViewController: UIViewController {
         view.layer.insertSublayer(videoPreviewLayer, at: 0)
     }
     
-    private func requestCameraPermissions() {
-        AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] permissionGranted in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                if permissionGranted {
-                    self.setUpVideoPreview()
-                    self.captureSession.startRunning()
-                } else {
-                    self.navigationDelegate?.showPermissionMessage(from: self)
-                }
-                self.slider.isUserInteractionEnabled = permissionGranted
-            }
-        }
-    }
-    
-    private func setUpVideoPreview() {
-        captureSession.beginConfiguration()
-        guard let captureDevice: AVCaptureDevice = .default(for: .video) else { return }
-        do {
-            captureSession.addInput(try AVCaptureDeviceInput(device: captureDevice))
-            captureSession.addOutput(capturePhotoOutput)
-        } catch {
-            navigationDelegate?.presentError(from: self, withMessage: error.localizedDescription)
-        }
-        captureSession.commitConfiguration()
-    }
-    
     private func configureCaptureButtonTapAnimation() {
         captureButton.addTarget(self, action: #selector(captureButtonTouchDown), for: .touchDown)
         captureButton.addTarget(self, action: #selector(captureButtonTouchDown), for: .touchDragEnter)
@@ -196,51 +215,13 @@ final class CameraViewController: UIViewController {
         }
     }
     
-    /// Zoom in the camera when user interacts with the slider
     @objc func sliderValueChanged() {
-        guard let device = AVCaptureDevice.default(for: .video) else { return }
-        do {
-            try device.lockForConfiguration()
-            defer { device.unlockForConfiguration() }
-            let newZoomFactor = CGFloat(slider.value)
-            zoomFactor = newZoomFactor
-            device.videoZoomFactor = newZoomFactor
-        } catch {
-            navigationDelegate?.presentError(from: self, withMessage: error.localizedDescription)
-        }
+        viewModel.updateZoomFactorToMatchSliderValue()
     }
     
-    /// Zoom in and out when user pinches screen
     @objc func pinchToZoom(_ sender: Any) {
-        guard let pinch = sender as? UIPinchGestureRecognizer else { return}
-        guard let device = AVCaptureDevice.default(for: .video) else { return }
-        func minMaxZoom(_ factor: CGFloat) -> CGFloat { min(max(factor, 1), 4) }
-        
-        func update(scale factor: CGFloat) {
-            do {
-                try device.lockForConfiguration()
-                defer { device.unlockForConfiguration() }
-                device.videoZoomFactor = factor
-            } catch {
-                navigationDelegate?.presentError(from: self, withMessage: error.localizedDescription)
-            }
-        }
-        
-        let newScaleFactor = minMaxZoom(pinch.scale * self.zoomFactor)
-        self.slider.value = Float(newScaleFactor)
-
-        switch pinch.state {
-        case .began:
-            fallthrough
-        case .changed:
-            update(scale: newScaleFactor)
-        case .ended:
-            self.zoomFactor = minMaxZoom(newScaleFactor)
-            update(scale: self.zoomFactor)
-        default:
-            break
-        }
-        
+        guard let pinch = sender as? UIPinchGestureRecognizer else { return }
+        viewModel.pinchDidUpdate(to: pinch.state, scale: pinch.scale)
     }
     
 }

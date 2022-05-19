@@ -77,6 +77,7 @@
 		18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */; };
 		18FF94072834F37C0003907B /* BlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF94062834F37C0003907B /* BlurButton.swift */; };
 		18FF940A2834F4070003907B /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF94092834F4070003907B /* BlurView.swift */; };
+		18FF940F2835DDEA0003907B /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF940E2835DDEA0003907B /* CameraViewModel.swift */; };
 		5418D19895A93981BEA7C9DD /* Pods_Exchange_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77157AEA73FF12F10877E701 /* Pods_Exchange_iOS.framework */; };
 		7C59ADBA100A94692566132A /* Pods_Exchange_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4164ABB15C7D7A1762535629 /* Pods_Exchange_iOSTests.framework */; };
 /* End PBXBuildFile section */
@@ -163,6 +164,7 @@
 		18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCoordinator.swift; sourceTree = "<group>"; };
 		18FF94062834F37C0003907B /* BlurButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurButton.swift; sourceTree = "<group>"; };
 		18FF94092834F4070003907B /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		18FF940E2835DDEA0003907B /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		4164ABB15C7D7A1762535629 /* Pods_Exchange_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Exchange_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58582D2DC2F3222414CCFEA5 /* Pods-Exchange-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exchange-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Exchange-iOSTests/Pods-Exchange-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		65898117092B70B19F9359A9 /* Pods-Exchange-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exchange-iOS.release.xcconfig"; path = "Target Support Files/Pods-Exchange-iOS/Pods-Exchange-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -629,6 +631,7 @@
 		18CC2B702834149F00E609CD /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				18FF940D2835DDDD0003907B /* ViewModel */,
 				18CC2B71283414AB00E609CD /* ViewControllers */,
 			);
 			path = Camera;
@@ -649,6 +652,14 @@
 				18FF94092834F4070003907B /* BlurView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		18FF940D2835DDDD0003907B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18FF940E2835DDEA0003907B /* CameraViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BF96AD13D59B46B4086445A2 /* Pods */ = {
@@ -966,6 +977,7 @@
 				18CC2B752834151600E609CD /* CameraViewController.swift in Sources */,
 				1868B13C28116FF100ACA238 /* OnboardTableViewCell.swift in Sources */,
 				185EBA7F280DAF3300DB2017 /* UIFont.swift in Sources */,
+				18FF940F2835DDEA0003907B /* CameraViewModel.swift in Sources */,
 				185EBA80280DAF3300DB2017 /* UIView.swift in Sources */,
 				185EBA95280DB14100DB2017 /* AuthBaseController.swift in Sources */,
 				18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */,
