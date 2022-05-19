@@ -21,16 +21,16 @@ final class CameraViewModel {
         let sliderValue: () -> Float?
     }
 
-    public var minimumZoomFactor: CGFloat = 1
-    public var maximumZoomFactor: CGFloat = 4
+    public var minimumZoomFactor: Float = 1
+    public var maximumZoomFactor: Float = 4
     public var cameraPermitted: (() -> Void)?
     public var cameraNotPermitted: (() -> Void)?
     public var error: ((_ string: String) -> Void)?
     public var updateSlider: ((_ value: Float) -> Void)?
     public var didRotateCamera: ((_ position: AVCaptureDevice.Position) -> Void)?
     
+    private var zoomFactor: CGFloat!
     private let cameraListener: Camera!
-    private var zoomFactor: CGFloat = 1.0
     private var sliderValue: Float? { cameraListener.sliderValue() }
     private var device: AVCaptureDevice? { AVCaptureDevice.default(for: .video) }
     private var captureSession: AVCaptureSession? { cameraListener.captureSession() }
@@ -38,6 +38,7 @@ final class CameraViewModel {
     
     init(camera: Camera) {
         cameraListener = camera
+        zoomFactor = CGFloat(minimumZoomFactor)
     }
     
     /// Inital set up needed to show preview in the camera view
@@ -142,7 +143,9 @@ final class CameraViewModel {
     // MARK: - PRIVATE
     
     private func minMaxZoom(_ factor: CGFloat) -> CGFloat {
-        min(max(factor, minimumZoomFactor), maximumZoomFactor)
+        let minimum = CGFloat(minimumZoomFactor)
+        let maximum = CGFloat(maximumZoomFactor)
+        return min(max(factor, minimum), maximum)
     }
     
     private func updateZoomFactor(to newZoomFactor: Float) {

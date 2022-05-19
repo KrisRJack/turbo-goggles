@@ -48,8 +48,8 @@ final class CameraViewController: UIViewController {
     
     private lazy var slider: UISlider = .build { slider in
         slider.tintColor = .systemYellow
-        slider.minimumValue = Float(self.viewModel.minimumZoomFactor)
-        slider.maximumValue = Float(self.viewModel.maximumZoomFactor)
+        slider.minimumValue = self.viewModel.minimumZoomFactor
+        slider.maximumValue = self.viewModel.maximumZoomFactor
         slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
     }
     
@@ -113,6 +113,7 @@ final class CameraViewController: UIViewController {
         viewModel.cameraPermitted = { [weak self] in
             guard let self = self else { return }
             DispatchQueue.main.async {
+                self.slider.setValue(self.viewModel.minimumZoomFactor.halfOf, animated: true)
                 self.viewModel.configureCameraPreview()
                 self.viewModel.cameraPreview(.startRunning)
             }
@@ -122,6 +123,7 @@ final class CameraViewController: UIViewController {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.slider.isUserInteractionEnabled = false
+                self.slider.setValue(self.viewModel.maximumZoomFactor.halfOf + 1, animated: true)
                 self.navigationDelegate?.showPermissionMessage(from: self)
             }
         }

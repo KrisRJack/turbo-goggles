@@ -37,7 +37,7 @@ extension ListingCoordinator: CameraNavigationDelegate {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let dismissActionTitle = NSLocalizedString("DISMISS_BUTTON", comment: "Button")
-        let dismissAction = UIAlertAction(title: dismissActionTitle, style: .default, handler: { [weak self] action in
+        let dismissAction = UIAlertAction(title: dismissActionTitle, style: .cancel, handler: { [weak self] action in
             guard let self = self else { return }
             self.navigationDelegate?.didFinish(from: self)
         })
@@ -50,8 +50,8 @@ extension ListingCoordinator: CameraNavigationDelegate {
             }
          })
             
-        alertController.addAction(dismissAction)
         alertController.addAction(settingsAction)
+        alertController.addAction(dismissAction)
                                            
         navigationController?.present(alertController, animated: true)
     }
