@@ -15,7 +15,50 @@ protocol CameraNavigationDelegate {
 
 final class CameraViewController: UIViewController {
     
+    let closeButtonSize: CGFloat = 32
+    let photosButtonSize: CGFloat = 50
     let captureButtonSize: CGFloat = 80
+    
+    private lazy var closeButton: BlurButton = {
+        let button = BlurButton(style: .systemUltraThinMaterialLight)
+        button.tintColor = .captureButtonColor
+        button.cornerRadius = self.closeButtonSize.halfOf
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        return button
+    }()
+    
+    private lazy var flipButton: BlurButton = {
+        let button = BlurButton(style: .systemUltraThinMaterialLight)
+        button.tintColor = .captureButtonColor
+        button.cornerRadius = self.closeButtonSize.halfOf
+        button.setImage(UIImage(systemName: "arrow.triangle.2.circlepath"), for: .normal)
+        return button
+    }()
+    
+    private lazy var flashButton: BlurButton = {
+        let button = BlurButton(style: .systemUltraThinMaterialLight)
+        button.tintColor = .black
+        button.hideBlurView = true
+        button.backgroundColor = .systemYellow
+        button.cornerRadius = self.closeButtonSize.halfOf
+        button.setImage(UIImage(systemName: "bolt.badge.a.fill"), for: .normal)
+        return button
+    }()
+    
+    private lazy var slider: UISlider = .build { slider in
+        slider.value = 3
+        slider.minimumValue = 1
+        slider.maximumValue = 5
+        slider.tintColor = .systemYellow
+    }
+    
+    private lazy var photoLibButton: BlurButton = {
+        let button = BlurButton(style: .systemUltraThinMaterialLight)
+        button.tintColor = .captureButtonColor
+        button.cornerRadius = self.photosButtonSize.halfOf
+        button.setImage(UIImage(systemName: "photo.on.rectangle.angled"), for: .normal)
+        return button
+    }()
     
     private lazy var captureButton: BlurButton = {
         let button = BlurButton(style: .systemUltraThinMaterialLight)
@@ -47,16 +90,50 @@ final class CameraViewController: UIViewController {
         addPreviewLayerToView()
         requestCameraPermissions()
         configureCaptureButtonTapAnimation()
-        navigationController?.delegate = self
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         navigationController?.navigationBar.barStyle = .black
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.navigationBar.barStyle = .default
+    }
+    
     private func setUpConstraints() {
-        view.addSubviews(captureButton)
-        [captureButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        view.addSubviews(captureButton, photoLibButton, slider, closeButton, flipButton, flashButton)
+        [closeButton.widthAnchor.constraint(equalToConstant: closeButtonSize),
+         closeButton.heightAnchor.constraint(equalToConstant: closeButtonSize),
+         closeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+         closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+         
+         flipButton.widthAnchor.constraint(equalToConstant: closeButtonSize),
+         flipButton.heightAnchor.constraint(equalToConstant: closeButtonSize),
+         flipButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+         flipButton.centerYAnchor.constraint(equalTo: closeButton.centerYAnchor),
+         
+         flashButton.widthAnchor.constraint(equalToConstant: closeButtonSize),
+         flashButton.heightAnchor.constraint(equalToConstant: closeButtonSize),
+         flashButton.centerYAnchor.constraint(equalTo: closeButton.centerYAnchor),
+         flashButton.rightAnchor.constraint(equalTo: flipButton.leftAnchor, constant: -12),
+         
+         captureButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
          captureButton.widthAnchor.constraint(equalToConstant: captureButtonSize),
          captureButton.heightAnchor.constraint(equalToConstant: captureButtonSize),
          captureButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+         
+         photoLibButton.widthAnchor.constraint(equalToConstant: photosButtonSize),
+         photoLibButton.heightAnchor.constraint(equalToConstant: photosButtonSize),
+         photoLibButton.centerYAnchor.constraint(equalTo: captureButton.centerYAnchor),
+         photoLibButton.trailingAnchor.constraint(equalTo: captureButton.leadingAnchor, constant: -20),
+         
+         slider.widthAnchor.constraint(equalToConstant: 280),
+         slider.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+         slider.bottomAnchor.constraint(equalTo: captureButton.topAnchor, constant: -30),
+         
         ].activate()
     }
     
@@ -108,16 +185,6 @@ final class CameraViewController: UIViewController {
         UIView.animate(withDuration: 0.2) {
             self.captureButton.borderColor = .captureButtonColor
         }
-    }
-    
-}
-
-// MARK: - UINavigationControllerDelegate
-
-extension CameraViewController: UINavigationControllerDelegate {
-    
-    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
-        return .portrait
     }
     
 }

@@ -55,4 +55,11 @@ open class BlurButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    open override func setImage(_ image: UIImage?, for state: UIControl.State) {
+        super.setImage(image, for: state)
+        if let imageView = imageView {
+            bringSubviewToFront(imageView)
+        }
+    }
+    
 }
