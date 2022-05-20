@@ -70,4 +70,21 @@ extension ListingCoordinator: CameraNavigationDelegate {
         navigationController?.dismiss(animated: true)
     }
     
+    func showImagePreview(from viewController: CameraViewController, imageData: Data) {
+        let imagePreviewController = ImagePreviewViewController(imageData: imageData)
+        imagePreviewController.modalTransitionStyle = .crossDissolve
+        imagePreviewController.modalPresentationStyle = .fullScreen
+        imagePreviewController.delegate = viewController
+        imagePreviewController.navigationDelegate = self
+        navigationController?.present(imagePreviewController, animated: true)
+    }
+    
+}
+
+extension ListingCoordinator: ImagePreviewNavigationDelegate {
+    
+    func dismiss(from viewController: ImagePreviewViewController) {
+        navigationController?.dismiss(animated: true)
+    }
+    
 }

@@ -11,6 +11,7 @@ import AVFoundation
 protocol CameraNavigationDelegate {
     func dismiss(from viewController: CameraViewController)
     func showPermissionMessage(from viewController: CameraViewController)
+    func showImagePreview(from viewController: CameraViewController, imageData: Data)
     func presentError(from viewController: CameraViewController, withMessage message: String)
 }
 
@@ -65,6 +66,7 @@ final class CameraViewController: UIViewController {
         button.layer.borderWidth = 5
         button.cornerRadius = self.captureButtonSize.halfOf
         button.layer.borderColor = UIColor.captureButtonColor.cgColor
+        button.addTarget(self, action: #selector(didTapCaptureButton), for: .touchUpInside)
         return button
     }()
     
@@ -102,6 +104,11 @@ final class CameraViewController: UIViewController {
         viewModel.error = { [weak self] error in
             guard let self = self else { return }
             self.navigationDelegate?.presentError(from: self, withMessage: error)
+        }
+        
+        viewModel.didCaptureImage = { [weak self] imageData in
+            guard let self = self else { return }
+            self.navigationDelegate?.showImagePreview(from: self, imageData: imageData)
         }
         
         viewModel.updateSlider = { [weak self] newValue in
@@ -286,6 +293,18 @@ final class CameraViewController: UIViewController {
     @objc private func tapToFocusCamera(_ sender: Any) {
         guard let sender = sender as? UITapGestureRecognizer else { return }
         viewModel.tapToFocusCamera(focusPoint: sender.location(in: view), viewSize: view.frame.size)
+    }
+    
+    @objc private func didTapCaptureButton() {
+        viewModel.didTapCaptureButton()
+    }
+    
+}
+
+extension CameraViewController: ImagePreviewDelegate {
+    
+    func didUsePhoto(imageData: Data) {
+        print("Save photo")
     }
     
 }

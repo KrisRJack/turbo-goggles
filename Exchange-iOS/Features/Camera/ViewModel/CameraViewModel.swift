@@ -8,7 +8,7 @@
 import AVFoundation
 import UIKit
 
-final class CameraViewModel {
+final class CameraViewModel: NSObject {
     
     public enum PreviewState {
         case startRunning
@@ -27,9 +27,11 @@ final class CameraViewModel {
     public var cameraNotPermitted: (() -> Void)?
     public var error: ((_ string: String) -> Void)?
     public var updateSlider: ((_ value: Float) -> Void)?
+    public var didCaptureImage: ((_ imageData: Data) -> Void)?
     public var setFlashMode: ((_ flashMode: AVCaptureDevice.FlashMode) -> Void)?
     public var didRotateCamera: ((_ position: AVCaptureDevice.Position) -> Void)?
     
+    private var photos: [Data] = []
     private var zoomFactor: CGFloat!
     private let cameraListener: Camera!
     private var sliderValue: Float? { cameraListener.sliderValue() }
@@ -160,6 +162,16 @@ final class CameraViewModel {
         }
     }
     
+    public func didTapCaptureButton() {
+        guard let photoOutput = photoOutput else { return }
+        let photoSettings = AVCapturePhotoSettings()
+        photoSettings.flashMode = flashMode
+        photoSettings.isHighResolutionPhotoEnabled = false
+        #if !targetEnvironment(simulator)
+        photoOutput.capturePhoto(with: photoSettings, delegate: self)
+        #endif
+    }
+    
     // MARK: - PRIVATE
     
     private func minMaxZoom(_ factor: CGFloat) -> CGFloat {
@@ -194,6 +206,21 @@ final class CameraViewModel {
         }
         
         return nil
+    }
+    
+}
+
+// MARK: - AVCapturePhotoCaptureDelegate
+
+extension CameraViewModel: AVCapturePhotoCaptureDelegate {
+    
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if let error = error {
+            self.error?(error.localizedDescription)
+            return
+        }
+        guard let data = photo.fileDataRepresentation() else { return }
+        didCaptureImage?(data)
     }
     
 }
