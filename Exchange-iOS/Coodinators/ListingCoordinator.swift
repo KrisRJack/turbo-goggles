@@ -68,7 +68,7 @@ extension ListingCoordinator: CameraNavigationDelegate {
     }
     
     func dismiss(from viewController: CameraViewController) {
-        navigationController?.dismiss(animated: true)
+        navigationDelegate?.didFinish(from: self)
     }
     
     func showImagePreview(from viewController: CameraViewController, imageData: Data) {
