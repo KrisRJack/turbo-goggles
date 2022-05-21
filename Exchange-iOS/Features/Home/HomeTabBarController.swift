@@ -49,7 +49,7 @@ extension HomeTabBarController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         
-        if viewController is ListingBaseViewController {
+        if viewController is ListingTabBarViewController {
             navigationDelegate?.navigateToCreateListing()
             return false
         }
