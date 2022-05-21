@@ -12,6 +12,7 @@ import PhotosUI
 protocol CameraNavigationDelegate {
     func dismiss(from viewController: CameraViewController)
     func showPermissionMessage(from viewController: CameraViewController)
+    func goToListing(from viewController: CameraViewController, with photos: [Data])
     func showImagePreview(from viewController: CameraViewController, imageData: Data)
     func presentError(from viewController: CameraViewController, withMessage message: String)
     func goToPhotoLibrary(from viewController: CameraViewController, with configuration: PHPickerConfiguration)
@@ -46,6 +47,20 @@ final class CameraViewController: UIViewController {
         button.cornerRadius = self.closeButtonSize.halfOf
         button.addTarget(self, action: #selector(flashModePressed), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var continueButton: LabelIconBlurButton = {
+        let view = LabelIconBlurButton(style: .systemUltraThinMaterialLight)
+        view.cornerRadius(12)
+        view.tintColor = .white
+        view.clipsToBounds = true
+        view.titleLabel.textAlignment = .center
+        view.imageView.image = UIImage(systemName: "chevron.right")
+        view.titleLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        view.titleLabel.text = NSLocalizedString("CONTINUE_BUTTON", comment: "Button")
+        view.imageView.preferredSymbolConfiguration = .init(font: .systemFont(ofSize: 16, weight: .bold))
+        view.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
+        return view
     }()
     
     private lazy var slider: UISlider = .build { slider in
@@ -120,6 +135,11 @@ final class CameraViewController: UIViewController {
         viewModel.didCaptureImage = { [weak self] imageData in
             guard let self = self else { return }
             self.navigationDelegate?.showImagePreview(from: self, imageData: imageData)
+        }
+        
+        viewModel.continueButtonIsHidden = { [weak self] isHidden in
+            guard let self = self else { return }
+            self.continueButton.isHidden = isHidden
         }
         
         viewModel.updateSlider = { [weak self] newValue in
@@ -212,7 +232,7 @@ final class CameraViewController: UIViewController {
     }
     
     private func setUpConstraints() {
-        view.addSubviews(captureButton, photoLibButton, slider, closeButton, flipButton, flashButton)
+        view.addSubviews(captureButton, photoLibButton, slider, closeButton, flipButton, flashButton, continueButton)
         [closeButton.widthAnchor.constraint(equalToConstant: closeButtonSize),
          closeButton.heightAnchor.constraint(equalToConstant: closeButtonSize),
          closeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
@@ -242,6 +262,8 @@ final class CameraViewController: UIViewController {
          slider.centerXAnchor.constraint(equalTo: view.centerXAnchor),
          slider.bottomAnchor.constraint(equalTo: captureButton.topAnchor, constant: -30),
          
+         continueButton.trailingAnchor.constraint(equalTo: flipButton.trailingAnchor),
+         continueButton.topAnchor.constraint(equalTo: flipButton.bottomAnchor, constant: 20),
         ].activate()
     }
             
@@ -308,6 +330,10 @@ final class CameraViewController: UIViewController {
     
     @objc private func didTapPhotoLibraryButton() {
         viewModel.didTapPhotoLibraryButton()
+    }
+    
+    @objc private func continueButtonPressed() {
+        navigationDelegate?.goToListing(from: self, with: viewModel.savedPhotos())
     }
     
 }

@@ -31,11 +31,17 @@ final class CameraViewModel: NSObject {
     public var error: ((_ string: String) -> Void)?
     public var updateSlider: ((_ value: Float) -> Void)?
     public var didCaptureImage: ((_ imageData: Data) -> Void)?
+    public var continueButtonIsHidden: ((_ hide: Bool) -> Void)?
     public var setFlashMode: ((_ flashMode: AVCaptureDevice.FlashMode) -> Void)?
     public var didRotateCamera: ((_ position: AVCaptureDevice.Position) -> Void)?
     public var imageSelectionLimit: Int { max(0, maxNumberOfImages - photos.count) }
     
-    private var photos: [Data] = []
+    private var photos: [Data] = [] {
+        willSet {
+            continueButtonIsHidden?(newValue.count == .zero)
+        }
+    }
+    
     private var zoomFactor: CGFloat!
     private let cameraListener: Camera!
     private var sliderValue: Float? { cameraListener.sliderValue() }
@@ -53,8 +59,13 @@ final class CameraViewModel: NSObject {
     }
     
     public func viewDidLoad() {
+        photos = []
         flashMode = .auto
         requestCameraPermissionStatus()
+    }
+    
+    public func savedPhotos() -> [Data] {
+        return photos
     }
     
     /// Inital set up needed to show preview in the camera view

@@ -87,6 +87,10 @@ extension ListingCoordinator: CameraNavigationDelegate {
         navigationController?.present(pickerViewController, animated: true, completion: nil)
     }
     
+    func goToListing(from viewController: CameraViewController, with photos: [Data]) {
+        
+    }
+    
 }
 
 extension ListingCoordinator: ImagePreviewNavigationDelegate {
