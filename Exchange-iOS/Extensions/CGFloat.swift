@@ -10,6 +10,8 @@ import UIKit
 extension CGFloat {
     
     var halfOf: CGFloat { self / 2 }
+    static var jpegDataCompressionQuality: CGFloat = 1.0
+    
     
 }
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 protocol ListingCoordinatorDelegate {
     func didFinish(from coordinator: ListingCoordinator)
@@ -77,6 +78,13 @@ extension ListingCoordinator: CameraNavigationDelegate {
         imagePreviewController.delegate = viewController
         imagePreviewController.navigationDelegate = self
         navigationController?.present(imagePreviewController, animated: true)
+    }
+    
+    func goToPhotoLibrary(from viewController: CameraViewController, with configuration: PHPickerConfiguration) {
+        let pickerViewController = PHPickerViewController(configuration: configuration)
+        pickerViewController.delegate = viewController
+        pickerViewController.modalPresentationStyle = .fullScreen
+        navigationController?.present(pickerViewController, animated: true, completion: nil)
     }
     
 }

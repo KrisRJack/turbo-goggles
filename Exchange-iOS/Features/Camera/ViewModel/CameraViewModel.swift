@@ -6,6 +6,7 @@
 //
 
 import AVFoundation
+import PhotosUI
 import UIKit
 
 final class CameraViewModel: NSObject {
@@ -21,15 +22,18 @@ final class CameraViewModel: NSObject {
         let sliderValue: () -> Float?
     }
 
+    public var maxNumberOfImages: Int = 10
     public var minimumZoomFactor: Float = 1
     public var maximumZoomFactor: Float = 4
     public var cameraPermitted: (() -> Void)?
+    public var goToPhotoLibrary: (() -> Void)?
     public var cameraNotPermitted: (() -> Void)?
     public var error: ((_ string: String) -> Void)?
     public var updateSlider: ((_ value: Float) -> Void)?
     public var didCaptureImage: ((_ imageData: Data) -> Void)?
     public var setFlashMode: ((_ flashMode: AVCaptureDevice.FlashMode) -> Void)?
     public var didRotateCamera: ((_ position: AVCaptureDevice.Position) -> Void)?
+    public var imageSelectionLimit: Int { max(0, maxNumberOfImages - photos.count) }
     
     private var photos: [Data] = []
     private var zoomFactor: CGFloat!
@@ -86,11 +90,13 @@ final class CameraViewModel: NSObject {
     public func requestCameraPermissionStatus() {
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] permissionGranted in
             guard let self = self else { return }
-            permissionGranted ? self.cameraPermitted?() : self.cameraNotPermitted?()
+            DispatchQueue.main.async {
+                permissionGranted ? self.cameraPermitted?() : self.cameraNotPermitted?()
+            }
         }
     }
     
-    /// Update the camera zoom factor to the value of the slider 
+    /// Update the camera zoom factor to the value of the slider
     public func updateZoomFactorToMatchSliderValue() {
         guard let sliderValue = sliderValue else { return }
         zoomFactor = CGFloat(sliderValue)
@@ -163,13 +169,43 @@ final class CameraViewModel: NSObject {
     }
     
     public func didTapCaptureButton() {
-        guard let photoOutput = photoOutput else { return }
-        let photoSettings = AVCapturePhotoSettings()
-        photoSettings.flashMode = flashMode
-        photoSettings.isHighResolutionPhotoEnabled = false
-        #if !targetEnvironment(simulator)
-        photoOutput.capturePhoto(with: photoSettings, delegate: self)
-        #endif
+        if imageSelectionLimit > .zero {
+            guard let photoOutput = photoOutput else { return }
+            let photoSettings = AVCapturePhotoSettings()
+            photoSettings.flashMode = flashMode
+            photoSettings.isHighResolutionPhotoEnabled = false
+            #if !targetEnvironment(simulator)
+            photoOutput.capturePhoto(with: photoSettings, delegate: self)
+            #endif
+        } else {
+            error?(NSLocalizedString("MAX_IMAGE_ALERT_MESSAGE", comment: "Alert Message"))
+        }
+    }
+    
+    public func didTapPhotoLibraryButton() {
+        imageSelectionLimit > .zero
+        ? goToPhotoLibrary?()
+        : error?(NSLocalizedString("MAX_IMAGE_ALERT_MESSAGE", comment: "Alert Message"))
+    }
+    
+    public func saveImage(data: Data) {
+        photos.append(data)
+    }
+    
+    public func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        _ = results.map({
+            $0.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                guard let self = self else { return }
+                DispatchQueue.main.async {
+                    if let error = error {
+                        self.error?(error.localizedDescription)
+                        return
+                    }
+                    guard let image = image as? UIImage, let data = image.jpegData(compressionQuality: .jpegDataCompressionQuality) else { return }
+                    self.saveImage(data: data)
+                }
+            }
+        })
     }
     
     // MARK: - PRIVATE

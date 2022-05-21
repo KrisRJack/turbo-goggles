@@ -28,7 +28,7 @@ final class ImagePreviewViewController: UIViewController {
         imageView.cornerRadius(15)
         imageView.image = self.image
         imageView.clipsToBounds = true
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
     }
     
     lazy var dismissButton: UIButton = .build { button in
@@ -90,7 +90,7 @@ final class ImagePreviewViewController: UIViewController {
     }
     
     @objc private func usePhotoPressed() {
-        guard let data = image.jpegData(compressionQuality: 1.0) else { return }
+        guard let data = image.jpegData(compressionQuality: .jpegDataCompressionQuality) else { return }
         delegate?.didUsePhoto(imageData: data)
         navigationDelegate?.dismiss(from: self)
     }

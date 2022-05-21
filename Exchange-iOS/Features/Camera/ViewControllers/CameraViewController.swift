@@ -7,12 +7,14 @@
 
 import UIKit
 import AVFoundation
+import PhotosUI
 
 protocol CameraNavigationDelegate {
     func dismiss(from viewController: CameraViewController)
     func showPermissionMessage(from viewController: CameraViewController)
     func showImagePreview(from viewController: CameraViewController, imageData: Data)
     func presentError(from viewController: CameraViewController, withMessage message: String)
+    func goToPhotoLibrary(from viewController: CameraViewController, with configuration: PHPickerConfiguration)
 }
 
 final class CameraViewController: UIViewController {
@@ -58,6 +60,7 @@ final class CameraViewController: UIViewController {
         button.tintColor = .captureButtonColor
         button.cornerRadius = self.photosButtonSize.halfOf
         button.setImage(UIImage(systemName: "photo.on.rectangle.angled"), for: .normal)
+        button.addTarget(self, action: #selector(didTapPhotoLibraryButton), for: .touchUpInside)
         return button
     }()
     
@@ -106,6 +109,14 @@ final class CameraViewController: UIViewController {
             self.navigationDelegate?.presentError(from: self, withMessage: error)
         }
         
+        viewModel.goToPhotoLibrary = { [weak self] in
+            guard let self = self else { return }
+            var configuration = PHPickerConfiguration()
+            configuration.filter = .images
+            configuration.selectionLimit = self.viewModel.imageSelectionLimit
+            self.navigationDelegate?.goToPhotoLibrary(from: self, with: configuration)
+        }
+        
         viewModel.didCaptureImage = { [weak self] imageData in
             guard let self = self else { return }
             self.navigationDelegate?.showImagePreview(from: self, imageData: imageData)
@@ -118,19 +129,15 @@ final class CameraViewController: UIViewController {
         
         viewModel.cameraPermitted = { [weak self] in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.slider.setValue(self.viewModel.minimumZoomFactor.halfOf, animated: true)
-                self.viewModel.configureCameraPreview()
-            }
+            self.slider.setValue(self.viewModel.minimumZoomFactor.halfOf, animated: true)
+            self.viewModel.configureCameraPreview()
         }
         
         viewModel.cameraNotPermitted = { [weak self] in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.slider.isUserInteractionEnabled = false
-                self.slider.setValue((self.viewModel.maximumZoomFactor + 1).halfOf, animated: true)
-                self.navigationDelegate?.showPermissionMessage(from: self)
-            }
+            self.slider.isUserInteractionEnabled = false
+            self.slider.setValue((self.viewModel.maximumZoomFactor + 1).halfOf, animated: true)
+            self.navigationDelegate?.showPermissionMessage(from: self)
         }
         
         viewModel.didRotateCamera = { [weak self] position in
@@ -299,12 +306,29 @@ final class CameraViewController: UIViewController {
         viewModel.didTapCaptureButton()
     }
     
+    @objc private func didTapPhotoLibraryButton() {
+        viewModel.didTapPhotoLibraryButton()
+    }
+    
 }
+
+// MARK: - ImagePreviewDelegate
 
 extension CameraViewController: ImagePreviewDelegate {
     
     func didUsePhoto(imageData: Data) {
-        print("Save photo")
+        viewModel.saveImage(data: imageData)
+    }
+    
+}
+
+// MARK: - PHPickerViewControllerDelegate
+
+extension CameraViewController: PHPickerViewControllerDelegate {
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        self.navigationDelegate?.dismiss(from: self)
+        self.viewModel.picker(picker, didFinishPicking: results)
     }
     
 }
