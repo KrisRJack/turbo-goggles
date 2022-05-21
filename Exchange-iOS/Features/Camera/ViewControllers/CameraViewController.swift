@@ -149,8 +149,7 @@ final class CameraViewController: UIViewController {
         
         viewModel.cameraPermitted = { [weak self] in
             guard let self = self else { return }
-            self.slider.setValue(self.viewModel.minimumZoomFactor.halfOf, animated: true)
-            self.viewModel.configureCameraPreview()
+            self.slider.setValue(self.viewModel.minimumZoomFactor, animated: true)
         }
         
         viewModel.cameraNotPermitted = { [weak self] in
@@ -164,7 +163,6 @@ final class CameraViewController: UIViewController {
             guard let self = self else { return }
             self.slider.isHidden = position == .front
             self.slider.value = Float(self.viewModel.minimumZoomFactor)
-            self.viewModel.updateZoomFactorToMatchSliderValue()
         }
         
         viewModel.setFlashMode = { [weak self] flashMode in

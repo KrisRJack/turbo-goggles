@@ -102,7 +102,12 @@ final class CameraViewModel: NSObject {
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] permissionGranted in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                permissionGranted ? self.cameraPermitted?() : self.cameraNotPermitted?()
+                if permissionGranted {
+                    self.cameraPermitted?()
+                    self.configureCameraPreview()
+                } else {
+                    self.cameraNotPermitted?()
+                }
             }
         }
     }
@@ -143,13 +148,9 @@ final class CameraViewModel: NSObject {
         session.removeInput(input)
         
         var newCamera: AVCaptureDevice!
-        if input.device.position == .back {
-            didRotateCamera?(.front)
-            newCamera = cameraWithPosition(position: .front)
-        } else {
-            didRotateCamera?(.back)
-            newCamera = cameraWithPosition(position: .back)
-        }
+        didRotateCamera?(input.device.position == .back ? .front : .back)
+        updateZoomFactorToMatchSliderValue()
+        newCamera = cameraWithPosition(position: input.device.position == .back ? .front : .back)
             
         do {
             let newVideoInput = try AVCaptureDeviceInput(device: newCamera)
