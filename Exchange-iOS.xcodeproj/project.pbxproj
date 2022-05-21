@@ -64,6 +64,7 @@
 		1876AFF32831193A001E89F4 /* AppCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFF22831193A001E89F4 /* AppCoodinator.swift */; };
 		1876AFF52831207C001E89F4 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFF42831207C001E89F4 /* AppViewModel.swift */; };
 		1876AFF7283129AB001E89F4 /* HomeCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFF6283129AB001E89F4 /* HomeCoodinator.swift */; };
+		1876F8902838FF3A001811F7 /* NewListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F88F2838FF3A001811F7 /* NewListingViewController.swift */; };
 		1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E929280D9B4D00FCFE7E /* AppDelegate.swift */; };
 		1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */; };
 		1895E933280D9B4E00FCFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895E932280D9B4E00FCFE7E /* Assets.xcassets */; };
@@ -150,6 +151,7 @@
 		1876AFF22831193A001E89F4 /* AppCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoodinator.swift; sourceTree = "<group>"; };
 		1876AFF42831207C001E89F4 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		1876AFF6283129AB001E89F4 /* HomeCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoodinator.swift; sourceTree = "<group>"; };
+		1876F88F2838FF3A001811F7 /* NewListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListingViewController.swift; sourceTree = "<group>"; };
 		1895E926280D9B4D00FCFE7E /* Exchange-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exchange-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895E929280D9B4D00FCFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				180072BF28325DE500731C17 /* ListingBaseViewController.swift */,
+				1876F88F2838FF3A001811F7 /* NewListingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1000,6 +1003,7 @@
 				185EBAA5280DB31600DB2017 /* SignUpTableViewCell.swift in Sources */,
 				1876AFE528306384001E89F4 /* MaterialTextfieldCell.swift in Sources */,
 				185EBABB280E37AC00DB2017 /* UserStore.swift in Sources */,
+				1876F8902838FF3A001811F7 /* NewListingViewController.swift in Sources */,
 				183F28262814285C00F70501 /* AuthResult.swift in Sources */,
 				180072B628324C8600731C17 /* ForgotPasswordViewModel.swift in Sources */,
 				18724E5328372B2000B666C4 /* ImagePreviewViewController.swift in Sources */,

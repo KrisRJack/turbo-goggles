@@ -88,15 +88,25 @@ extension ListingCoordinator: CameraNavigationDelegate {
     }
     
     func goToListing(from viewController: CameraViewController, with photos: [Data]) {
-        
+        let newListingViewController = NewListingViewController(photos: photos)
+        newListingViewController.navigationDelegate = self
+        navigationController?.pushViewController(newListingViewController, animated: true)
     }
     
 }
+
+// MARK: - ImagePreviewNavigationDelegate
 
 extension ListingCoordinator: ImagePreviewNavigationDelegate {
     
     func dismiss(from viewController: ImagePreviewViewController) {
         navigationController?.dismiss(animated: true)
     }
+    
+}
+
+// MARK: - NewListingNavigationDelegate
+
+extension ListingCoordinator: NewListingNavigationDelegate {
     
 }
