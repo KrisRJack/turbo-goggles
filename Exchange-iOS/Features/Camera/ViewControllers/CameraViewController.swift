@@ -26,7 +26,7 @@ final class CameraViewController: UIViewController {
     
     private lazy var closeButton: BlurButton = {
         let button = BlurButton(style: .systemUltraThinMaterialLight)
-        button.tintColor = .captureButtonColor
+        button.tintColor = .cameraSecondaryThemeColor
         button.cornerRadius = self.closeButtonSize.halfOf
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
         button.addTarget(self, action: #selector(closeButtonPressed), for: .touchUpInside)
@@ -35,7 +35,7 @@ final class CameraViewController: UIViewController {
     
     private lazy var flipButton: BlurButton = {
         let button = BlurButton(style: .systemUltraThinMaterialLight)
-        button.tintColor = .captureButtonColor
+        button.tintColor = .cameraSecondaryThemeColor
         button.cornerRadius = self.closeButtonSize.halfOf
         button.setImage(UIImage(systemName: "arrow.triangle.2.circlepath"), for: .normal)
         button.addTarget(self, action: #selector(flipCameraPressed), for: .touchUpInside)
@@ -52,7 +52,7 @@ final class CameraViewController: UIViewController {
     private lazy var continueButton: LabelIconBlurButton = {
         let view = LabelIconBlurButton(style: .systemUltraThinMaterialLight)
         view.cornerRadius(12)
-        view.tintColor = .white
+        view.tintColor = .cameraSecondaryThemeColor
         view.clipsToBounds = true
         view.titleLabel.textAlignment = .center
         view.imageView.image = UIImage(systemName: "chevron.right")
@@ -64,7 +64,7 @@ final class CameraViewController: UIViewController {
     }()
     
     private lazy var slider: UISlider = .build { slider in
-        slider.tintColor = .systemYellow
+        slider.tintColor = .cameraThemeColor
         slider.minimumValue = self.viewModel.minimumZoomFactor
         slider.maximumValue = self.viewModel.maximumZoomFactor
         slider.addTarget(self, action: #selector(self.sliderValueChanged), for: .valueChanged)
@@ -72,7 +72,7 @@ final class CameraViewController: UIViewController {
     
     private lazy var photoLibButton: BlurButton = {
         let button = BlurButton(style: .systemUltraThinMaterialLight)
-        button.tintColor = .captureButtonColor
+        button.tintColor = .cameraSecondaryThemeColor
         button.cornerRadius = self.photosButtonSize.halfOf
         button.setImage(UIImage(systemName: "photo.on.rectangle.angled"), for: .normal)
         button.addTarget(self, action: #selector(didTapPhotoLibraryButton), for: .touchUpInside)
@@ -83,7 +83,7 @@ final class CameraViewController: UIViewController {
         let button = BlurButton(style: .systemUltraThinMaterialLight)
         button.layer.borderWidth = 5
         button.cornerRadius = self.captureButtonSize.halfOf
-        button.layer.borderColor = UIColor.captureButtonColor.cgColor
+        button.layer.borderColor = UIColor.cameraSecondaryThemeColor.cgColor
         button.addTarget(self, action: #selector(didTapCaptureButton), for: .touchUpInside)
         return button
     }()
@@ -178,8 +178,8 @@ final class CameraViewController: UIViewController {
                 self.flashButton.setImage(UIImage(systemName: "bolt.badge.a.fill"), for: .normal)
             }
             self.flashButton.hideBlurView = flashMode == .auto
-            self.flashButton.tintColor = flashMode == .auto ? .black : .white
-            self.flashButton.backgroundColor = flashMode == .auto ? .systemYellow : .clear
+            self.flashButton.tintColor = flashMode == .auto ? .cameraTintColor : .cameraSecondaryThemeColor
+            self.flashButton.backgroundColor = flashMode == .auto ? .cameraThemeColor : .clear
         }
         
     }
@@ -292,13 +292,13 @@ final class CameraViewController: UIViewController {
     
     @objc private func captureButtonTouchDown() {
         UIView.animate(withDuration: 0.2) {
-            self.captureButton.borderColor = .captureButtonSelectedColor
+            self.captureButton.alpha = 0.2
         }
     }
     
     @objc private func captureButtonTouchRelease() {
         UIView.animate(withDuration: 0.2) {
-            self.captureButton.borderColor = .captureButtonColor
+            self.captureButton.alpha = 1
         }
     }
     

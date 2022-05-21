@@ -39,15 +39,21 @@ extension UIColor {
         }
     }
     
-    static var captureButtonColor: UIColor {
+    static var cameraThemeColor: UIColor {
+        get {
+            return .darkThemeColor
+        }
+    }
+    
+    static var cameraSecondaryThemeColor: UIColor {
         get {
             return .white
         }
     }
     
-    static var captureButtonSelectedColor: UIColor {
+    static var cameraTintColor: UIColor {
         get {
-            return UIColor(red: 1, green: 1, blue: 1, alpha: 0.3)
+            return .white
         }
     }
     

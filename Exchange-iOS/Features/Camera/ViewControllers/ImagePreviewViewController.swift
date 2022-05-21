@@ -32,7 +32,7 @@ final class ImagePreviewViewController: UIViewController {
     }
     
     lazy var dismissButton: UIButton = .build { button in
-        button.backgroundColor = .white
+        button.backgroundColor = .cameraSecondaryThemeColor
         button.setTitle("Retake", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.cornerRadius(self.buttonHeight.halfOf)
@@ -41,9 +41,9 @@ final class ImagePreviewViewController: UIViewController {
     }
     
     lazy var saveButton: UIButton = .build { button in
-        button.backgroundColor = .systemYellow
+        button.backgroundColor = .cameraThemeColor
         button.setTitle("Use Photo", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.cameraTintColor, for: .normal)
         button.cornerRadius(self.buttonHeight.halfOf)
         button.titleLabel?.font = .systemFont(ofSize: 14, weight: .bold)
         button.addTarget(self, action: #selector(self.usePhotoPressed), for: .touchUpInside)
