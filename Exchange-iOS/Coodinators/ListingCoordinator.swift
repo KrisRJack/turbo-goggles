@@ -113,4 +113,8 @@ extension ListingCoordinator: ImagePreviewNavigationDelegate {
 
 extension ListingCoordinator: NewListingNavigationDelegate {
     
+    func goToGetMedia(from viewController: NewListingViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }

@@ -66,6 +66,11 @@
 		1876AFF7283129AB001E89F4 /* HomeCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFF6283129AB001E89F4 /* HomeCoodinator.swift */; };
 		1876F8902838FF3A001811F7 /* NewListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F88F2838FF3A001811F7 /* NewListingViewController.swift */; };
 		1876F898283A569E001811F7 /* ReferenceArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F897283A569E001811F7 /* ReferenceArray.swift */; };
+		1876F89B283A6801001811F7 /* ListingPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F89A283A6801001811F7 /* ListingPhotosViewController.swift */; };
+		1876F89D283A6836001811F7 /* ListingImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F89C283A6836001811F7 /* ListingImageCell.swift */; };
+		1876F8A0283A6C3E001811F7 /* ListingPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F89F283A6C3E001811F7 /* ListingPhotosViewModel.swift */; };
+		1876F8A2283A9888001811F7 /* ListingEmptyImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8A1283A9888001811F7 /* ListingEmptyImageCell.swift */; };
+		1876F8A4283AA323001811F7 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8A3283AA323001811F7 /* UIResponder.swift */; };
 		1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E929280D9B4D00FCFE7E /* AppDelegate.swift */; };
 		1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */; };
 		1895E933280D9B4E00FCFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895E932280D9B4E00FCFE7E /* Assets.xcassets */; };
@@ -154,6 +159,11 @@
 		1876AFF6283129AB001E89F4 /* HomeCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoodinator.swift; sourceTree = "<group>"; };
 		1876F88F2838FF3A001811F7 /* NewListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListingViewController.swift; sourceTree = "<group>"; };
 		1876F897283A569E001811F7 /* ReferenceArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceArray.swift; sourceTree = "<group>"; };
+		1876F89A283A6801001811F7 /* ListingPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingPhotosViewController.swift; sourceTree = "<group>"; };
+		1876F89C283A6836001811F7 /* ListingImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImageCell.swift; sourceTree = "<group>"; };
+		1876F89F283A6C3E001811F7 /* ListingPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingPhotosViewModel.swift; sourceTree = "<group>"; };
+		1876F8A1283A9888001811F7 /* ListingEmptyImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingEmptyImageCell.swift; sourceTree = "<group>"; };
+		1876F8A3283AA323001811F7 /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		1895E926280D9B4D00FCFE7E /* Exchange-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exchange-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895E929280D9B4D00FCFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -271,6 +281,8 @@
 		180072B928325B6700731C17 /* Listing */ = {
 			isa = PBXGroup;
 			children = (
+				1876F899283A67DC001811F7 /* Cells */,
+				1876F89E283A6C28001811F7 /* ViewModels */,
 				180072BE28325D9A00731C17 /* ViewControllers */,
 			);
 			path = Listing;
@@ -279,6 +291,7 @@
 		180072BE28325D9A00731C17 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1876F89A283A6801001811F7 /* ListingPhotosViewController.swift */,
 				180072BF28325DE500731C17 /* ListingTabBarViewController.swift */,
 				1876F88F2838FF3A001811F7 /* NewListingViewController.swift */,
 			);
@@ -344,6 +357,7 @@
 				185EBA73280DAF3300DB2017 /* UIColor.swift */,
 				185EBA76280DAF3300DB2017 /* UIFont.swift */,
 				18CC2B692833BDCB00E609CD /* UINavigationController.swift */,
+				1876F8A3283AA323001811F7 /* UIResponder.swift */,
 				185EBA88280DB01E00DB2017 /* UITableViewCell.swift */,
 				185EBA77280DAF3300DB2017 /* UIView.swift */,
 				180072AB2831EDB900731C17 /* UIViewController.swift */,
@@ -553,6 +567,23 @@
 				1876AFF0283116EB001E89F4 /* FeedViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1876F899283A67DC001811F7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1876F8A1283A9888001811F7 /* ListingEmptyImageCell.swift */,
+				1876F89C283A6836001811F7 /* ListingImageCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1876F89E283A6C28001811F7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1876F89F283A6C3E001811F7 /* ListingPhotosViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		1895E91D280D9B4C00FCFE7E = {
@@ -972,6 +1003,7 @@
 				1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */,
 				185EBAAA280DB43200DB2017 /* DatabaseService.swift in Sources */,
 				1876AFED2831163F001E89F4 /* HomeTabBarController.swift in Sources */,
+				1876F89B283A6801001811F7 /* ListingPhotosViewController.swift in Sources */,
 				183F282C28144FDC00F70501 /* UsernameService.swift in Sources */,
 				185EBAAE280DB57300DB2017 /* DatabaseKeyType.swift in Sources */,
 				185EBA7B280DAF3300DB2017 /* NSLayoutConstraint.swift in Sources */,
@@ -983,9 +1015,11 @@
 				185EBA91280DB0F600DB2017 /* LoginViewModel.swift in Sources */,
 				180072B32831EFF400731C17 /* ForgotPasswordTableViewCell.swift in Sources */,
 				185EBA81280DAF3300DB2017 /* CharacterSet.swift in Sources */,
+				1876F89D283A6836001811F7 /* ListingImageCell.swift in Sources */,
 				185EBA7A280DAF3300DB2017 /* Array.swift in Sources */,
 				185EBAA3280DB29300DB2017 /* SignUpViewModel.swift in Sources */,
 				185EBA98280DB17300DB2017 /* Window.swift in Sources */,
+				1876F8A0283A6C3E001811F7 /* ListingPhotosViewModel.swift in Sources */,
 				180072B12831EFBD00731C17 /* ForgotPasswordViewController.swift in Sources */,
 				18FF94072834F37C0003907B /* BlurButton.swift in Sources */,
 				180072AC2831EDB900731C17 /* UIViewController.swift in Sources */,
@@ -1005,12 +1039,14 @@
 				185EBAB3280DB9A500DB2017 /* OnboardViewController.swift in Sources */,
 				185EBA6B280DADDD00DB2017 /* AuthCoodinator.swift in Sources */,
 				185EBAA5280DB31600DB2017 /* SignUpTableViewCell.swift in Sources */,
+				1876F8A4283AA323001811F7 /* UIResponder.swift in Sources */,
 				1876AFE528306384001E89F4 /* MaterialTextfieldCell.swift in Sources */,
 				185EBABB280E37AC00DB2017 /* UserStore.swift in Sources */,
 				1876F8902838FF3A001811F7 /* NewListingViewController.swift in Sources */,
 				183F28262814285C00F70501 /* AuthResult.swift in Sources */,
 				180072B628324C8600731C17 /* ForgotPasswordViewModel.swift in Sources */,
 				18724E5328372B2000B666C4 /* ImagePreviewViewController.swift in Sources */,
+				1876F8A2283A9888001811F7 /* ListingEmptyImageCell.swift in Sources */,
 				18FF940A2834F4070003907B /* BlurView.swift in Sources */,
 				18724E512836BFDA00B666C4 /* Float.swift in Sources */,
 				185EBAB0280DB59D00DB2017 /* DatabaseKeys.swift in Sources */,

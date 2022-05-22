@@ -13,5 +13,13 @@ extension UICollectionViewCell {
         return String(describing: self.self)
     }
     
+    var collectionView: UICollectionView? {
+        return self.next(of: UICollectionView.self)
+    }
+
+    var indexPath: IndexPath? {
+        return self.collectionView?.indexPath(for: self)
+    }
+    
 }
 
