@@ -25,6 +25,10 @@ final class CameraViewController: UIViewController {
     private let photosButtonSize: CGFloat = 50
     private let captureButtonSize: CGFloat = 80
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     private lazy var closeButton: BlurButton = {
         let button = BlurButton(style: .systemUltraThinMaterialLight)
         button.tintColor = .cameraSecondaryThemeColor
@@ -195,7 +199,6 @@ final class CameraViewController: UIViewController {
         addPreviewLayerToView()
         configureCaptureButtonTapAnimation()
         viewModel.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -204,7 +207,7 @@ final class CameraViewController: UIViewController {
             view.layer.cornerRadius = 30
             view.layer.masksToBounds = true
         }
-        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -223,7 +226,6 @@ final class CameraViewController: UIViewController {
             view.layer.masksToBounds = true
         }
         viewModel.cameraPreview(.stopRunning)
-        navigationController?.navigationBar.barStyle = .default
     }
     
     private func setUpConstraints() {

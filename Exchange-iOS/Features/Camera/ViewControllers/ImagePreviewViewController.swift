@@ -22,7 +22,9 @@ final class ImagePreviewViewController: UIViewController {
     var delegate: ImagePreviewDelegate?
     var navigationDelegate: ImagePreviewNavigationDelegate?
     
-    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     lazy var imageView: UIImageView = .build { imageView in
         imageView.cornerRadius(15)
@@ -62,6 +64,11 @@ final class ImagePreviewViewController: UIViewController {
         super.viewDidLoad()
         setUpConstraints()
         view.backgroundColor = .black
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
     
     private func setUpConstraints() {

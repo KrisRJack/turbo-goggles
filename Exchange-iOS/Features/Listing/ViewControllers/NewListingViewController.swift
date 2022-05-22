@@ -30,6 +30,7 @@ final class NewListingViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpNavigationBar()
         configureTableViewHeader()
     }
     
@@ -49,10 +50,17 @@ final class NewListingViewController: UITableViewController {
         }
     }
     
+    private func setUpNavigationBar() {
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.barStyle = .default
+        navigationController?.navigationBar.tintColor = .darkThemeColor
+        navigationController?.topViewController?.title = "New Listing"
+    }
+    
     private func configureTableViewHeader() {
         tableView.tableHeaderView = UIView()
         tableView.tableHeaderView?.addSubviews(listingPhotosViewController.view)
-        tableView.tableHeaderView?.frame.size.height = 250
+        tableView.tableHeaderView?.frame.size.height = 220
         addChild(listingPhotosViewController)
         listingPhotosViewController.didMove(toParent: self)
     }
