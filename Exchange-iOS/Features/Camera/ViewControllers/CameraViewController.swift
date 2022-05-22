@@ -13,7 +13,7 @@ protocol CameraNavigationDelegate {
     func dismiss(from viewController: CameraViewController)
     func dismiss(from viewController: PHPickerViewController)
     func showPermissionMessage(from viewController: CameraViewController)
-    func goToListing(from viewController: CameraViewController, with photos: [Data])
+    func goToListing(from viewController: CameraViewController, with photos: ReferenceArray<Data>)
     func showImagePreview(from viewController: CameraViewController, imageData: Data)
     func presentError(from viewController: CameraViewController, withMessage message: String)
     func goToPhotoLibrary(from viewController: CameraViewController, with configuration: PHPickerConfiguration)
@@ -204,7 +204,7 @@ final class CameraViewController: UIViewController {
             view.layer.cornerRadius = 30
             view.layer.masksToBounds = true
         }
-        viewModel.cameraPreview(.startRunning)
+        navigationController?.navigationBar.barStyle = .black
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -213,7 +213,7 @@ final class CameraViewController: UIViewController {
             self.view.layer.cornerRadius = 0
             self.view.layer.masksToBounds = true
         }
-        navigationController?.navigationBar.barStyle = .black
+        viewModel.cameraPreview(.startRunning)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -223,10 +223,6 @@ final class CameraViewController: UIViewController {
             view.layer.masksToBounds = true
         }
         viewModel.cameraPreview(.stopRunning)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
         navigationController?.navigationBar.barStyle = .default
     }
     

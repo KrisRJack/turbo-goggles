@@ -91,7 +91,7 @@ extension ListingCoordinator: CameraNavigationDelegate {
         navigationController?.present(pickerViewController, animated: true, completion: nil)
     }
     
-    func goToListing(from viewController: CameraViewController, with photos: [Data]) {
+    func goToListing(from viewController: CameraViewController, with photos: ReferenceArray<Data>) {
         let newListingViewController = NewListingViewController(photos: photos)
         newListingViewController.navigationDelegate = self
         navigationController?.pushViewController(newListingViewController, animated: true)

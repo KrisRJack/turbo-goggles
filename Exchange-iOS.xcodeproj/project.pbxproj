@@ -12,7 +12,7 @@
 		180072B12831EFBD00731C17 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B02831EFBD00731C17 /* ForgotPasswordViewController.swift */; };
 		180072B32831EFF400731C17 /* ForgotPasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B22831EFF400731C17 /* ForgotPasswordTableViewCell.swift */; };
 		180072B628324C8600731C17 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B528324C8600731C17 /* ForgotPasswordViewModel.swift */; };
-		180072C028325DE500731C17 /* ListingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072BF28325DE500731C17 /* ListingBaseViewController.swift */; };
+		180072C028325DE500731C17 /* ListingTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072BF28325DE500731C17 /* ListingTabBarViewController.swift */; };
 		183F28262814285C00F70501 /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F28252814285C00F70501 /* AuthResult.swift */; };
 		183F282C28144FDC00F70501 /* UsernameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282B28144FDC00F70501 /* UsernameService.swift */; };
 		183F282E2814A77200F70501 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282D2814A77200F70501 /* Username.swift */; };
@@ -65,6 +65,7 @@
 		1876AFF52831207C001E89F4 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFF42831207C001E89F4 /* AppViewModel.swift */; };
 		1876AFF7283129AB001E89F4 /* HomeCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFF6283129AB001E89F4 /* HomeCoodinator.swift */; };
 		1876F8902838FF3A001811F7 /* NewListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F88F2838FF3A001811F7 /* NewListingViewController.swift */; };
+		1876F898283A569E001811F7 /* ReferenceArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F897283A569E001811F7 /* ReferenceArray.swift */; };
 		1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E929280D9B4D00FCFE7E /* AppDelegate.swift */; };
 		1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */; };
 		1895E933280D9B4E00FCFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895E932280D9B4E00FCFE7E /* Assets.xcassets */; };
@@ -108,7 +109,7 @@
 		180072B02831EFBD00731C17 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		180072B22831EFF400731C17 /* ForgotPasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordTableViewCell.swift; sourceTree = "<group>"; };
 		180072B528324C8600731C17 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
-		180072BF28325DE500731C17 /* ListingBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingBaseViewController.swift; sourceTree = "<group>"; };
+		180072BF28325DE500731C17 /* ListingTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingTabBarViewController.swift; sourceTree = "<group>"; };
 		183F28252814285C00F70501 /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		183F282B28144FDC00F70501 /* UsernameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameService.swift; sourceTree = "<group>"; };
 		183F282D2814A77200F70501 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
@@ -152,6 +153,7 @@
 		1876AFF42831207C001E89F4 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		1876AFF6283129AB001E89F4 /* HomeCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoodinator.swift; sourceTree = "<group>"; };
 		1876F88F2838FF3A001811F7 /* NewListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListingViewController.swift; sourceTree = "<group>"; };
+		1876F897283A569E001811F7 /* ReferenceArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceArray.swift; sourceTree = "<group>"; };
 		1895E926280D9B4D00FCFE7E /* Exchange-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exchange-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895E929280D9B4D00FCFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -277,7 +279,7 @@
 		180072BE28325D9A00731C17 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				180072BF28325DE500731C17 /* ListingBaseViewController.swift */,
+				180072BF28325DE500731C17 /* ListingTabBarViewController.swift */,
 				1876F88F2838FF3A001811F7 /* NewListingViewController.swift */,
 			);
 			path = ViewControllers;
@@ -484,6 +486,7 @@
 				183F28252814285C00F70501 /* AuthResult.swift */,
 				183F282D2814A77200F70501 /* Username.swift */,
 				185EBABA280E37AC00DB2017 /* UserStore.swift */,
+				1876F897283A569E001811F7 /* ReferenceArray.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -960,7 +963,7 @@
 				185EBAA1280DB27900DB2017 /* SignUpViewController.swift in Sources */,
 				1876AFF52831207C001E89F4 /* AppViewModel.swift in Sources */,
 				185EBA53280DAAEE00DB2017 /* OpeningViewController.swift in Sources */,
-				180072C028325DE500731C17 /* ListingBaseViewController.swift in Sources */,
+				180072C028325DE500731C17 /* ListingTabBarViewController.swift in Sources */,
 				185EBA8A280DB01E00DB2017 /* UITableViewCell.swift in Sources */,
 				185EBA7D280DAF3300DB2017 /* CGFloat.swift in Sources */,
 				185EBA8B280DB01E00DB2017 /* UICollectionViewCell.swift in Sources */,
@@ -988,6 +991,7 @@
 				180072AC2831EDB900731C17 /* UIViewController.swift in Sources */,
 				1876AFF1283116EB001E89F4 /* FeedViewController.swift in Sources */,
 				18CC2B752834151600E609CD /* CameraViewController.swift in Sources */,
+				1876F898283A569E001811F7 /* ReferenceArray.swift in Sources */,
 				1868B13C28116FF100ACA238 /* OnboardTableViewCell.swift in Sources */,
 				185EBA7F280DAF3300DB2017 /* UIFont.swift in Sources */,
 				18FF940F2835DDEA0003907B /* CameraViewModel.swift in Sources */,

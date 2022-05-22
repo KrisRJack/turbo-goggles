@@ -13,9 +13,11 @@ protocol NewListingNavigationDelegate {
 
 final class NewListingViewController: UITableViewController {
     
+    var photos: ReferenceArray<Data>
     var navigationDelegate: NewListingNavigationDelegate?
     
-    init(photos imageData: [Data]) {
+    init(photos imageData: ReferenceArray<Data>) {
+        photos = imageData
         super.init(nibName: nil, bundle: nil)
         
     }
