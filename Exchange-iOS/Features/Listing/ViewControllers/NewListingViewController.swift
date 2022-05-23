@@ -9,6 +9,7 @@ import UIKit
 
 protocol NewListingNavigationDelegate {
     func goToGetMedia(from viewController: NewListingViewController)
+    func goToEditImage(from viewController: NewListingViewController, at indexPath: IndexPath, with images: ReferenceArray<Data>)
 }
 
 final class NewListingViewController: UITableViewController {
@@ -34,11 +35,19 @@ final class NewListingViewController: UITableViewController {
         configureTableViewHeader()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if window?.safeAreaInsets.bottom ?? 0 > 0 {
+            view.layer.cornerRadius = 30
+            view.layer.masksToBounds = true
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if window?.safeAreaInsets.bottom ?? 0 > 0 {
-            self.view.layer.cornerRadius = 0
-            self.view.layer.masksToBounds = true
+            view.layer.cornerRadius = 0
+            view.layer.masksToBounds = true
         }
     }
     
@@ -51,6 +60,9 @@ final class NewListingViewController: UITableViewController {
     }
     
     private func setUpNavigationBar() {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.tintColor = .darkThemeColor
@@ -73,6 +85,10 @@ extension NewListingViewController: ListingPhotosDelegate {
     
     func shouldGetMedia() {
         navigationDelegate?.goToGetMedia(from: self)
+    }
+    
+    func shouldEditImage(at indexPath: IndexPath) {
+        navigationDelegate?.goToEditImage(from: self, at: indexPath, with: photos)
     }
     
 }

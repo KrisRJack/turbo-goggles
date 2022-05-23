@@ -117,4 +117,15 @@ extension ListingCoordinator: NewListingNavigationDelegate {
         navigationController?.popViewController(animated: true)
     }
     
+    func goToEditImage(from viewController: NewListingViewController, at indexPath: IndexPath, with images: ReferenceArray<Data>) {
+        let editImagesViewController = ListingEditImageViewController(images: images)
+        editImagesViewController.navigationDelegate = self
+        navigationController?.pushViewController(editImagesViewController, animated: true)
+    }
+    
+}
+
+
+extension ListingCoordinator: ListingEditImageNavigationDelegate {
+    
 }

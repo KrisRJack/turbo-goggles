@@ -9,6 +9,7 @@ import UIKit
 
 protocol ListingPhotosDelegate {
     func shouldGetMedia()
+    func shouldEditImage(at indexPath: IndexPath)
 }
 
 final class ListingPhotosViewController: UICollectionViewController {
@@ -67,9 +68,11 @@ final class ListingPhotosViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if viewModel.imageArrayIsEmpty {
+        guard !viewModel.imageArrayIsEmpty else {
             delegate?.shouldGetMedia()
+            return
         }
+        delegate?.shouldEditImage(at: indexPath)
     }
     
 }

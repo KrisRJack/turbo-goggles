@@ -71,6 +71,10 @@
 		1876F8A0283A6C3E001811F7 /* ListingPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F89F283A6C3E001811F7 /* ListingPhotosViewModel.swift */; };
 		1876F8A2283A9888001811F7 /* ListingEmptyImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8A1283A9888001811F7 /* ListingEmptyImageCell.swift */; };
 		1876F8A4283AA323001811F7 /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8A3283AA323001811F7 /* UIResponder.swift */; };
+		1876F8A6283B0870001811F7 /* ListingEditImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8A5283B0870001811F7 /* ListingEditImageViewController.swift */; };
+		1876F8A8283B0FFB001811F7 /* EditImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8A7283B0FFB001811F7 /* EditImageCell.swift */; };
+		1876F8AA283B127E001811F7 /* ScaledHeightImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8A9283B127E001811F7 /* ScaledHeightImageView.swift */; };
+		1876F8AC283B1E2F001811F7 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8AB283B1E2F001811F7 /* TextView.swift */; };
 		1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E929280D9B4D00FCFE7E /* AppDelegate.swift */; };
 		1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */; };
 		1895E933280D9B4E00FCFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895E932280D9B4E00FCFE7E /* Assets.xcassets */; };
@@ -164,6 +168,10 @@
 		1876F89F283A6C3E001811F7 /* ListingPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingPhotosViewModel.swift; sourceTree = "<group>"; };
 		1876F8A1283A9888001811F7 /* ListingEmptyImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingEmptyImageCell.swift; sourceTree = "<group>"; };
 		1876F8A3283AA323001811F7 /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
+		1876F8A5283B0870001811F7 /* ListingEditImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingEditImageViewController.swift; sourceTree = "<group>"; };
+		1876F8A7283B0FFB001811F7 /* EditImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageCell.swift; sourceTree = "<group>"; };
+		1876F8A9283B127E001811F7 /* ScaledHeightImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledHeightImageView.swift; sourceTree = "<group>"; };
+		1876F8AB283B1E2F001811F7 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		1895E926280D9B4D00FCFE7E /* Exchange-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exchange-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895E929280D9B4D00FCFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -291,6 +299,7 @@
 		180072BE28325D9A00731C17 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1876F8A5283B0870001811F7 /* ListingEditImageViewController.swift */,
 				1876F89A283A6801001811F7 /* ListingPhotosViewController.swift */,
 				180072BF28325DE500731C17 /* ListingTabBarViewController.swift */,
 				1876F88F2838FF3A001811F7 /* NewListingViewController.swift */,
@@ -572,6 +581,7 @@
 		1876F899283A67DC001811F7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				1876F8A7283B0FFB001811F7 /* EditImageCell.swift */,
 				1876F8A1283A9888001811F7 /* ListingEmptyImageCell.swift */,
 				1876F89C283A6836001811F7 /* ListingImageCell.swift */,
 			);
@@ -696,6 +706,8 @@
 				18FF94062834F37C0003907B /* BlurButton.swift */,
 				18FF94092834F4070003907B /* BlurView.swift */,
 				18724E5628388E9100B666C4 /* LabelIconBlurButton.swift */,
+				1876F8A9283B127E001811F7 /* ScaledHeightImageView.swift */,
+				1876F8AB283B1E2F001811F7 /* TextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1005,6 +1017,7 @@
 				1876AFED2831163F001E89F4 /* HomeTabBarController.swift in Sources */,
 				1876F89B283A6801001811F7 /* ListingPhotosViewController.swift in Sources */,
 				183F282C28144FDC00F70501 /* UsernameService.swift in Sources */,
+				1876F8A8283B0FFB001811F7 /* EditImageCell.swift in Sources */,
 				185EBAAE280DB57300DB2017 /* DatabaseKeyType.swift in Sources */,
 				185EBA7B280DAF3300DB2017 /* NSLayoutConstraint.swift in Sources */,
 				1876AFF7283129AB001E89F4 /* HomeCoodinator.swift in Sources */,
@@ -1019,6 +1032,7 @@
 				185EBA7A280DAF3300DB2017 /* Array.swift in Sources */,
 				185EBAA3280DB29300DB2017 /* SignUpViewModel.swift in Sources */,
 				185EBA98280DB17300DB2017 /* Window.swift in Sources */,
+				1876F8AC283B1E2F001811F7 /* TextView.swift in Sources */,
 				1876F8A0283A6C3E001811F7 /* ListingPhotosViewModel.swift in Sources */,
 				180072B12831EFBD00731C17 /* ForgotPasswordViewController.swift in Sources */,
 				18FF94072834F37C0003907B /* BlurButton.swift in Sources */,
@@ -1045,8 +1059,10 @@
 				1876F8902838FF3A001811F7 /* NewListingViewController.swift in Sources */,
 				183F28262814285C00F70501 /* AuthResult.swift in Sources */,
 				180072B628324C8600731C17 /* ForgotPasswordViewModel.swift in Sources */,
+				1876F8A6283B0870001811F7 /* ListingEditImageViewController.swift in Sources */,
 				18724E5328372B2000B666C4 /* ImagePreviewViewController.swift in Sources */,
 				1876F8A2283A9888001811F7 /* ListingEmptyImageCell.swift in Sources */,
+				1876F8AA283B127E001811F7 /* ScaledHeightImageView.swift in Sources */,
 				18FF940A2834F4070003907B /* BlurView.swift in Sources */,
 				18724E512836BFDA00B666C4 /* Float.swift in Sources */,
 				185EBAB0280DB59D00DB2017 /* DatabaseKeys.swift in Sources */,
