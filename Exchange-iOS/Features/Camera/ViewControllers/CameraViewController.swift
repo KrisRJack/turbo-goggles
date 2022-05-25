@@ -13,7 +13,7 @@ protocol CameraNavigationDelegate {
     func dismiss(from viewController: CameraViewController)
     func dismiss(from viewController: PHPickerViewController)
     func showPermissionMessage(from viewController: CameraViewController)
-    func goToListing(from viewController: CameraViewController, with photos: ReferenceArray<Data>)
+    func goToListing(from viewController: CameraViewController, with images: ReferenceArray<ListingImage>)
     func showImagePreview(from viewController: CameraViewController, imageData: Data)
     func presentError(from viewController: CameraViewController, withMessage message: String)
     func goToPhotoLibrary(from viewController: CameraViewController, with configuration: PHPickerConfiguration)

@@ -7,12 +7,14 @@
 
 import UIKit
 
+protocol EditImageCellDelegate {
+    func textViewDidChange(_ textView: UITextView, at indexPath: IndexPath)
+    func textViewDidBeginEditing(_ textView: UITextView, at indexPath: IndexPath)
+}
+
 final class EditImageCell: UITableViewCell {
     
-    public var textViewDelegate: UITextViewDelegate? {
-        get { textView.delegate }
-        set { textView.delegate = newValue }
-    }
+    var delegate: EditImageCellDelegate?
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
@@ -33,8 +35,9 @@ final class EditImageCell: UITableViewCell {
         imageView.layer.borderColor = UIColor.separator.cgColor
     }
     
-    private let textView: TextView = {
+    private lazy var textView: TextView = {
         let textView = TextView()
+        textView.delegate = self
         textView.isScrollEnabled = false
         textView.font = .systemFont(ofSize: 18)
         textView.placeholder = "Describe this item..."
@@ -44,6 +47,7 @@ final class EditImageCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureConstraints()
+        contentView.backgroundColor = .secondarySystemBackground
     }
     
     required init?(coder: NSCoder) {
@@ -51,7 +55,6 @@ final class EditImageCell: UITableViewCell {
     }
     
     private func configureConstraints() {
-        contentView.backgroundColor = .secondarySystemBackground
         contentView.addSubviews(stackView)
         [stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
          stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -61,8 +64,23 @@ final class EditImageCell: UITableViewCell {
         ].activate()
     }
     
-    public func setImage(with imageData: Data) {
-        scaledHeightImageView.image = UIImage(data: imageData)
+    public func setListingImage(with object: ListingImage) {
+        textView.text = object.description
+        scaledHeightImageView.image = UIImage(data: object.imageData)
+    }
+    
+}
+
+extension EditImageCell: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        guard let indexPath = indexPath else { return }
+        delegate?.textViewDidBeginEditing(textView, at: indexPath)
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        guard let indexPath = indexPath else { return }
+        delegate?.textViewDidChange(textView, at: indexPath)
     }
     
 }

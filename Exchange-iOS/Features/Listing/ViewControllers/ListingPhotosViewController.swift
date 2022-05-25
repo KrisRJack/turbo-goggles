@@ -17,13 +17,13 @@ final class ListingPhotosViewController: UICollectionViewController {
     var delegate: ListingPhotosDelegate?
     private var viewModel: ListingPhotosViewModel!
     
-    init(imageData: ReferenceArray<Data>) {
+    init(images imageData: ReferenceArray<ListingImage>) {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
         layout.scrollDirection = .horizontal
         super.init(collectionViewLayout: layout)
-        viewModel = ListingPhotosViewModel(imageData: imageData)
+        viewModel = ListingPhotosViewModel(images: imageData)
     }
     
     required init?(coder: NSCoder) {
@@ -58,7 +58,7 @@ final class ListingPhotosViewController: UICollectionViewController {
             return collectionView.dequeueReusableCell(withReuseIdentifier: ListingEmptyImageCell.reuseIdentifier, for: indexPath)
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListingImageCell.reuseIdentifier, for: indexPath)
-        (cell as? ListingImageCell)?.setImage(data: viewModel.item(at: indexPath.item))
+        (cell as? ListingImageCell)?.setImage(data: viewModel.item(at: indexPath.item).imageData)
         (cell as? ListingImageCell)?.deleteButtonPressed = ({ [weak self] indexPath in
             guard let self = self else { return }
             self.viewModel.deleteItem(at: indexPath.item)
@@ -140,8 +140,8 @@ extension ListingPhotosViewController: UICollectionViewDropDelegate {
             collectionView.performBatchUpdates({
                 
                 viewModel.deleteItem(at: sourceIndexPath.item)
-                if let data = item.dragItem.localObject as? Data {
-                    viewModel.insert(item: data, at: destingationIndexPath.item)
+                if let listingImage = item.dragItem.localObject as? ListingImage {
+                    viewModel.insert(item: listingImage, at: destingationIndexPath.item)
                 }
                 
                 collectionView.deleteItems(at: [sourceIndexPath])

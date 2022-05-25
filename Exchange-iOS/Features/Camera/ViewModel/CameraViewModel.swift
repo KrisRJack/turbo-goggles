@@ -34,9 +34,9 @@ final class CameraViewModel: NSObject {
     public var continueButtonIsHidden: ((_ hide: Bool) -> Void)?
     public var setFlashMode: ((_ flashMode: AVCaptureDevice.FlashMode) -> Void)?
     public var didRotateCamera: ((_ position: AVCaptureDevice.Position) -> Void)?
-    public var imageSelectionLimit: Int { max(0, maxNumberOfImages - photos.count) }
+    public var imageSelectionLimit: Int { max(0, maxNumberOfImages - images.count) }
     
-    private let photos: ReferenceArray<Data> = .init([])
+    private let images: ReferenceArray<ListingImage> = .init([])
     
     private var zoomFactor: CGFloat!
     private let cameraListener: Camera!
@@ -53,19 +53,19 @@ final class CameraViewModel: NSObject {
         cameraListener = camera
         zoomFactor = CGFloat(minimumZoomFactor)
         super.init()
-        photos.willUpdate = { newArray in
+        images.willUpdate = { newArray in
             self.continueButtonIsHidden?(newArray.count == .zero)
         }
     }
     
     public func viewDidLoad() {
         flashMode = .auto
-        photos.set(to: [])
+        images.set(to: [])
         requestCameraPermissionStatus()
     }
     
-    public func savedPhotos() -> ReferenceArray<Data> {
-        return photos
+    public func savedPhotos() -> ReferenceArray<ListingImage> {
+        return images
     }
     
     /// Inital set up needed to show preview in the camera view
@@ -201,7 +201,7 @@ final class CameraViewModel: NSObject {
     }
     
     public func saveImage(data: Data) {
-        photos.add(data)
+        images.add(ListingImage(imageData: data))
     }
     
     public func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {

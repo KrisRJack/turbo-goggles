@@ -12,13 +12,13 @@ final class ListingPhotosViewModel: NSObject {
     public var imageCount: Int { images.count }
     public var imageArrayIsEmpty: Bool { images.count == .zero }
     
-    private var images: ReferenceArray<Data>
+    private var images: ReferenceArray<ListingImage>
     
-    init(imageData: ReferenceArray<Data>) {
+    init(images imageData: ReferenceArray<ListingImage>) {
         images = imageData
     }
     
-    public func item(at index: Int) -> Data {
+    public func item(at index: Int) -> ListingImage {
         return images.objects[index]
     }
     
@@ -26,7 +26,7 @@ final class ListingPhotosViewModel: NSObject {
         _ = images.remove(at: index)
     }
     
-    public func insert(item: Data, at index: Int) {
+    public func insert(item: ListingImage, at index: Int) {
         images.insert(item, at: index)
     }
     

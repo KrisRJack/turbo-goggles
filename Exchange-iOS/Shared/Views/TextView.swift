@@ -16,6 +16,10 @@ open class TextView: UITextView {
         set { placeholderTextView.text = newValue }
     }
     
+    open override var text: String? {
+        willSet { showPlaceholder = (newValue == nil) }
+    }
+    
     open override var textAlignment: NSTextAlignment {
         willSet { placeholderTextView.textAlignment = newValue }
     }

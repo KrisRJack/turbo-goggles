@@ -14,12 +14,16 @@ protocol ListingEditImageNavigationDelegate {
 final class ListingEditImageViewController: UITableViewController {
     
     var didReload = false
-    var images: ReferenceArray<Data>
+    var viewModel: ListingEditImageViewModel!
     var navigationDelegate: ListingEditImageNavigationDelegate?
     
-    init(images: ReferenceArray<Data>) {
-        self.images = images
+    init(images: ReferenceArray<ListingImage>) {
         super.init(nibName: nil, bundle: nil)
+        viewModel = ListingEditImageViewModel(images: images)
+        viewModel.reloadData = { [weak self] in
+            guard let self = self else { return }
+            self.tableView.reloadData()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -28,30 +32,24 @@ final class ListingEditImageViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Edit Photos"
         configureTableView()
-        configureNavigationBar()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        reloadDataIfNeeded()
+        viewModel.viewDidLayoutSubviews()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return images.count
+        return viewModel.numberOfRowsInSection
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: EditImageCell.reuseIdentifier, for: indexPath)
-        (cell as? EditImageCell)?.textViewDelegate = self
-        (cell as? EditImageCell)?.setImage(with: images.objects[indexPath.item])
+        (cell as? EditImageCell)?.delegate = self
+        (cell as? EditImageCell)?.setListingImage(with: viewModel.object(at: indexPath.item))
         return cell
-    }
-    
-    private func reloadDataIfNeeded() {
-        guard !didReload else { return }
-        tableView.reloadData()
-        didReload = true
     }
     
     private func configureTableView() {
@@ -61,22 +59,19 @@ final class ListingEditImageViewController: UITableViewController {
         tableView.register(EditImageCell.self, forCellReuseIdentifier: EditImageCell.reuseIdentifier)
     }
     
-    private func configureNavigationBar() {
-        title = "Edit Photos"
-    }
-    
 }
 
-extension ListingEditImageViewController: UITextViewDelegate {
+extension ListingEditImageViewController: EditImageCellDelegate {
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
+    func textViewDidBeginEditing(_ textView: UITextView, at indexPath: IndexPath) {
         tableView.beginUpdates()
         tableView.endUpdates()
     }
     
-    func textViewDidChange(_ textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView, at indexPath: IndexPath) {
         tableView.beginUpdates()
         tableView.endUpdates()
+        viewModel.set(text: textView.text, forObjectAt: indexPath.item)
     }
     
 }

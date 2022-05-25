@@ -75,6 +75,8 @@
 		1876F8A8283B0FFB001811F7 /* EditImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8A7283B0FFB001811F7 /* EditImageCell.swift */; };
 		1876F8AA283B127E001811F7 /* ScaledHeightImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8A9283B127E001811F7 /* ScaledHeightImageView.swift */; };
 		1876F8AC283B1E2F001811F7 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8AB283B1E2F001811F7 /* TextView.swift */; };
+		1876F8AE283C6BC0001811F7 /* ListingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8AD283C6BC0001811F7 /* ListingImage.swift */; };
+		1876F8B0283CE302001811F7 /* ListingEditImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8AF283CE302001811F7 /* ListingEditImageViewModel.swift */; };
 		1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E929280D9B4D00FCFE7E /* AppDelegate.swift */; };
 		1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */; };
 		1895E933280D9B4E00FCFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895E932280D9B4E00FCFE7E /* Assets.xcassets */; };
@@ -172,6 +174,8 @@
 		1876F8A7283B0FFB001811F7 /* EditImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageCell.swift; sourceTree = "<group>"; };
 		1876F8A9283B127E001811F7 /* ScaledHeightImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledHeightImageView.swift; sourceTree = "<group>"; };
 		1876F8AB283B1E2F001811F7 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		1876F8AD283C6BC0001811F7 /* ListingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImage.swift; sourceTree = "<group>"; };
+		1876F8AF283CE302001811F7 /* ListingEditImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingEditImageViewModel.swift; sourceTree = "<group>"; };
 		1895E926280D9B4D00FCFE7E /* Exchange-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exchange-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895E929280D9B4D00FCFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -507,6 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				183F28252814285C00F70501 /* AuthResult.swift */,
+				1876F8AD283C6BC0001811F7 /* ListingImage.swift */,
 				183F282D2814A77200F70501 /* Username.swift */,
 				185EBABA280E37AC00DB2017 /* UserStore.swift */,
 				1876F897283A569E001811F7 /* ReferenceArray.swift */,
@@ -591,6 +596,7 @@
 		1876F89E283A6C28001811F7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				1876F8AF283CE302001811F7 /* ListingEditImageViewModel.swift */,
 				1876F89F283A6C3E001811F7 /* ListingPhotosViewModel.swift */,
 			);
 			path = ViewModels;
@@ -1009,6 +1015,7 @@
 				180072C028325DE500731C17 /* ListingTabBarViewController.swift in Sources */,
 				185EBA8A280DB01E00DB2017 /* UITableViewCell.swift in Sources */,
 				185EBA7D280DAF3300DB2017 /* CGFloat.swift in Sources */,
+				1876F8AE283C6BC0001811F7 /* ListingImage.swift in Sources */,
 				185EBA8B280DB01E00DB2017 /* UICollectionViewCell.swift in Sources */,
 				18724E5728388E9100B666C4 /* LabelIconBlurButton.swift in Sources */,
 				18CC2B6A2833BDCB00E609CD /* UINavigationController.swift in Sources */,
@@ -1053,6 +1060,7 @@
 				185EBAB3280DB9A500DB2017 /* OnboardViewController.swift in Sources */,
 				185EBA6B280DADDD00DB2017 /* AuthCoodinator.swift in Sources */,
 				185EBAA5280DB31600DB2017 /* SignUpTableViewCell.swift in Sources */,
+				1876F8B0283CE302001811F7 /* ListingEditImageViewModel.swift in Sources */,
 				1876F8A4283AA323001811F7 /* UIResponder.swift in Sources */,
 				1876AFE528306384001E89F4 /* MaterialTextfieldCell.swift in Sources */,
 				185EBABB280E37AC00DB2017 /* UserStore.swift in Sources */,

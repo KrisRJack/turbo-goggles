@@ -11,7 +11,7 @@ import Foundation
 /// Contains a closures that allows for observing changes
 open class ReferenceArray<T> {
     
-    private var array: [T] {
+    public var objects: [T] {
         didSet {
             didUpdate?(oldValue)
         }
@@ -20,31 +20,30 @@ open class ReferenceArray<T> {
         }
     }
     
-    public var objects: [T] { array }
-    public var count: Int { array.count }
+    public var count: Int { objects.count }
     
     /// Observe changes to array
     public var didUpdate: ((_ oldArray: [T]) -> Void)?
     public var willUpdate: ((_ newArray: [T]) -> Void)?
     
     init(_ array: [T]) {
-        self.array = array
+        objects = array
     }
     
     public func add(_ object: T) {
-        array.append(object)
+        objects.append(object)
     }
     
     public func set(to newArray: [T]) {
-        array = newArray
+        objects = newArray
     }
     
     public func insert(_ object: T, at index: Int) {
-        array.insert(object, at: index)
+        objects.insert(object, at: index)
     }
     
     public func remove(at index: Int) -> T {
-        return array.remove(at: index)
+        return objects.remove(at: index)
     }
     
 }

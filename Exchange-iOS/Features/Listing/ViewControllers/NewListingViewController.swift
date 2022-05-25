@@ -9,18 +9,18 @@ import UIKit
 
 protocol NewListingNavigationDelegate {
     func goToGetMedia(from viewController: NewListingViewController)
-    func goToEditImage(from viewController: NewListingViewController, at indexPath: IndexPath, with images: ReferenceArray<Data>)
+    func goToEditImage(from viewController: NewListingViewController, at indexPath: IndexPath, with images: ReferenceArray<ListingImage>)
 }
 
 final class NewListingViewController: UITableViewController {
     
-    var photos: ReferenceArray<Data>
+    var images: ReferenceArray<ListingImage>
     let listingPhotosViewController: ListingPhotosViewController
     var navigationDelegate: NewListingNavigationDelegate?
     
-    init(photos imageData: ReferenceArray<Data>) {
-        photos = imageData
-        listingPhotosViewController = ListingPhotosViewController(imageData: imageData)
+    init(images imageData: ReferenceArray<ListingImage>) {
+        images = imageData
+        listingPhotosViewController = ListingPhotosViewController(images: imageData)
         super.init(nibName: nil, bundle: nil)
         listingPhotosViewController.delegate = self
     }
@@ -88,7 +88,7 @@ extension NewListingViewController: ListingPhotosDelegate {
     }
     
     func shouldEditImage(at indexPath: IndexPath) {
-        navigationDelegate?.goToEditImage(from: self, at: indexPath, with: photos)
+        navigationDelegate?.goToEditImage(from: self, at: indexPath, with: images)
     }
     
 }
