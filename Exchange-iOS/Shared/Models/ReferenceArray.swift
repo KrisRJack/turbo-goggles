@@ -11,7 +11,7 @@ import Foundation
 /// Contains a closures that allows for observing changes
 open class ReferenceArray<T> {
     
-    public var objects: [T] {
+    private var objects: [T] {
         didSet {
             didUpdate?(oldValue)
         }
@@ -44,6 +44,16 @@ open class ReferenceArray<T> {
     
     public func remove(at index: Int) -> T {
         return objects.remove(at: index)
+    }
+    
+    public func object(at index: Int) -> T {
+        return objects[index]
+    }
+    
+    // Useful if the object that you are storing is
+    // a struct that needs properties to be modifiable.
+    public func modify(at index: Int, _ closure: (_ object: inout T) -> Void) {
+        closure(&objects[index])
     }
     
 }

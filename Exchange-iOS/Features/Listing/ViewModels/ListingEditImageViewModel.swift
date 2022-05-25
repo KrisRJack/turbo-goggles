@@ -20,11 +20,13 @@ final class ListingEditImageViewModel {
     }
     
     public func object(at index: Int) -> ListingImage {
-        return images.objects[index]
+        return images.object(at: index)
     }
     
     public func set(text: String?, forObjectAt index: Int) {
-        images.objects[index].description = text
+        images.modify(at: index) { object in
+            object.description = text
+        }
     }
     
     public func viewDidLayoutSubviews() {

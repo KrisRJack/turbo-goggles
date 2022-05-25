@@ -19,7 +19,7 @@ final class ListingPhotosViewModel: NSObject {
     }
     
     public func item(at index: Int) -> ListingImage {
-        return images.objects[index]
+        return images.object(at: index)
     }
     
     public func deleteItem(at index: Int) {
