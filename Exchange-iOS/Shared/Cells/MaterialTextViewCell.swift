@@ -1,23 +1,23 @@
 //
-//  MaterialTextFieldCell.swift
+//  MaterialTextViewCell.swift
 //  Exchange-iOS
 //
-//  Created by Kristopher Jackson on 5/14/22.
+//  Created by Kristopher Jackson on 5/25/22.
 //
 
 import UIKit
-import MaterialComponents.MaterialTextControls_OutlinedTextFields
+import MaterialComponents.MaterialTextControls_OutlinedTextAreas
 
-final class MaterialTextFieldCell: UITableViewCell {
+final class MaterialTextViewCell: UITableViewCell {
     
     public var title: String? {
-        get { materialTextField.label.text }
-        set { materialTextField.label.text = newValue }
+        get { materialTextView.label.text }
+        set { materialTextView.label.text = newValue }
     }
     
     public var placeholder: String? {
-        get { materialTextField.placeholder }
-        set { materialTextField.placeholder = newValue }
+        get { materialTextView.placeholder }
+        set { materialTextView.placeholder = newValue }
     }
     
     public var subtext: String? {
@@ -28,7 +28,7 @@ final class MaterialTextFieldCell: UITableViewCell {
     private lazy var stackView: UIStackView = .build { stackView in
         stackView.spacing = 8
         stackView.axis = .vertical
-        stackView.addArrangedSubview(self.materialTextField)
+        stackView.addArrangedSubview(self.materialTextView)
         stackView.addArrangedSubview(self.label)
     }
     
@@ -37,9 +37,9 @@ final class MaterialTextFieldCell: UITableViewCell {
         label.font = .systemFont(ofSize: 12)
     }
     
-    private let materialTextField: MDCOutlinedTextField = .build { textField in
-        textField.preferredContainerHeight = 50
-        textField.leadingAssistiveLabel.font = .systemFont(ofSize: 12)
+    public lazy var materialTextView: MDCOutlinedTextArea = .build { textView in
+        textView.preferredContainerHeight = 150
+        textView.leadingAssistiveLabel.font = .systemFont(ofSize: 12)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -48,7 +48,8 @@ final class MaterialTextFieldCell: UITableViewCell {
         [stackView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
          stackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
          stackView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
-         stackView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor)
+         stackView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+         label.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: -24)
         ].activate()
     }
     
@@ -57,19 +58,19 @@ final class MaterialTextFieldCell: UITableViewCell {
     }
     
     public func setTextColor(to color: UIColor) {
-        materialTextField.setTextColor(color, for: .editing)
+        materialTextView.setTextColor(color, for: .editing)
     }
     
     public func setPrimaryColor(to color: UIColor) {
-        materialTextField.setOutlineColor(color, for: .editing)
-        materialTextField.setFloatingLabelColor(color, for: .editing)
+        materialTextView.setOutlineColor(.lightThemeColor, for: .editing)
+        materialTextView.setFloatingLabel(.lightThemeColor, for: .editing)
     }
     
     public func setSecondaryColor(to color: UIColor) {
         label.textColor = color
-        materialTextField.setOutlineColor(color, for: .normal)
-        materialTextField.setNormalLabelColor(color, for: .normal)
-        materialTextField.setFloatingLabelColor(color, for: .normal)
+        materialTextView.setNormalLabel(.secondaryLabel, for: .normal)
+        materialTextView.setOutlineColor(.secondaryLabel, for: .normal)
+        materialTextView.setFloatingLabel(.secondaryLabel, for: .normal)
     }
     
 }
