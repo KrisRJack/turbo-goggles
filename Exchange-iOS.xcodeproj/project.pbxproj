@@ -78,6 +78,9 @@
 		1876F8AE283C6BC0001811F7 /* ListingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8AD283C6BC0001811F7 /* ListingImage.swift */; };
 		1876F8B0283CE302001811F7 /* ListingEditImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8AF283CE302001811F7 /* ListingEditImageViewModel.swift */; };
 		1876F8B2283E33DA001811F7 /* MaterialTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8B1283E33DA001811F7 /* MaterialTextViewCell.swift */; };
+		1876F8B42841235D001811F7 /* MaterialPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8B32841235D001811F7 /* MaterialPickerCell.swift */; };
+		1876F8B8284132B9001811F7 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8B7284132B9001811F7 /* Categories.swift */; };
+		1876F8BA284132D0001811F7 /* Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8B9284132D0001811F7 /* Conditions.swift */; };
 		1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E929280D9B4D00FCFE7E /* AppDelegate.swift */; };
 		1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */; };
 		1895E933280D9B4E00FCFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895E932280D9B4E00FCFE7E /* Assets.xcassets */; };
@@ -178,6 +181,9 @@
 		1876F8AD283C6BC0001811F7 /* ListingImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImage.swift; sourceTree = "<group>"; };
 		1876F8AF283CE302001811F7 /* ListingEditImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingEditImageViewModel.swift; sourceTree = "<group>"; };
 		1876F8B1283E33DA001811F7 /* MaterialTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTextViewCell.swift; sourceTree = "<group>"; };
+		1876F8B32841235D001811F7 /* MaterialPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialPickerCell.swift; sourceTree = "<group>"; };
+		1876F8B7284132B9001811F7 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		1876F8B9284132D0001811F7 /* Conditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conditions.swift; sourceTree = "<group>"; };
 		1895E926280D9B4D00FCFE7E /* Exchange-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exchange-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895E929280D9B4D00FCFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -532,6 +538,8 @@
 		185EBAB9280E378400DB2017 /* Globals */ = {
 			isa = PBXGroup;
 			children = (
+				1876F8B7284132B9001811F7 /* Categories.swift */,
+				1876F8B9284132D0001811F7 /* Conditions.swift */,
 				185EBA97280DB17300DB2017 /* Window.swift */,
 			);
 			path = Globals;
@@ -565,6 +573,7 @@
 			isa = PBXGroup;
 			children = (
 				1876AFE428306384001E89F4 /* MaterialTextFieldCell.swift */,
+				1876F8B32841235D001811F7 /* MaterialPickerCell.swift */,
 				1876F8B1283E33DA001811F7 /* MaterialTextViewCell.swift */,
 			);
 			path = Cells;
@@ -1018,6 +1027,7 @@
 				180072C028325DE500731C17 /* ListingTabBarViewController.swift in Sources */,
 				1876F8B2283E33DA001811F7 /* MaterialTextViewCell.swift in Sources */,
 				185EBA8A280DB01E00DB2017 /* UITableViewCell.swift in Sources */,
+				1876F8BA284132D0001811F7 /* Conditions.swift in Sources */,
 				185EBA7D280DAF3300DB2017 /* CGFloat.swift in Sources */,
 				1876F8AE283C6BC0001811F7 /* ListingImage.swift in Sources */,
 				185EBA8B280DB01E00DB2017 /* UICollectionViewCell.swift in Sources */,
@@ -1027,6 +1037,7 @@
 				185EBAAA280DB43200DB2017 /* DatabaseService.swift in Sources */,
 				1876AFED2831163F001E89F4 /* HomeTabBarController.swift in Sources */,
 				1876F89B283A6801001811F7 /* ListingPhotosViewController.swift in Sources */,
+				1876F8B42841235D001811F7 /* MaterialPickerCell.swift in Sources */,
 				183F282C28144FDC00F70501 /* UsernameService.swift in Sources */,
 				1876F8A8283B0FFB001811F7 /* EditImageCell.swift in Sources */,
 				185EBAAE280DB57300DB2017 /* DatabaseKeyType.swift in Sources */,
@@ -1068,6 +1079,7 @@
 				1876F8A4283AA323001811F7 /* UIResponder.swift in Sources */,
 				1876AFE528306384001E89F4 /* MaterialTextFieldCell.swift in Sources */,
 				185EBABB280E37AC00DB2017 /* UserStore.swift in Sources */,
+				1876F8B8284132B9001811F7 /* Categories.swift in Sources */,
 				1876F8902838FF3A001811F7 /* NewListingViewController.swift in Sources */,
 				183F28262814285C00F70501 /* AuthResult.swift in Sources */,
 				180072B628324C8600731C17 /* ForgotPasswordViewModel.swift in Sources */,
