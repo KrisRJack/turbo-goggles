@@ -188,3 +188,5 @@
 "LISTING_CONDITION_PICKER_TEXT" = "OPTIONAL: Please select the condition that best describes your items.";
 
 "LISTING_CATEGORY_PICKER_TEXT" = "OPTIONAL: Please select the category that best describes your items.";
+
+"LISTING_DESCRIPTION_TEXT" = "OPTIONAL: We recommend adding a description to give buyers more information about your items.";
