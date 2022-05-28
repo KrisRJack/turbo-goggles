@@ -13,7 +13,6 @@ protocol ListingEditImageNavigationDelegate {
 
 final class ListingEditImageViewController: UITableViewController {
     
-    var didReload = false
     var viewModel: ListingEditImageViewModel!
     var navigationDelegate: ListingEditImageNavigationDelegate?
     
@@ -55,6 +54,7 @@ final class ListingEditImageViewController: UITableViewController {
     private func configureTableView() {
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
+        tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .secondarySystemBackground
         tableView.register(EditImageCell.self, forCellReuseIdentifier: EditImageCell.reuseIdentifier)
     }

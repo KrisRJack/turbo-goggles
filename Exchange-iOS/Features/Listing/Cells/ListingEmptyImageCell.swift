@@ -10,10 +10,11 @@ import UIKit
 final class ListingEmptyImageCell: UICollectionViewCell {
     
     private let containerView: UIView = .build { view in
-        view.cornerRadius(8)
+        view.cornerRadius(6)
         view.clipsToBounds = true
         view.contentMode = .scaleAspectFill
-        view.backgroundColor = .secondarySystemBackground
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.secondaryLabel.cgColor
     }
     
     private lazy var stackView: UIStackView = {

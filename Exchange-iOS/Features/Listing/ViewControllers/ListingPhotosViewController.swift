@@ -43,7 +43,7 @@ final class ListingPhotosViewController: UICollectionViewController {
         collectionView.alwaysBounceHorizontal = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.contentInset = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
+        collectionView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         collectionView.register(ListingImageCell.self, forCellWithReuseIdentifier: ListingImageCell.reuseIdentifier)
         collectionView.register(ListingEmptyImageCell.self, forCellWithReuseIdentifier: ListingEmptyImageCell.reuseIdentifier)
     }
@@ -85,7 +85,7 @@ extension ListingPhotosViewController: UICollectionViewDelegateFlowLayout {
         guard !viewModel.imageArrayIsEmpty else {
             return CGSize(width: view.frame.width - contentLeftRightInset, height: view.frame.height - contentTopBottomInset)
         }
-        return CGSize(width: 150, height: view.frame.height - contentTopBottomInset)
+        return CGSize(width: 160, height: view.frame.height - contentTopBottomInset)
     }
     
 }
