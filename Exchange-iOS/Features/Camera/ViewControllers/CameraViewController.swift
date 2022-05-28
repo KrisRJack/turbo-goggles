@@ -226,6 +226,7 @@ final class CameraViewController: UIViewController {
             view.layer.masksToBounds = true
         }
         viewModel.cameraPreview(.stopRunning)
+        navigationController?.navigationBar.isHidden = false
     }
     
     private func setUpConstraints() {
