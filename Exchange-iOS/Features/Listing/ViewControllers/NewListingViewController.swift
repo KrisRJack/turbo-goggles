@@ -35,6 +35,8 @@ final class NewListingViewController: UITableViewController {
         configureTableViewHeader()
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
+        tableView.keyboardDismissMode = .onDrag
+        tableView.register(MaterialPickerCell.self, forCellReuseIdentifier: MaterialPickerCell.reuseIdentifier)
         tableView.register(MaterialTextViewCell.self, forCellReuseIdentifier: MaterialTextViewCell.reuseIdentifier)
         tableView.register(MaterialTextFieldCell.self, forCellReuseIdentifier: MaterialTextFieldCell.reuseIdentifier)
     }
@@ -108,6 +110,13 @@ final class NewListingViewController: UITableViewController {
             (cell as? MaterialTextViewCell)?.setPrimaryColor(to: .lightThemeColor)
             (cell as? MaterialTextViewCell)?.setSecondaryColor(to: .secondaryLabel)
             return cell
+            
+        case .picker:
+            let cell = tableView.dequeueReusableCell(withIdentifier: MaterialPickerCell.reuseIdentifier, for: indexPath)
+            (cell as? MaterialPickerCell)?.data = data.pickerValues ?? [:]
+            (cell as? MaterialPickerCell)?.subtext = data.subtitle
+            (cell as? MaterialPickerCell)?.setPrimaryColor(to: .secondaryLabel)
+            return cell
         }
         
     }
@@ -135,13 +144,31 @@ extension NewListingViewController {
     enum FieldType {
         case textfield
         case textView
+        case picker
     }
     
     struct Form {
-        let title: String
+        let title: String?
         let subtitle: String?
-        let placeholder: String
+        let placeholder: String?
+        let pickerValues: [String: [String]]?
         let fieldType: FieldType
+        
+        init(title: String, subtitle: String?, placeholder: String, fieldType: FieldType) {
+            self.title = title
+            self.subtitle = subtitle
+            self.placeholder = placeholder
+            self.fieldType = fieldType
+            self.pickerValues = nil
+        }
+        
+        init(pickerValues: [String: [String]], subtitle: String?) {
+            self.title = nil
+            self.subtitle = subtitle
+            self.placeholder = nil
+            self.fieldType = .picker
+            self.pickerValues = pickerValues
+        }
     }
     
     var form: [Form] {
@@ -179,6 +206,16 @@ extension NewListingViewController {
                 subtitle: NSLocalizedString("LISTING_TAG_TEXT", comment: "Placeholder"),
                 placeholder: NSLocalizedString("LISTING_TAG_PLACEHOLDER", comment: "Placeholder"),
                 fieldType: .textfield
+            ),
+            
+            Form(
+                pickerValues: ["Select Condition:":conditions],
+                subtitle: NSLocalizedString("LISTING_CONDITION_PICKER_TEXT", comment: "General")
+            ),
+            
+            Form(
+                pickerValues: ["Select Categories:":categories],
+                subtitle: NSLocalizedString("LISTING_CATEGORY_PICKER_TEXT", comment: "General")
             ),
             
         ]

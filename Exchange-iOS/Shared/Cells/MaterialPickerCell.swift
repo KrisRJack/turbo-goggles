@@ -13,8 +13,10 @@ final class MaterialPickerCell: UITableViewCell {
         didSet { pickerView.reloadAllComponents() }
     }
     
-    private var primaryColor: UIColor = .black
-    private var secondaryColor: UIColor = .black
+    public var subtext: String? {
+        get { label.text }
+        set { label.text = newValue }
+    }
     
     private lazy var stackView: UIStackView = .build { stackView in
         stackView.spacing = 8
@@ -52,11 +54,8 @@ final class MaterialPickerCell: UITableViewCell {
     }
     
     public func setPrimaryColor(to color: UIColor) {
-        primaryColor = color
-    }
-    
-    public func setSecondaryColor(to color: UIColor) {
-        secondaryColor = color
+        label.textColor = color
+        pickerView.layer.borderColor = color.cgColor
     }
     
 }
@@ -86,17 +85,6 @@ extension MaterialPickerCell: UIPickerViewDelegate {
         let keyAtComponent: String = keys[component]
         guard row != 0 else { return keyAtComponent }
         return data[keyAtComponent]?[row - 1]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        var selectedRows: [Int] = []
-        for i in 0..<pickerView.numberOfComponents {
-            selectedRows.append(
-                pickerView.selectedRow(inComponent: i)
-            )
-        }
-        label.textColor = selectedRows.filter({ $0 == 0 }).isEmpty ? primaryColor : secondaryColor
-        pickerView.layer.borderColor = selectedRows.filter({ $0 == 0 }).isEmpty ? primaryColor.cgColor : secondaryColor.cgColor
     }
     
 }
