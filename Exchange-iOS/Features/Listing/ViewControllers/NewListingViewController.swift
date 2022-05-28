@@ -14,9 +14,28 @@ protocol NewListingNavigationDelegate {
 
 final class NewListingViewController: UITableViewController {
     
+    private let buttonHeight: CGFloat = 50
+    private lazy var toolBarHeight: CGFloat = buttonHeight + 40
+    
     var images: ReferenceArray<ListingImage>
     let listingPhotosViewController: ListingPhotosViewController
     var navigationDelegate: NewListingNavigationDelegate?
+    
+    private lazy var toolBar: UIToolbar = .build { toolBar in
+        toolBar.isTranslucent = false
+        toolBar.backgroundColor = .systemBackground
+        toolBar.setItems([UIBarButtonItem(customView: self.postButton)], animated: true)
+    }
+    
+    private let postButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.cornerRadius(6)
+        button.backgroundColor = .buttonThemeColor
+        button.setTitleColor(.darkThemeColor, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .black)
+        button.setTitle(NSLocalizedString("POST", comment: "Button"), for: .normal)
+        return button
+    }()
     
     init(images imageData: ReferenceArray<ListingImage>) {
         images = imageData
@@ -32,13 +51,13 @@ final class NewListingViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationBar()
+        configureTableView()
+        configurePostButton()
         configureTableViewHeader()
-        tableView.allowsSelection = false
-        tableView.separatorStyle = .none
-        tableView.keyboardDismissMode = .onDrag
-        tableView.register(MaterialPickerCell.self, forCellReuseIdentifier: MaterialPickerCell.reuseIdentifier)
-        tableView.register(MaterialTextViewCell.self, forCellReuseIdentifier: MaterialTextViewCell.reuseIdentifier)
-        tableView.register(MaterialTextFieldCell.self, forCellReuseIdentifier: MaterialTextFieldCell.reuseIdentifier)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,9 +84,23 @@ final class NewListingViewController: UITableViewController {
         }
     }
     
+    @objc private func keyboardWillAppear(notification: Notification) {
+        tableView.contentInset.bottom = .zero
+    }
+    
+    @objc private func keyboardWillDisappear() {
+        tableView.contentInset.bottom = toolBarHeight + 8
+    }
+    
     private func setUpNavigationBar() {
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
+        navigationItem.rightBarButtonItem = .init(
+            title: "Post",
+            style: .done,
+            target: self,
+            action: nil
+        )
         navigationItem.backBarButtonItem = backItem
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barStyle = .default
@@ -78,9 +111,31 @@ final class NewListingViewController: UITableViewController {
     private func configureTableViewHeader() {
         tableView.tableHeaderView = UIView()
         tableView.tableHeaderView?.addSubviews(listingPhotosViewController.view)
-        tableView.tableHeaderView?.frame.size.height = 244
+        tableView.tableHeaderView?.frame.size.height = 250
         addChild(listingPhotosViewController)
         listingPhotosViewController.didMove(toParent: self)
+    }
+    
+    private func configurePostButton() {
+        view.addSubviews(toolBar)
+        NSLayoutConstraint.activate([
+            toolBar.heightAnchor.constraint(equalToConstant: toolBarHeight),
+            postButton.heightAnchor.constraint(equalToConstant: buttonHeight),
+            toolBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            toolBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            toolBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+        ])
+    }
+    
+    private func configureTableView() {
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
+        tableView.keyboardDismissMode = .onDrag
+        tableView.showsVerticalScrollIndicator = false
+        tableView.contentInset.bottom = toolBarHeight + 8
+        tableView.register(MaterialPickerCell.self, forCellReuseIdentifier: MaterialPickerCell.reuseIdentifier)
+        tableView.register(MaterialTextViewCell.self, forCellReuseIdentifier: MaterialTextViewCell.reuseIdentifier)
+        tableView.register(MaterialTextFieldCell.self, forCellReuseIdentifier: MaterialTextFieldCell.reuseIdentifier)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

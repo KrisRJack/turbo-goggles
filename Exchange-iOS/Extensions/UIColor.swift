@@ -27,6 +27,12 @@ extension UIColor {
         }
     }
     
+    static var buttonThemeColor: UIColor {
+        get {
+            return UIColor(rgba: 0xEF445626)
+        }
+    }
+    
     static var likeButtonColor: UIColor {
         get {
             return .lightThemeColor

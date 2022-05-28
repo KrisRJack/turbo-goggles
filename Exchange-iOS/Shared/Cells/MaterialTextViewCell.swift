@@ -49,7 +49,6 @@ final class MaterialTextViewCell: UITableViewCell {
          stackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
          stackView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
          stackView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
-         label.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: -24)
         ].activate()
     }
     

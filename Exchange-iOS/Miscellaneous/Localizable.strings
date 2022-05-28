@@ -114,6 +114,8 @@
 
  *********************/
 
+"POST" = "Post";
+
 "DONE" = "Done";
 
 "GET_STARTED" = "Get Started";
