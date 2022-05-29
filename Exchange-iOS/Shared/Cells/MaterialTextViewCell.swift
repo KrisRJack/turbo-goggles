@@ -25,6 +25,10 @@ final class MaterialTextViewCell: UITableViewCell {
         set { label.text = newValue }
     }
     
+    public var text: String? {
+        return materialTextView.textView.text
+    }
+    
     private lazy var stackView: UIStackView = .build { stackView in
         stackView.spacing = 8
         stackView.axis = .vertical

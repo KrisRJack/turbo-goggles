@@ -17,9 +17,9 @@ final class NewListingViewController: UITableViewController {
     private let buttonHeight: CGFloat = 50
     private lazy var toolBarHeight: CGFloat = buttonHeight + 40
     
-    var images: ReferenceArray<ListingImage>
-    let listingPhotosViewController: ListingPhotosViewController
+    let viewModel: NewListingViewModel
     var navigationDelegate: NewListingNavigationDelegate?
+    let listingPhotosViewController: ListingPhotosViewController
     
     private lazy var toolBar: UIToolbar = .build { toolBar in
         toolBar.isTranslucent = false
@@ -27,21 +27,26 @@ final class NewListingViewController: UITableViewController {
         toolBar.setItems([UIBarButtonItem(customView: self.postButton)], animated: true)
     }
     
-    private let postButton: UIButton = {
+    private lazy var postButton: UIButton = {
         let button = UIButton(type: .system)
         button.cornerRadius(6)
         button.backgroundColor = .buttonThemeColor
         button.setTitleColor(.darkThemeColor, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .black)
         button.setTitle(NSLocalizedString("POST", comment: "Button"), for: .normal)
+        button.addTarget(self, action: #selector(postButtonPressed), for: .touchUpInside)
         return button
     }()
     
     init(images imageData: ReferenceArray<ListingImage>) {
-        images = imageData
+        viewModel = NewListingViewModel(images: imageData)
         listingPhotosViewController = ListingPhotosViewController(images: imageData)
         super.init(nibName: nil, bundle: nil)
         listingPhotosViewController.delegate = self
+        viewModel.shouldEditImages = { [weak self] indexPath, images in
+            guard let self = self else { return }
+            self.navigationDelegate?.goToEditImage(from: self, at: indexPath, with: images)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -54,10 +59,7 @@ final class NewListingViewController: UITableViewController {
         configureTableView()
         configurePostButton()
         configureTableViewHeader()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear),
-                                               name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear),
-                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+        configureKeyboardObservers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +86,11 @@ final class NewListingViewController: UITableViewController {
         }
     }
     
-    @objc private func keyboardWillAppear(notification: Notification) {
+    @objc private func postButtonPressed() {
+        viewModel.postButtonPressed()
+    }
+    
+    @objc private func keyboardWillAppear() {
         tableView.contentInset.bottom = .zero
     }
     
@@ -92,16 +98,23 @@ final class NewListingViewController: UITableViewController {
         tableView.contentInset.bottom = toolBarHeight + 8
     }
     
-    private func setUpNavigationBar() {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Back"
-        navigationItem.rightBarButtonItem = .init(
-            title: "Post",
-            style: .done,
-            target: self,
-            action: nil
+    private func configureKeyboardObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillAppear),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
         )
-        navigationItem.backBarButtonItem = backItem
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillDisappear),
+            name: UIResponder.keyboardWillHideNotification, object: nil
+        )
+    }
+    
+    private func setUpNavigationBar() {
+        navigationItem.backBarButtonItem = UIBarButtonItem()
+        navigationItem.backBarButtonItem?.title = "Back"
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.tintColor = .darkThemeColor
@@ -138,41 +151,91 @@ final class NewListingViewController: UITableViewController {
         tableView.register(MaterialTextFieldCell.self, forCellReuseIdentifier: MaterialTextFieldCell.reuseIdentifier)
     }
     
+    private func setUp(pickerCell cell: UITableViewCell, with data: Form) {
+        (cell as? MaterialPickerCell)?.data = data.pickerValues ?? [:]
+        (cell as? MaterialPickerCell)?.subtext = data.subtitle
+        (cell as? MaterialPickerCell)?.setPrimaryColor(to: .secondaryLabel)
+    }
+    
+    private func setUp(textFieldCell cell: UITableViewCell, with data: Form) {
+        (cell as? MaterialTextFieldCell)?.title = data.title
+        (cell as? MaterialTextFieldCell)?.placeholder = data.placeholder
+        (cell as? MaterialTextFieldCell)?.subtext = data.subtitle
+        (cell as? MaterialTextFieldCell)?.setTextColor(to: .label)
+        (cell as? MaterialTextFieldCell)?.setPrimaryColor(to: .lightThemeColor)
+        (cell as? MaterialTextFieldCell)?.setSecondaryColor(to: .secondaryLabel)
+    }
+    
+    private func setUp(textViewCell cell: UITableViewCell, with data: Form) {
+        (cell as? MaterialTextViewCell)?.title = data.title
+        (cell as? MaterialTextViewCell)?.placeholder = data.placeholder
+        (cell as? MaterialTextViewCell)?.subtext = data.subtitle
+        (cell as? MaterialTextViewCell)?.setTextColor(to: .label)
+        (cell as? MaterialTextViewCell)?.setPrimaryColor(to: .lightThemeColor)
+        (cell as? MaterialTextViewCell)?.setSecondaryColor(to: .secondaryLabel)
+    }
+    
+    public func addObserversToViewModel(for cell: UITableViewCell, fieldType: FieldType) {
+        switch fieldType {
+        case .title:
+            viewModel.inputListener.title = {
+                (cell as? MaterialTextFieldCell)?.text
+            }
+        case .price:
+            viewModel.inputListener.price = {
+                (cell as? MaterialTextFieldCell)?.text
+            }
+        case .description:
+            viewModel.inputListener.description = {
+                (cell as? MaterialTextViewCell)?.text
+            }
+        case .size:
+            viewModel.inputListener.size = {
+                (cell as? MaterialTextFieldCell)?.text
+            }
+        case .tags:
+            viewModel.inputListener.tags = {
+                (cell as? MaterialTextFieldCell)?.text
+            }
+        case .condition:
+            viewModel.inputListener.condition = {
+                (cell as? MaterialPickerCell)?.selectedTextInComponent[0]
+            }
+        case .categories:
+            viewModel.inputListener.category = {
+                (cell as? MaterialPickerCell)?.selectedTextInComponent[0]
+            }
+        }
+    }
+    
+}
+
+// MARK: - UITableViewDataSource
+
+extension NewListingViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return form.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: UITableViewCell!
         let data = form[indexPath.row]
         
-        switch data.fieldType {
+        switch data.inputType {
         case .textfield:
-            let cell = tableView.dequeueReusableCell(withIdentifier: MaterialTextFieldCell.reuseIdentifier, for: indexPath)
-            (cell as? MaterialTextFieldCell)?.title = data.title
-            (cell as? MaterialTextFieldCell)?.placeholder = data.placeholder
-            (cell as? MaterialTextFieldCell)?.subtext = data.subtitle
-            (cell as? MaterialTextFieldCell)?.setTextColor(to: .label)
-            (cell as? MaterialTextFieldCell)?.setPrimaryColor(to: .lightThemeColor)
-            (cell as? MaterialTextFieldCell)?.setSecondaryColor(to: .secondaryLabel)
-            return cell
-            
+            cell = tableView.dequeueReusableCell(withIdentifier: MaterialTextFieldCell.reuseIdentifier, for: indexPath)
+            setUp(textFieldCell: cell, with: data)
         case .textView:
-            let cell = tableView.dequeueReusableCell(withIdentifier: MaterialTextViewCell.reuseIdentifier, for: indexPath)
-            (cell as? MaterialTextViewCell)?.title = data.title
-            (cell as? MaterialTextViewCell)?.placeholder = data.placeholder
-            (cell as? MaterialTextViewCell)?.subtext = data.subtitle
-            (cell as? MaterialTextViewCell)?.setTextColor(to: .label)
-            (cell as? MaterialTextViewCell)?.setPrimaryColor(to: .lightThemeColor)
-            (cell as? MaterialTextViewCell)?.setSecondaryColor(to: .secondaryLabel)
-            return cell
-            
+            cell = tableView.dequeueReusableCell(withIdentifier: MaterialTextViewCell.reuseIdentifier, for: indexPath)
+            setUp(textViewCell: cell, with: data)
         case .picker:
-            let cell = tableView.dequeueReusableCell(withIdentifier: MaterialPickerCell.reuseIdentifier, for: indexPath)
-            (cell as? MaterialPickerCell)?.data = data.pickerValues ?? [:]
-            (cell as? MaterialPickerCell)?.subtext = data.subtitle
-            (cell as? MaterialPickerCell)?.setPrimaryColor(to: .secondaryLabel)
-            return cell
+            cell = tableView.dequeueReusableCell(withIdentifier: MaterialPickerCell.reuseIdentifier, for: indexPath)
+            setUp(pickerCell: cell, with: data)
         }
+        
+        addObserversToViewModel(for: cell, fieldType: data.fieldType)
+        return cell
         
     }
     
@@ -187,7 +250,7 @@ extension NewListingViewController: ListingPhotosDelegate {
     }
     
     func shouldEditImage(at indexPath: IndexPath) {
-        navigationDelegate?.goToEditImage(from: self, at: indexPath, with: images)
+        viewModel.shouldEditImage(at: indexPath)
     }
     
 }
@@ -197,6 +260,16 @@ extension NewListingViewController: ListingPhotosDelegate {
 extension NewListingViewController {
     
     enum FieldType {
+        case title
+        case price
+        case description
+        case size
+        case tags
+        case condition
+        case categories
+    }
+    
+    enum InputType {
         case textfield
         case textView
         case picker
@@ -207,22 +280,25 @@ extension NewListingViewController {
         let subtitle: String?
         let placeholder: String?
         let pickerValues: [String: [String]]?
+        let inputType: InputType
         let fieldType: FieldType
         
-        init(title: String, subtitle: String?, placeholder: String, fieldType: FieldType) {
+        init(title: String, subtitle: String?, placeholder: String, inputType: InputType, fieldType: FieldType) {
             self.title = title
             self.subtitle = subtitle
             self.placeholder = placeholder
-            self.fieldType = fieldType
+            self.inputType = inputType
             self.pickerValues = nil
+            self.fieldType = fieldType
         }
         
-        init(pickerValues: [String: [String]], subtitle: String?) {
+        init(pickerValues: [String: [String]], subtitle: String?, fieldType: FieldType) {
             self.title = nil
             self.subtitle = subtitle
             self.placeholder = nil
-            self.fieldType = .picker
+            self.inputType = .picker
             self.pickerValues = pickerValues
+            self.fieldType = fieldType
         }
     }
     
@@ -232,45 +308,52 @@ extension NewListingViewController {
                 title: NSLocalizedString("LISTING_TITLE_HEADER", comment: "Header"),
                 subtitle: nil,
                 placeholder: NSLocalizedString("LISTING_TITLE_PLACEHOLDER", comment: "Placeholder"),
-                fieldType: .textfield
+                inputType: .textfield,
+                fieldType: .title
             ),
             
             Form(
                 title: NSLocalizedString("LISTING_PRICE_HEADER", comment: "Header"),
                 subtitle: nil,
                 placeholder: NSLocalizedString("LISTING_PRICE_PLACEHOLDER", comment: "Placeholder"),
-                fieldType: .textfield
+                inputType: .textfield,
+                fieldType: .price
             ),
             
             Form(
                 title: NSLocalizedString("LISTING_DESCRIPTION_HEADER", comment: "Header"),
                 subtitle: NSLocalizedString("LISTING_DESCRIPTION_TEXT", comment: "General"),
                 placeholder: NSLocalizedString("LISTING_DESCRIPTION_PLACEHOLDER", comment: "Placeholder"),
-                fieldType: .textView
+                inputType: .textView,
+                fieldType: .description
             ),
             
             Form(
                 title: NSLocalizedString("LISTING_SIZE_HEADER", comment: "Header"),
                 subtitle: NSLocalizedString("LISTING_SIZE_TEXT", comment: "Placeholder"),
                 placeholder: NSLocalizedString("LISTING_SIZE_PLACEHOLDER", comment: "Placeholder"),
-                fieldType: .textfield
+                inputType: .textfield,
+                fieldType: .size
             ),
             
             Form(
                 title: NSLocalizedString("LISTING_TAG_HEADER", comment: "Header"),
                 subtitle: NSLocalizedString("LISTING_TAG_TEXT", comment: "Placeholder"),
                 placeholder: NSLocalizedString("LISTING_TAG_PLACEHOLDER", comment: "Placeholder"),
-                fieldType: .textfield
+                inputType: .textfield,
+                fieldType: .tags
             ),
             
             Form(
                 pickerValues: ["Select Condition:":conditions],
-                subtitle: NSLocalizedString("LISTING_CONDITION_PICKER_TEXT", comment: "General")
+                subtitle: NSLocalizedString("LISTING_CONDITION_PICKER_TEXT", comment: "General"),
+                fieldType: .condition
             ),
             
             Form(
                 pickerValues: ["Select Categories:":categories],
-                subtitle: NSLocalizedString("LISTING_CATEGORY_PICKER_TEXT", comment: "General")
+                subtitle: NSLocalizedString("LISTING_CATEGORY_PICKER_TEXT", comment: "General"),
+                fieldType: .categories
             ),
             
         ]

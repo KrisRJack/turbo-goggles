@@ -18,6 +18,21 @@ final class MaterialPickerCell: UITableViewCell {
         set { label.text = newValue }
     }
     
+    public var selectedTextInComponent: [String?] {
+        var output: [String?] = []
+        for component in 0..<pickerView.numberOfComponents {
+            let selectedRow = pickerView.selectedRow(inComponent: component)
+            if selectedRow == .zero {
+                output.append(nil)
+            } else {
+                let pickerValues = value(for: key(in: component))
+                let value = pickerValues?[selectedRow - 1]
+                output.append(value)
+            }
+        }
+        return output
+    }
+    
     private lazy var stackView: UIStackView = .build { stackView in
         stackView.spacing = 8
         stackView.axis = .vertical
@@ -58,6 +73,14 @@ final class MaterialPickerCell: UITableViewCell {
         pickerView.layer.borderColor = color.cgColor
     }
     
+    private func key(in component: Int) -> String {
+        return Array(data.keys)[component]
+    }
+    
+    private func value(for key: String) -> [String]? {
+        return data[key]
+    }
+    
 }
 
 // MARK: - UIPickerViewDataSource
@@ -69,9 +92,8 @@ extension MaterialPickerCell: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        let keys: [String] = Array(data.keys)
-        let keyAtComponent: String = keys[component]
-        return data[keyAtComponent]?.count ?? 0
+        let pickerValues = value(for: key(in: component))
+        return pickerValues?.count ?? 0
     }
     
 }
@@ -81,10 +103,9 @@ extension MaterialPickerCell: UIPickerViewDataSource {
 extension MaterialPickerCell: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let keys: [String] = Array(data.keys)
-        let keyAtComponent: String = keys[component]
+        let keyAtComponent: String = key(in: component)
         guard row != 0 else { return keyAtComponent }
-        return data[keyAtComponent]?[row - 1]
+        return value(for: keyAtComponent)?[row - 1]
     }
     
 }

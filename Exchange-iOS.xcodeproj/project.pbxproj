@@ -81,6 +81,7 @@
 		1876F8B42841235D001811F7 /* MaterialPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8B32841235D001811F7 /* MaterialPickerCell.swift */; };
 		1876F8B8284132B9001811F7 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8B7284132B9001811F7 /* Categories.swift */; };
 		1876F8BA284132D0001811F7 /* Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8B9284132D0001811F7 /* Conditions.swift */; };
+		1876F8BC28424F46001811F7 /* NewListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8BB28424F46001811F7 /* NewListingViewModel.swift */; };
 		1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E929280D9B4D00FCFE7E /* AppDelegate.swift */; };
 		1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */; };
 		1895E933280D9B4E00FCFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895E932280D9B4E00FCFE7E /* Assets.xcassets */; };
@@ -184,6 +185,7 @@
 		1876F8B32841235D001811F7 /* MaterialPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialPickerCell.swift; sourceTree = "<group>"; };
 		1876F8B7284132B9001811F7 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		1876F8B9284132D0001811F7 /* Conditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conditions.swift; sourceTree = "<group>"; };
+		1876F8BB28424F46001811F7 /* NewListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListingViewModel.swift; sourceTree = "<group>"; };
 		1895E926280D9B4D00FCFE7E /* Exchange-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exchange-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895E929280D9B4D00FCFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -610,6 +612,7 @@
 			children = (
 				1876F8AF283CE302001811F7 /* ListingEditImageViewModel.swift */,
 				1876F89F283A6C3E001811F7 /* ListingPhotosViewModel.swift */,
+				1876F8BB28424F46001811F7 /* NewListingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1025,6 +1028,7 @@
 				1876AFF52831207C001E89F4 /* AppViewModel.swift in Sources */,
 				185EBA53280DAAEE00DB2017 /* OpeningViewController.swift in Sources */,
 				180072C028325DE500731C17 /* ListingTabBarViewController.swift in Sources */,
+				1876F8BC28424F46001811F7 /* NewListingViewModel.swift in Sources */,
 				1876F8B2283E33DA001811F7 /* MaterialTextViewCell.swift in Sources */,
 				185EBA8A280DB01E00DB2017 /* UITableViewCell.swift in Sources */,
 				1876F8BA284132D0001811F7 /* Conditions.swift in Sources */,
