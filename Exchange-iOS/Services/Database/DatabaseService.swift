@@ -14,6 +14,7 @@ public final class DatabaseService {
         case users = "users"
         case usernames = "usernames"
         case channels = "channels"
+        case market = "market"
     }
 
     public static func collection(_ collectionPath: CollectionPath) -> CollectionReference {

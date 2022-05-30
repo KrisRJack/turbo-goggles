@@ -42,6 +42,7 @@ final class MaterialTextFieldCell: UITableViewCell {
     }
     
     private let materialTextField: MDCOutlinedTextField = .build { textField in
+        textField.tintColor = .darkThemeColor
         textField.preferredContainerHeight = 50
         textField.leadingAssistiveLabel.font = .systemFont(ofSize: 12)
     }

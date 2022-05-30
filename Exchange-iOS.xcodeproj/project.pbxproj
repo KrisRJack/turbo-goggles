@@ -82,6 +82,8 @@
 		1876F8B8284132B9001811F7 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8B7284132B9001811F7 /* Categories.swift */; };
 		1876F8BA284132D0001811F7 /* Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8B9284132D0001811F7 /* Conditions.swift */; };
 		1876F8BC28424F46001811F7 /* NewListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8BB28424F46001811F7 /* NewListingViewModel.swift */; };
+		1876F8BE2843F3E8001811F7 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8BD2843F3E8001811F7 /* Listing.swift */; };
+		1876F8C02844F20C001811F7 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8BF2844F20C001811F7 /* UIButton.swift */; };
 		1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E929280D9B4D00FCFE7E /* AppDelegate.swift */; };
 		1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */; };
 		1895E933280D9B4E00FCFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895E932280D9B4E00FCFE7E /* Assets.xcassets */; };
@@ -186,6 +188,8 @@
 		1876F8B7284132B9001811F7 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		1876F8B9284132D0001811F7 /* Conditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conditions.swift; sourceTree = "<group>"; };
 		1876F8BB28424F46001811F7 /* NewListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListingViewModel.swift; sourceTree = "<group>"; };
+		1876F8BD2843F3E8001811F7 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		1876F8BF2844F20C001811F7 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		1895E926280D9B4D00FCFE7E /* Exchange-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exchange-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895E929280D9B4D00FCFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -376,6 +380,7 @@
 				18724E502836BFDA00B666C4 /* Float.swift */,
 				185EBA72280DAF3300DB2017 /* NSLayoutConstraint.swift */,
 				1876AFE628307ED0001E89F4 /* String.swift */,
+				1876F8BF2844F20C001811F7 /* UIButton.swift */,
 				185EBA89280DB01E00DB2017 /* UICollectionViewCell.swift */,
 				185EBA73280DAF3300DB2017 /* UIColor.swift */,
 				185EBA76280DAF3300DB2017 /* UIFont.swift */,
@@ -521,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				183F28252814285C00F70501 /* AuthResult.swift */,
+				1876F8BD2843F3E8001811F7 /* Listing.swift */,
 				1876F8AD283C6BC0001811F7 /* ListingImage.swift */,
 				183F282D2814A77200F70501 /* Username.swift */,
 				185EBABA280E37AC00DB2017 /* UserStore.swift */,
@@ -1064,6 +1070,7 @@
 				18FF94072834F37C0003907B /* BlurButton.swift in Sources */,
 				180072AC2831EDB900731C17 /* UIViewController.swift in Sources */,
 				1876AFF1283116EB001E89F4 /* FeedViewController.swift in Sources */,
+				1876F8BE2843F3E8001811F7 /* Listing.swift in Sources */,
 				18CC2B752834151600E609CD /* CameraViewController.swift in Sources */,
 				1876F898283A569E001811F7 /* ReferenceArray.swift in Sources */,
 				1868B13C28116FF100ACA238 /* OnboardTableViewCell.swift in Sources */,
@@ -1096,6 +1103,7 @@
 				185EBAB0280DB59D00DB2017 /* DatabaseKeys.swift in Sources */,
 				185EBA7C280DAF3300DB2017 /* UIColor.swift in Sources */,
 				185EBA87280DAFED00DB2017 /* LoginTableViewCell.swift in Sources */,
+				1876F8C02844F20C001811F7 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

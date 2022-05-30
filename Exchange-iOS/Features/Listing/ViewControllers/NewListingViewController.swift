@@ -9,6 +9,7 @@ import UIKit
 
 protocol NewListingNavigationDelegate {
     func goToGetMedia(from viewController: NewListingViewController)
+    func presentError(from viewController: NewListingViewController, withMessage message: String)
     func goToEditImage(from viewController: NewListingViewController, at indexPath: IndexPath, with images: ReferenceArray<ListingImage>)
 }
 
@@ -46,6 +47,14 @@ final class NewListingViewController: UITableViewController {
         viewModel.shouldEditImages = { [weak self] indexPath, images in
             guard let self = self else { return }
             self.navigationDelegate?.goToEditImage(from: self, at: indexPath, with: images)
+        }
+        viewModel.error = { [weak self] error in
+            guard let self = self else { return }
+            self.navigationDelegate?.presentError(from: self, withMessage: error)
+            self.postButton.unlock()
+        }
+        viewModel.didCreateListing = {
+            print("Success 🎉!")
         }
     }
     
@@ -87,6 +96,7 @@ final class NewListingViewController: UITableViewController {
     }
     
     @objc private func postButtonPressed() {
+        postButton.lock()
         viewModel.postButtonPressed()
     }
     

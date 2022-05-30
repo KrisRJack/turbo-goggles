@@ -24,5 +24,22 @@ public struct DatabaseKeys {
         case updated = "updated"
         case username = "username"
     }
+    
+    enum Listing: String, CaseIterable {
+        case id = "id"
+        case userID = "userID"
+        case sold = "sold"
+        case header = "header"
+        case price = "price"
+        case size = "size"
+        case description = "description"
+        case condition = "condition"
+        case category = "category"
+        case tags = "tags"
+        case created = "created"
+        case item_id = "item_id"
+        case item_imageName = "item_imageName"
+        case item_description = "item_description"
+    }
 
 }

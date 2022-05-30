@@ -113,6 +113,10 @@ extension ListingCoordinator: ImagePreviewNavigationDelegate {
 
 extension ListingCoordinator: NewListingNavigationDelegate {
     
+    func presentError(from viewController: NewListingViewController, withMessage message: String) {
+        displayError(withMessage: message)
+    }
+    
     func goToGetMedia(from viewController: NewListingViewController) {
         navigationController?.popViewController(animated: true)
     }

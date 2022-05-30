@@ -9,6 +9,7 @@ import Foundation
 
 extension String {
     
+    static let jpegExtensionFormat = "jpeg"
     static let dateOfBirthFormat = "MMMM d, yyyy"
     static let validUsernameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-."
     

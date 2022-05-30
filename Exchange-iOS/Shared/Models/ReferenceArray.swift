@@ -21,6 +21,7 @@ open class ReferenceArray<T> {
     }
     
     public var count: Int { objects.count }
+    public var isEmpty: Bool { count == .zero }
     
     /// Observe changes to array
     public var didUpdate: ((_ oldArray: [T]) -> Void)?
@@ -48,6 +49,10 @@ open class ReferenceArray<T> {
     
     public func object(at index: Int) -> T {
         return objects[index]
+    }
+    
+    public func enumerated() -> EnumeratedSequence<[T]> {
+        return objects.enumerated()
     }
     
     // Useful if the object that you are storing is

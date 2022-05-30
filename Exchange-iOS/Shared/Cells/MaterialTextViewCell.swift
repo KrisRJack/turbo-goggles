@@ -25,7 +25,7 @@ final class MaterialTextViewCell: UITableViewCell {
         set { label.text = newValue }
     }
     
-    public var text: String? {
+    public var text: String {
         return materialTextView.textView.text
     }
     
@@ -42,6 +42,7 @@ final class MaterialTextViewCell: UITableViewCell {
     }
     
     public lazy var materialTextView: MDCOutlinedTextArea = .build { textView in
+        textView.tintColor = .darkThemeColor
         textView.preferredContainerHeight = 150
         textView.leadingAssistiveLabel.font = .systemFont(ofSize: 12)
     }
