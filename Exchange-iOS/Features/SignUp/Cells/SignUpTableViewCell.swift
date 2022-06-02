@@ -53,6 +53,7 @@ final class SignUpTableViewCell: UITableViewCell {
     
     let emailTextField: MDCOutlinedTextField = .build { textField in
         textField.backgroundColor = .clear
+        textField.autocorrectionType = .no
         textField.keyboardType = .emailAddress
         textField.autocapitalizationType = .none
         textField.textContentType = .emailAddress
@@ -64,6 +65,7 @@ final class SignUpTableViewCell: UITableViewCell {
         textField.backgroundColor = .clear
         textField.keyboardType = .default
         textField.isSecureTextEntry = true
+        textField.autocorrectionType = .no
         textField.textContentType = .password
         textField.label.text =  NSLocalizedString("PASSWORD_HEADER", comment: "Header")
         textField.placeholder = NSLocalizedString("NEW_PASSWORD_PLACEHOLDER", comment: "Placeholder")

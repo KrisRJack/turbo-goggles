@@ -54,6 +54,7 @@ final class LoginTableViewCell: UITableViewCell {
     
     private let emailTextField: MDCOutlinedTextField = .build { textField in
         textField.backgroundColor = .clear
+        textField.autocorrectionType = .no
         textField.keyboardType = .emailAddress
         textField.autocapitalizationType = .none
         textField.textContentType = .emailAddress
@@ -64,6 +65,7 @@ final class LoginTableViewCell: UITableViewCell {
     private let passwordTextField: MDCOutlinedTextField = .build { textField in
         textField.backgroundColor = .clear
         textField.keyboardType = .default
+        textField.autocorrectionType = .no
         textField.isSecureTextEntry = true
         textField.textContentType = .password
         textField.label.text =  NSLocalizedString("PASSWORD_HEADER", comment: "Header")
