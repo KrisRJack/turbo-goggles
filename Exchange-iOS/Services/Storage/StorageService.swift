@@ -11,6 +11,7 @@ public final class StorageService {
     
     public enum StoragePath: String {
         case users = "users"
+        case market = "market"
     }
 
     public static func reference(_ path: StoragePath) -> StorageReference {

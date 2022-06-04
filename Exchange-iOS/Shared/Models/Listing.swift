@@ -9,7 +9,7 @@ import Foundation
 
 struct Listing {
     
-    struct Item {
+    struct ImageMetadata {
         var id: String
         var description: String?
         var imageName: String { "\(id).\(String.jpegExtensionFormat)" }
@@ -26,7 +26,7 @@ struct Listing {
     let condition: String?
     let category: String?
     let tags: [String]?
-    let items: [Item]
+    let metadata: [ImageMetadata]
     
     var toDictionary: [String: Any] {
         get {
@@ -42,9 +42,9 @@ struct Listing {
                 DatabaseKeys.Listing.condition.rawValue: condition ?? NSNull(),
                 DatabaseKeys.Listing.category.rawValue: category ?? NSNull(),
                 DatabaseKeys.Listing.tags.rawValue: tags ?? NSNull(),
-                DatabaseKeys.Listing.item_id.rawValue: items.map({ $0.id }),
-                DatabaseKeys.Listing.item_imageName.rawValue: items.map({ $0.id }),
-                DatabaseKeys.Listing.item_description.rawValue: items.map({ $0.description }),
+                DatabaseKeys.Listing.item_id.rawValue: metadata.map({ $0.id }),
+                DatabaseKeys.Listing.item_imageName.rawValue: metadata.map({ $0.id }),
+                DatabaseKeys.Listing.item_description.rawValue: metadata.map({ $0.description }),
             ]
         }
     }

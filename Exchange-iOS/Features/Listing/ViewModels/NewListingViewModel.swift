@@ -56,10 +56,10 @@ final class NewListingViewModel {
         
         let reference = DatabaseService.collection(.market).document()
         
-        var items: [Listing.Item] = []
-        images.enumerated().forEach { (index, item) in
-            let item = Listing.Item(id: "\(reference.documentID)_\(index)", description: item.description)
-            items.append(item)
+        var allImageMetadata: [Listing.ImageMetadata] = []
+        images.enumerated().forEach { (index, image) in
+            let metadata = Listing.ImageMetadata(id: "\(reference.documentID)_\(index)", description: image.description)
+            allImageMetadata.append(metadata)
         }
         
         let listing = Listing(
@@ -73,12 +73,8 @@ final class NewListingViewModel {
             condition: formatOptionalString(inputListener.condition?()),
             category: formatOptionalString(inputListener.category?()),
             tags: formatTags(string: formatOptionalString(inputListener.tags?())),
-            items: items
+            metadata: allImageMetadata
         )
-        
-        
-        // TODO: Save images to Firebase Storage
-        
         
         let userReference = DatabaseService.collection(.users).document(user.uid)
         let userListingsReference = userReference.collection(.market)
@@ -98,6 +94,8 @@ final class NewListingViewModel {
                     return
                 }
                 
+                // TODO: Error when uploading images is NOT handled. Currently if images fail to upload, we have a post with no images.
+                self.uploadAllImagesToStorage(metadata: allImageMetadata)
                 self.didCreateListing?()
             }
         }
@@ -118,6 +116,58 @@ final class NewListingViewModel {
     private func formatOptionalString(_ string: String?) -> String? {
         guard let string = string?.trimmingCharacters(in: .whitespacesAndNewlines), !string.isEmpty else { return nil }
         return string
+    }
+    
+    // Theres a chance that more images will be allowed in the future. Uploading large
+    // files from disk is recommended by Firebase, rather than uploading the images directly
+    //
+    // TODO: Verify that this is actually temporary. If not, remove images when upload completes or interrupted.
+    // TODO: This is probably best to do immediatley when capturing from camera or photo library so not hogging memory
+    private func temporarilySaveImagesToDisk(metadata: [Listing.ImageMetadata]) throws -> [URL] {
+        var urls: [URL] = []
+        if let documentDirectory = NSSearchPathForDirectoriesInDomains(.picturesDirectory, .userDomainMask, true).first {
+            for (index, image) in images.enumerated() {
+                let imageName = metadata[index].imageName
+                let localPath = "\(documentDirectory)/\(imageName)"
+                let url = URL(fileURLWithPath: localPath)
+                try image.imageData.write(to: url)
+                urls.append(url)
+            }
+        }
+        return urls
+    }
+    
+    // TODO: Set stronger rules in Firebase Storage
+    private func uploadImageToStorage(fromUrl url: URL, withName name: String, _ completion: @escaping (_ error: Error?) -> Void) {
+        let storageReference = StorageService.reference(.market)
+        let imageReference = storageReference.child(name)
+        imageReference.putFile(from: url, metadata: nil) { _, error in
+            completion(error)
+        }
+    }
+    
+    private func uploadAllImagesToStorage(metadata: [Listing.ImageMetadata]) {
+        do {
+            let urls = try temporarilySaveImagesToDisk(metadata: metadata)
+            for (index, url) in urls.enumerated() {
+                uploadImageToStorage(fromUrl: url, withName: metadata[index].imageName) { error in
+                    guard let error = error else { return }
+                    self.removeAllFromStorage(metadata: metadata)
+                    self.error?(error.localizedDescription)
+                    return
+                }
+            }
+        } catch {
+            self.error?(error.localizedDescription)
+        }
+    }
+    
+    private func removeAllFromStorage(metadata: [Listing.ImageMetadata]) {
+        let storageReference = StorageService.reference(.market)
+        metadata.forEach { data in
+            let itemReference = storageReference.child(data.imageName)
+            itemReference.delete()
+        }
     }
     
 }
