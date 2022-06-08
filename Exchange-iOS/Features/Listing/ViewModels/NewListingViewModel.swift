@@ -125,7 +125,7 @@ final class NewListingViewModel {
     // TODO: This is probably best to do immediatley when capturing from camera or photo library so not hogging memory
     private func temporarilySaveImagesToDisk(metadata: [Listing.ImageMetadata]) throws -> [URL] {
         var urls: [URL] = []
-        if let documentDirectory = NSSearchPathForDirectoriesInDomains(.picturesDirectory, .userDomainMask, true).first {
+        if let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
             for (index, image) in images.enumerated() {
                 let imageName = metadata[index].imageName
                 let localPath = "\(documentDirectory)/\(imageName)"
