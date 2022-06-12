@@ -17,6 +17,9 @@
 		183F282C28144FDC00F70501 /* UsernameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282B28144FDC00F70501 /* UsernameService.swift */; };
 		183F282E2814A77200F70501 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282D2814A77200F70501 /* Username.swift */; };
 		183F28302814B1F200F70501 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183F282F2814B1F200F70501 /* GoogleService-Info.plist */; };
+		18566DDB2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DDA2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift */; };
+		18566DDE2855FB1E00F1ADC0 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DDD2855FB1E00F1ADC0 /* ImageViewCell.swift */; };
+		18566DE028563FC300F1ADC0 /* MultipleImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DDF28563FC300F1ADC0 /* MultipleImageViewCell.swift */; };
 		185EBA53280DAAEE00DB2017 /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBA52280DAAEE00DB2017 /* OpeningViewController.swift */; };
 		185EBA56280DABB100DB2017 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 185EBA55280DABB100DB2017 /* FirebaseAnalytics */; };
 		185EBA58280DABB100DB2017 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 185EBA57280DABB100DB2017 /* FirebaseAuth */; };
@@ -133,6 +136,9 @@
 		183F282B28144FDC00F70501 /* UsernameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameService.swift; sourceTree = "<group>"; };
 		183F282D2814A77200F70501 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
 		183F282F2814B1F200F70501 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18566DDA2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareImagePreviewViewController.swift; sourceTree = "<group>"; };
+		18566DDD2855FB1E00F1ADC0 /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
+		18566DDF28563FC300F1ADC0 /* MultipleImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImageViewCell.swift; sourceTree = "<group>"; };
 		185EBA52280DAAEE00DB2017 /* OpeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
 		185EBA6A280DADDD00DB2017 /* AuthCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoodinator.swift; sourceTree = "<group>"; };
 		185EBA71280DAF3300DB2017 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -333,6 +339,13 @@
 				183F282B28144FDC00F70501 /* UsernameService.swift */,
 			);
 			path = Username;
+			sourceTree = "<group>";
+		};
+		18566DDC2855FAAE00F1ADC0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		185EBA4C280DAA1A00DB2017 /* PropertyLists */ = {
@@ -583,9 +596,11 @@
 		1876AFE328306362001E89F4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				18566DDD2855FB1E00F1ADC0 /* ImageViewCell.swift */,
 				1876AFE428306384001E89F4 /* MaterialTextFieldCell.swift */,
 				1876F8B32841235D001811F7 /* MaterialPickerCell.swift */,
 				1876F8B1283E33DA001811F7 /* MaterialTextViewCell.swift */,
+				18566DDF28563FC300F1ADC0 /* MultipleImageViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -593,6 +608,7 @@
 		1876AFEE283116D7001E89F4 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				18566DDC2855FAAE00F1ADC0 /* Cells */,
 				1876AFEF283116DE001E89F4 /* ViewControllers */,
 			);
 			path = Feed;
@@ -602,6 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				1876AFF0283116EB001E89F4 /* FeedViewController.swift */,
+				18566DDA2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1051,9 +1068,11 @@
 				1876AFED2831163F001E89F4 /* HomeTabBarController.swift in Sources */,
 				1876F89B283A6801001811F7 /* ListingPhotosViewController.swift in Sources */,
 				1876F8B42841235D001811F7 /* MaterialPickerCell.swift in Sources */,
+				18566DE028563FC300F1ADC0 /* MultipleImageViewCell.swift in Sources */,
 				183F282C28144FDC00F70501 /* UsernameService.swift in Sources */,
 				1876F8A8283B0FFB001811F7 /* EditImageCell.swift in Sources */,
 				185EBAAE280DB57300DB2017 /* DatabaseKeyType.swift in Sources */,
+				18566DDB2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift in Sources */,
 				185EBA7B280DAF3300DB2017 /* NSLayoutConstraint.swift in Sources */,
 				1876AFF7283129AB001E89F4 /* HomeCoodinator.swift in Sources */,
 				1868B13F2811701000ACA238 /* OnboardViewModel.swift in Sources */,
@@ -1096,6 +1115,7 @@
 				1876F8B8284132B9001811F7 /* Categories.swift in Sources */,
 				1876F8902838FF3A001811F7 /* NewListingViewController.swift in Sources */,
 				183F28262814285C00F70501 /* AuthResult.swift in Sources */,
+				18566DDE2855FB1E00F1ADC0 /* ImageViewCell.swift in Sources */,
 				180072B628324C8600731C17 /* ForgotPasswordViewModel.swift in Sources */,
 				1876F8A6283B0870001811F7 /* ListingEditImageViewController.swift in Sources */,
 				18724E5328372B2000B666C4 /* ImagePreviewViewController.swift in Sources */,

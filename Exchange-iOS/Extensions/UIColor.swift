@@ -63,6 +63,12 @@ extension UIColor {
         }
     }
     
+    static var transparentImageLabel: UIColor {
+        get {
+            return UIColor(rgba: 0x00000026)
+        }
+    }
+    
     // MARK: - init(rgb: )
     
     public convenience init(rgb: Int) {
@@ -75,6 +81,7 @@ extension UIColor {
     }
     
     // MARK: - init(rgba: )
+    // Hexadecimal color code for transparency: https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
     
     public convenience init(rgba: UInt64) {
         self.init(
