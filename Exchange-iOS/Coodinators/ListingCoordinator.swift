@@ -113,6 +113,10 @@ extension ListingCoordinator: ImagePreviewNavigationDelegate {
 
 extension ListingCoordinator: NewListingNavigationDelegate {
     
+    func dismiss(from viewController: NewListingViewController) {
+        self.navigationDelegate?.didFinish(from: self)
+    }
+    
     func presentError(from viewController: NewListingViewController, withMessage message: String) {
         displayError(withMessage: message)
     }
