@@ -20,6 +20,8 @@
 		18566DDB2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DDA2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift */; };
 		18566DDE2855FB1E00F1ADC0 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DDD2855FB1E00F1ADC0 /* ImageViewCell.swift */; };
 		18566DE028563FC300F1ADC0 /* MultipleImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DDF28563FC300F1ADC0 /* MultipleImageViewCell.swift */; };
+		18566DE228568DA400F1ADC0 /* EngagementBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DE128568DA400F1ADC0 /* EngagementBar.swift */; };
+		18566DE42856938900F1ADC0 /* ListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DE32856938900F1ADC0 /* ListingTableViewCell.swift */; };
 		185EBA53280DAAEE00DB2017 /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBA52280DAAEE00DB2017 /* OpeningViewController.swift */; };
 		185EBA56280DABB100DB2017 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 185EBA55280DABB100DB2017 /* FirebaseAnalytics */; };
 		185EBA58280DABB100DB2017 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 185EBA57280DABB100DB2017 /* FirebaseAuth */; };
@@ -139,6 +141,8 @@
 		18566DDA2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareImagePreviewViewController.swift; sourceTree = "<group>"; };
 		18566DDD2855FB1E00F1ADC0 /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
 		18566DDF28563FC300F1ADC0 /* MultipleImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImageViewCell.swift; sourceTree = "<group>"; };
+		18566DE128568DA400F1ADC0 /* EngagementBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngagementBar.swift; sourceTree = "<group>"; };
+		18566DE32856938900F1ADC0 /* ListingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingTableViewCell.swift; sourceTree = "<group>"; };
 		185EBA52280DAAEE00DB2017 /* OpeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
 		185EBA6A280DADDD00DB2017 /* AuthCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoodinator.swift; sourceTree = "<group>"; };
 		185EBA71280DAF3300DB2017 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 		18566DDC2855FAAE00F1ADC0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				18566DE32856938900F1ADC0 /* ListingTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -752,6 +757,7 @@
 			children = (
 				18FF94062834F37C0003907B /* BlurButton.swift */,
 				18FF94092834F4070003907B /* BlurView.swift */,
+				18566DE128568DA400F1ADC0 /* EngagementBar.swift */,
 				18724E5628388E9100B666C4 /* LabelIconBlurButton.swift */,
 				1876F8A9283B127E001811F7 /* ScaledHeightImageView.swift */,
 				1876F8AB283B1E2F001811F7 /* TextView.swift */,
@@ -1072,6 +1078,7 @@
 				183F282C28144FDC00F70501 /* UsernameService.swift in Sources */,
 				1876F8A8283B0FFB001811F7 /* EditImageCell.swift in Sources */,
 				185EBAAE280DB57300DB2017 /* DatabaseKeyType.swift in Sources */,
+				18566DE42856938900F1ADC0 /* ListingTableViewCell.swift in Sources */,
 				18566DDB2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift in Sources */,
 				185EBA7B280DAF3300DB2017 /* NSLayoutConstraint.swift in Sources */,
 				1876AFF7283129AB001E89F4 /* HomeCoodinator.swift in Sources */,
@@ -1088,6 +1095,7 @@
 				185EBA98280DB17300DB2017 /* Window.swift in Sources */,
 				1876F8AC283B1E2F001811F7 /* TextView.swift in Sources */,
 				1876F8A0283A6C3E001811F7 /* ListingPhotosViewModel.swift in Sources */,
+				18566DE228568DA400F1ADC0 /* EngagementBar.swift in Sources */,
 				180072B12831EFBD00731C17 /* ForgotPasswordViewController.swift in Sources */,
 				18FF94072834F37C0003907B /* BlurButton.swift in Sources */,
 				180072AC2831EDB900731C17 /* UIViewController.swift in Sources */,
