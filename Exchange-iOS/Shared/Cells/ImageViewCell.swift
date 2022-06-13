@@ -12,7 +12,7 @@ open class ImageViewCell: UICollectionViewCell {
     public let imageView: UIImageView = .build { imageView in
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .secondarySystemBackground
+        imageView.backgroundColor = .systemGray4
     }
     
     public override init(frame: CGRect) {
