@@ -101,6 +101,8 @@
 		1895E95F280D9C5400FCFE7E /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95A280D9C5400FCFE7E /* background.jpg */; };
 		1895E960280D9C5400FCFE7E /* profile_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95B280D9C5400FCFE7E /* profile_2.jpg */; };
 		1895E961280D9C5400FCFE7E /* profile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95C280D9C5400FCFE7E /* profile.jpg */; };
+		18C39E7628573CE3004FCF9D /* ItemInfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E7528573CE3004FCF9D /* ItemInfoBanner.swift */; };
+		18C39E7828574102004FCF9D /* ItemInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E7728574102004FCF9D /* ItemInfoModel.swift */; };
 		18CC2B6A2833BDCB00E609CD /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B692833BDCB00E609CD /* UINavigationController.swift */; };
 		18CC2B752834151600E609CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B742834151600E609CD /* CameraViewController.swift */; };
 		18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */; };
@@ -217,6 +219,8 @@
 		1895E95A280D9C5400FCFE7E /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		1895E95B280D9C5400FCFE7E /* profile_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile_2.jpg; sourceTree = "<group>"; };
 		1895E95C280D9C5400FCFE7E /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
+		18C39E7528573CE3004FCF9D /* ItemInfoBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoBanner.swift; sourceTree = "<group>"; };
+		18C39E7728574102004FCF9D /* ItemInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoModel.swift; sourceTree = "<group>"; };
 		18CC2B692833BDCB00E609CD /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		18CC2B742834151600E609CD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCoordinator.swift; sourceTree = "<group>"; };
@@ -546,6 +550,7 @@
 			isa = PBXGroup;
 			children = (
 				183F28252814285C00F70501 /* AuthResult.swift */,
+				18C39E7728574102004FCF9D /* ItemInfoModel.swift */,
 				1876F8BD2843F3E8001811F7 /* Listing.swift */,
 				1876F8AD283C6BC0001811F7 /* ListingImage.swift */,
 				183F282D2814A77200F70501 /* Username.swift */,
@@ -759,6 +764,7 @@
 				18FF94092834F4070003907B /* BlurView.swift */,
 				18566DE128568DA400F1ADC0 /* EngagementBar.swift */,
 				18724E5628388E9100B666C4 /* LabelIconBlurButton.swift */,
+				18C39E7528573CE3004FCF9D /* ItemInfoBanner.swift */,
 				1876F8A9283B127E001811F7 /* ScaledHeightImageView.swift */,
 				1876F8AB283B1E2F001811F7 /* TextView.swift */,
 			);
@@ -1088,6 +1094,7 @@
 				185EBAAC280DB51E00DB2017 /* StorageService.swift in Sources */,
 				185EBA91280DB0F600DB2017 /* LoginViewModel.swift in Sources */,
 				180072B32831EFF400731C17 /* ForgotPasswordTableViewCell.swift in Sources */,
+				18C39E7828574102004FCF9D /* ItemInfoModel.swift in Sources */,
 				185EBA81280DAF3300DB2017 /* CharacterSet.swift in Sources */,
 				1876F89D283A6836001811F7 /* ListingImageCell.swift in Sources */,
 				185EBA7A280DAF3300DB2017 /* Array.swift in Sources */,
@@ -1125,6 +1132,7 @@
 				183F28262814285C00F70501 /* AuthResult.swift in Sources */,
 				18566DDE2855FB1E00F1ADC0 /* ImageViewCell.swift in Sources */,
 				180072B628324C8600731C17 /* ForgotPasswordViewModel.swift in Sources */,
+				18C39E7628573CE3004FCF9D /* ItemInfoBanner.swift in Sources */,
 				1876F8A6283B0870001811F7 /* ListingEditImageViewController.swift in Sources */,
 				18724E5328372B2000B666C4 /* ImagePreviewViewController.swift in Sources */,
 				1876F8A2283A9888001811F7 /* ListingEmptyImageCell.swift in Sources */,
