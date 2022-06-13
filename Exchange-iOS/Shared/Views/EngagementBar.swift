@@ -13,7 +13,8 @@ final class EngagementBar: UIView {
         case like = 0
         case repost = 1
         case comment = 2
-        case buySold = 3
+        case message = 3
+        case buySold = 4
     }
     
     public var buttonPressed: ((_ button: UIButton, _ type: ButtonType) -> Void)?
@@ -22,7 +23,8 @@ final class EngagementBar: UIView {
         let stackView = UIStackView(arrangedSubviews: [
             likeButton,
             repostButton,
-            commentButton
+            commentButton,
+            messageButton
         ])
         stackView.spacing = 8
         stackView.axis = .horizontal
@@ -67,6 +69,18 @@ final class EngagementBar: UIView {
             withConfiguration: UIImage.SymbolConfiguration.init(font: self.imageFont)
         ), for: .normal)
         button.addTarget(self, action: #selector(self.commentButtonTap(_:)), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var messageButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.tintColor = .black
+        button.tag = ButtonType.message.rawValue
+        button.setImage(UIImage(
+            systemName: "paperplane",
+            withConfiguration: UIImage.SymbolConfiguration.init(font: self.imageFont)
+        ), for: .normal)
+        button.addTarget(self, action: #selector(self.messageButtonTap(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -121,6 +135,10 @@ final class EngagementBar: UIView {
     
     @objc private func commentButtonTap(_ sender: UIButton) {
         buttonPressed?(sender, .comment)
+    }
+    
+    @objc private func messageButtonTap(_ sender: UIButton) {
+        buttonPressed?(sender, .message)
     }
     
     @objc private func buySoldButtonTap(_ sender: UIButton) {
