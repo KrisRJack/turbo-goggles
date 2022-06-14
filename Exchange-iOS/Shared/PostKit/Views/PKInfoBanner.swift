@@ -1,5 +1,5 @@
 //
-//  ItemInfoBanner.swift
+//  PKInfoBanner.swift
 //  Exchange-iOS
 //
 //  Created by Kristopher Jackson on 6/13/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class ItemInfoBanner: UIView {
+open class PKInfoBanner: UIView {
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
@@ -38,7 +38,7 @@ open class ItemInfoBanner: UIView {
         label.font = .systemFont(ofSize: 14, weight: .regular)
     }
     
-    required public init(model: ItemInfoModel) {
+    required public init(model: PKInfoModel) {
         super.init(frame: .zero)
         setUpText(model: model)
         fill(with: stackView, considerMargins: true)
@@ -49,7 +49,7 @@ open class ItemInfoBanner: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUpText(model: ItemInfoModel) {
+    private func setUpText(model: PKInfoModel) {
         priceLabel.text = "$\(model.price)"
         titleLabel.text = model.title
         additionalLabel.text = "\(model.size) • \(model.condition) • \(model.category)"

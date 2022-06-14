@@ -1,5 +1,5 @@
 //
-//  ItemInfoModel.swift
+//  PKInfoModel.swift
 //  Exchange-iOS
 //
 //  Created by Kristopher Jackson on 6/13/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ItemInfoModel {
+public struct PKInfoModel {
     let price: Int
     let title: String
     let size: String

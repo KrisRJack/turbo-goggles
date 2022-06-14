@@ -1,5 +1,5 @@
 //
-//  ListingTableViewCell.swift
+//  PKListingCell.swift
 //  Exchange-iOS
 //
 //  Created by Kristopher Jackson on 6/12/22.
@@ -8,11 +8,12 @@
 import UIKit
 import FirebaseStorage
 
-final class ListingTableViewCell: UITableViewCell {
+final class PKListingCell: UITableViewCell {
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             containerView,
+            listingInfoBanner,
             engagementBar
         ])
         stackView.spacing = .zero
@@ -24,7 +25,19 @@ final class ListingTableViewCell: UITableViewCell {
         view.backgroundColor = .systemBackground
     }
     
-    private let engagementBar: EngagementBar = .build { engagementBar in
+    private let listingInfoBanner: PKInfoBanner = {
+        let listingInfoBanner = PKInfoBanner(model: PKInfoModel(
+            price: 180,
+            title: "Shoes",
+            size: "9 1/2",
+            condition: "Brand New",
+            category: "Men's Clothing"
+        ))
+        listingInfoBanner.layoutMargins = UIEdgeInsets(top: 12, left: 15, bottom: 12, right: 15)
+        return listingInfoBanner
+    }()
+    
+    private let engagementBar: PKEngagementBar = .build { engagementBar in
         engagementBar.backgroundColor = .systemBackground
         engagementBar.layoutMargins = UIEdgeInsets(top: 12, left: 15, bottom: 12, right: 15)
     }

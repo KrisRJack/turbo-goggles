@@ -1,5 +1,5 @@
 //
-//  EngagementBar.swift
+//  PKEngagementBar.swift
 //  Exchange-iOS
 //
 //  Created by Kristopher Jackson on 6/12/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class EngagementBar: UIView {
+final class PKEngagementBar: UIView {
     
     enum ButtonType: Int {
         case like = 0
