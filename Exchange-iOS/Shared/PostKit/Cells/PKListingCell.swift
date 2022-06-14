@@ -12,6 +12,7 @@ final class PKListingCell: UITableViewCell {
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
+            listingText,
             containerView,
             listingInfoBanner,
             engagementBar
@@ -20,6 +21,11 @@ final class PKListingCell: UITableViewCell {
         stackView.axis = .vertical
         return stackView
     }()
+    
+    private let listingText: PKHeaderText = .build { text in
+        text.backgroundColor = .systemBackground
+        text.layoutMargins = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+    }
     
     private let containerView: UIView = .build { view in
         view.backgroundColor = .systemBackground
