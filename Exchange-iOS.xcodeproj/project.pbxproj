@@ -353,13 +353,6 @@
 			path = Username;
 			sourceTree = "<group>";
 		};
-		18566DDC2855FAAE00F1ADC0 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		185EBA4C280DAA1A00DB2017 /* PropertyLists */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,7 +613,6 @@
 		1876AFEE283116D7001E89F4 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				18566DDC2855FAAE00F1ADC0 /* Cells */,
 				1876AFEF283116DE001E89F4 /* ViewControllers */,
 			);
 			path = Feed;
