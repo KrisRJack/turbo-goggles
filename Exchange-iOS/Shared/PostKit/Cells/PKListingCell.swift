@@ -10,6 +10,11 @@ import FirebaseStorage
 
 final class PKListingCell: UITableViewCell {
     
+    public struct Model {
+        let headerText: PKHeaderText.Model
+        let infoBanner: PKInfoBanner.Model
+    }
+    
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             listingText,
@@ -32,7 +37,7 @@ final class PKListingCell: UITableViewCell {
     }
     
     private let listingInfoBanner: PKInfoBanner = {
-        let listingInfoBanner = PKInfoBanner(model: PKInfoModel(
+        let listingInfoBanner = PKInfoBanner(model: PKInfoBanner.Model(
             price: 180,
             title: "Shoes",
             size: "9 1/2",

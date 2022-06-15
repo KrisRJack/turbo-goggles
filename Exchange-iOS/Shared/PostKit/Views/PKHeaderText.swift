@@ -9,6 +9,11 @@ import UIKit
 
 open class PKHeaderText: UIView {
     
+    struct Model {
+        let header: PKHeader.Model
+        let text: String
+    }
+    
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             header,
@@ -27,7 +32,7 @@ open class PKHeaderText: UIView {
         label.font = .systemFont(ofSize: 17, weight: .regular)
     }
     
-    init(model: PKHeaderTextModel) {
+    init(model: Model) {
         header = PKHeader(model: model.header)
         header.backgroundColor = .systemBackground
         descriptionLabel.text = model.text

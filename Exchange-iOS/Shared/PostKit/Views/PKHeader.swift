@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseStorageUI
 
 open class PKHeader: UIView {
     
-    private let imageSize: CGFloat = 42
+    struct Model {
+        let displayName: String
+        let username: String
+        let datePosted: Date
+        let imageReference: StorageReference
+    }
     
+    private let imageSize: CGFloat = 42
     public var didTapMoreButton: ((_ sender: UIButton) -> Void)?
     
     private lazy var stackView: UIStackView = {
@@ -49,7 +56,6 @@ open class PKHeader: UIView {
     }
     
     public let secondaryLabel: UILabel = .build { label in
-        label.text = "@KrisRJack • 04/03/21"
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 16, weight: .regular)
     }
@@ -65,7 +71,7 @@ open class PKHeader: UIView {
         return button
     }()
     
-    init(model: PKHeaderModel) {
+    init(model: Model) {
         super.init(frame: .zero)
         setUpViews()
         setUp(model: model)
@@ -84,7 +90,7 @@ open class PKHeader: UIView {
         ].activate()
     }
     
-    private func setUp(model: PKHeaderModel) {
+    private func setUp(model: Model) {
         primaryLabel.text = model.displayName
         secondaryLabel.text = "@\(model.username) • \(model.datePosted.getElapsedInterval())"
         imageView.sd_setImage(with: model.imageReference)

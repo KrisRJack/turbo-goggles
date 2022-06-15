@@ -9,6 +9,14 @@ import UIKit
 
 open class PKInfoBanner: UIView {
     
+    public struct Model {
+        let price: Int
+        let title: String
+        let size: String
+        let condition: String
+        let category: String
+    }
+    
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             priceLabel,
@@ -38,7 +46,7 @@ open class PKInfoBanner: UIView {
         label.font = .systemFont(ofSize: 14, weight: .regular)
     }
     
-    required public init(model: PKInfoModel) {
+    required public init(model: Model) {
         super.init(frame: .zero)
         setUpText(model: model)
         fill(with: stackView, considerMargins: true)
@@ -49,7 +57,7 @@ open class PKInfoBanner: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUpText(model: PKInfoModel) {
+    private func setUpText(model: Model) {
         priceLabel.text = "$\(model.price)"
         titleLabel.text = model.title
         additionalLabel.text = "\(model.size) • \(model.condition) • \(model.category)"

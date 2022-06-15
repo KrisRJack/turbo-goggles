@@ -102,13 +102,9 @@
 		1895E960280D9C5400FCFE7E /* profile_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95B280D9C5400FCFE7E /* profile_2.jpg */; };
 		1895E961280D9C5400FCFE7E /* profile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95C280D9C5400FCFE7E /* profile.jpg */; };
 		18C39E7628573CE3004FCF9D /* PKInfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E7528573CE3004FCF9D /* PKInfoBanner.swift */; };
-		18C39E7828574102004FCF9D /* PKInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E7728574102004FCF9D /* PKInfoModel.swift */; };
 		18C39E7F28589A6F004FCF9D /* PKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E7E28589A6F004FCF9D /* PKHeader.swift */; };
-		18C39E8228589D58004FCF9D /* PKListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E8128589D58004FCF9D /* PKListingModel.swift */; };
 		18C39E842858A656004FCF9D /* PKHeaderText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E832858A656004FCF9D /* PKHeaderText.swift */; };
-		18C39E862858A8D1004FCF9D /* PKHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E852858A8D1004FCF9D /* PKHeaderModel.swift */; };
 		18C39E882858A963004FCF9D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E872858A963004FCF9D /* Date.swift */; };
-		18C39E8A2858AB30004FCF9D /* PKHeaderTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E892858AB30004FCF9D /* PKHeaderTextModel.swift */; };
 		18CC2B6A2833BDCB00E609CD /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B692833BDCB00E609CD /* UINavigationController.swift */; };
 		18CC2B752834151600E609CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B742834151600E609CD /* CameraViewController.swift */; };
 		18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */; };
@@ -226,13 +222,9 @@
 		1895E95B280D9C5400FCFE7E /* profile_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile_2.jpg; sourceTree = "<group>"; };
 		1895E95C280D9C5400FCFE7E /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
 		18C39E7528573CE3004FCF9D /* PKInfoBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKInfoBanner.swift; sourceTree = "<group>"; };
-		18C39E7728574102004FCF9D /* PKInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKInfoModel.swift; sourceTree = "<group>"; };
 		18C39E7E28589A6F004FCF9D /* PKHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHeader.swift; sourceTree = "<group>"; };
-		18C39E8128589D58004FCF9D /* PKListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKListingModel.swift; sourceTree = "<group>"; };
 		18C39E832858A656004FCF9D /* PKHeaderText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHeaderText.swift; sourceTree = "<group>"; };
-		18C39E852858A8D1004FCF9D /* PKHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHeaderModel.swift; sourceTree = "<group>"; };
 		18C39E872858A963004FCF9D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		18C39E892858AB30004FCF9D /* PKHeaderTextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHeaderTextModel.swift; sourceTree = "<group>"; };
 		18CC2B692833BDCB00E609CD /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		18CC2B742834151600E609CD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCoordinator.swift; sourceTree = "<group>"; };
@@ -720,7 +712,6 @@
 			isa = PBXGroup;
 			children = (
 				18C39E7C28589940004FCF9D /* Cells */,
-				18C39E8028589AA7004FCF9D /* Models */,
 				18C39E7A28589866004FCF9D /* Views */,
 				18C39E7B28589872004FCF9D /* ViewControllers */,
 			);
@@ -762,17 +753,6 @@
 				18CC2B6D2833CEB900E609CD /* ViewControllers */,
 			);
 			path = ExchangeKit;
-			sourceTree = "<group>";
-		};
-		18C39E8028589AA7004FCF9D /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				18C39E852858A8D1004FCF9D /* PKHeaderModel.swift */,
-				18C39E892858AB30004FCF9D /* PKHeaderTextModel.swift */,
-				18C39E7728574102004FCF9D /* PKInfoModel.swift */,
-				18C39E8128589D58004FCF9D /* PKListingModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		18CC2B6D2833CEB900E609CD /* ViewControllers */ = {
@@ -1140,7 +1120,6 @@
 				1876F8AE283C6BC0001811F7 /* ListingImage.swift in Sources */,
 				185EBA8B280DB01E00DB2017 /* UICollectionViewCell.swift in Sources */,
 				18724E5728388E9100B666C4 /* LabelIconBlurButton.swift in Sources */,
-				18C39E8A2858AB30004FCF9D /* PKHeaderTextModel.swift in Sources */,
 				18CC2B6A2833BDCB00E609CD /* UINavigationController.swift in Sources */,
 				1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */,
 				185EBAAA280DB43200DB2017 /* DatabaseService.swift in Sources */,
@@ -1162,7 +1141,6 @@
 				185EBAAC280DB51E00DB2017 /* StorageService.swift in Sources */,
 				185EBA91280DB0F600DB2017 /* LoginViewModel.swift in Sources */,
 				180072B32831EFF400731C17 /* ForgotPasswordTableViewCell.swift in Sources */,
-				18C39E7828574102004FCF9D /* PKInfoModel.swift in Sources */,
 				18C39E882858A963004FCF9D /* Date.swift in Sources */,
 				185EBA81280DAF3300DB2017 /* CharacterSet.swift in Sources */,
 				1876F89D283A6836001811F7 /* ListingImageCell.swift in Sources */,
@@ -1172,10 +1150,8 @@
 				1876F8AC283B1E2F001811F7 /* TextView.swift in Sources */,
 				1876F8A0283A6C3E001811F7 /* ListingPhotosViewModel.swift in Sources */,
 				18566DE228568DA400F1ADC0 /* PKEngagementBar.swift in Sources */,
-				18C39E8228589D58004FCF9D /* PKListingModel.swift in Sources */,
 				180072B12831EFBD00731C17 /* ForgotPasswordViewController.swift in Sources */,
 				18FF94072834F37C0003907B /* BlurButton.swift in Sources */,
-				18C39E862858A8D1004FCF9D /* PKHeaderModel.swift in Sources */,
 				180072AC2831EDB900731C17 /* UIViewController.swift in Sources */,
 				1876AFF1283116EB001E89F4 /* FeedViewController.swift in Sources */,
 				1876F8BE2843F3E8001811F7 /* Listing.swift in Sources */,
