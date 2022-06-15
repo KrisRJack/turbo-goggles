@@ -15,3 +15,7 @@ https://user-images.githubusercontent.com/35638500/171153852-ba8b5343-2a27-4a35-
 ## New Listing
 https://user-images.githubusercontent.com/35638500/171153351-050062aa-1524-478f-9b43-b8806108fe15.mov
 
+
+
+## Feed - Listing Cell (🛠 WORK IN PROGRESS - More updates soon 🛠)
+<img width="1792" alt="Listing Cell" src="https://user-images.githubusercontent.com/35638500/173811580-90396a93-9245-4f08-98de-c8a49968d5dc.png">
