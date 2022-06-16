@@ -21,6 +21,21 @@ class UserStore: Object {
     
     override static func primaryKey() -> String? { "_id" }
     
+    public static var current: UserStore? {
+        guard let currentUser = Auth.auth().currentUser else { return nil }
+        do {
+            
+            let realm = try Realm()
+            return realm.objects(UserStore.self).first(where: { $0._id == currentUser.uid })
+            
+        } catch {
+            
+            print("Error: \(error.localizedDescription)")
+            return nil
+            
+        }
+    }
+    
     public var dictionary: [String: Any] {
         [
             DatabaseKeys.User.uid.rawValue: _id,
