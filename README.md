@@ -2,12 +2,12 @@
 Facebook Marketplace styled selling app. Worked on and completed this project in college using interface builder (screenshots can be found [here](https://portfolio.krisrjack.com)). Rebuilding from scratch using better coding practices and without using interface builder. Using [Firebase](https://firebase.google.com), [Algolia](https://www.algolia.com), [Realm](https://realm.io), and [Stripe](https://stripe.com)
 
 
-## Sign Up
+## [Sign Up](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Features/SignUp)
 https://user-images.githubusercontent.com/35638500/171154436-33c4526b-87ec-4b7e-9d81-a351e5b5ef42.mov
 
 
 
-## Log In / Forgot Password
+## [Log In](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Features/Login) / [Forgot Password](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Features/ForgotPassword)
 https://user-images.githubusercontent.com/35638500/171153852-ba8b5343-2a27-4a35-b940-31078e414e1b.mov
 
 
