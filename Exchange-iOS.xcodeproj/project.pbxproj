@@ -105,6 +105,7 @@
 		18C39E7F28589A6F004FCF9D /* PKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E7E28589A6F004FCF9D /* PKHeader.swift */; };
 		18C39E842858A656004FCF9D /* PKHeaderText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E832858A656004FCF9D /* PKHeaderText.swift */; };
 		18C39E882858A963004FCF9D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E872858A963004FCF9D /* Date.swift */; };
+		18C39E8D285B4CD2004FCF9D /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E8C285B4CD2004FCF9D /* FeedViewModel.swift */; };
 		18CC2B6A2833BDCB00E609CD /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B692833BDCB00E609CD /* UINavigationController.swift */; };
 		18CC2B752834151600E609CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B742834151600E609CD /* CameraViewController.swift */; };
 		18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */; };
@@ -225,6 +226,7 @@
 		18C39E7E28589A6F004FCF9D /* PKHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHeader.swift; sourceTree = "<group>"; };
 		18C39E832858A656004FCF9D /* PKHeaderText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHeaderText.swift; sourceTree = "<group>"; };
 		18C39E872858A963004FCF9D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		18C39E8C285B4CD2004FCF9D /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		18CC2B692833BDCB00E609CD /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		18CC2B742834151600E609CD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCoordinator.swift; sourceTree = "<group>"; };
@@ -613,6 +615,7 @@
 		1876AFEE283116D7001E89F4 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				18C39E8B285B4CBC004FCF9D /* ViewModels */,
 				1876AFEF283116DE001E89F4 /* ViewControllers */,
 			);
 			path = Feed;
@@ -745,6 +748,14 @@
 				18CC2B6D2833CEB900E609CD /* ViewControllers */,
 			);
 			path = ExchangeKit;
+			sourceTree = "<group>";
+		};
+		18C39E8B285B4CBC004FCF9D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				18C39E8C285B4CD2004FCF9D /* FeedViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		18CC2B6D2833CEB900E609CD /* ViewControllers */ = {
@@ -1135,6 +1146,7 @@
 				180072B32831EFF400731C17 /* ForgotPasswordTableViewCell.swift in Sources */,
 				18C39E882858A963004FCF9D /* Date.swift in Sources */,
 				185EBA81280DAF3300DB2017 /* CharacterSet.swift in Sources */,
+				18C39E8D285B4CD2004FCF9D /* FeedViewModel.swift in Sources */,
 				1876F89D283A6836001811F7 /* ListingImageCell.swift in Sources */,
 				185EBA7A280DAF3300DB2017 /* Array.swift in Sources */,
 				185EBAA3280DB29300DB2017 /* SignUpViewModel.swift in Sources */,
