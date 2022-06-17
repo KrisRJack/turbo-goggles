@@ -30,6 +30,22 @@ struct Listing {
     let tags: [String]?
     let metadata: [ImageMetadata]
     
+    var userReference: DocumentReference {
+        DatabaseService.collection(.users).document(userID)
+    }
+    
+    var imageReferences: [StorageReference] {
+        metadata.map({ $0.imageReference })
+    }
+    
+    var formattedPrice: String {
+        let price = NSDecimalNumber(decimal: price)
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .currency
+        return formatter.string(from: price) ?? formatter.string(from: 0)!
+    }
+    
     var toDictionary: [String: Any] {
         get {
             return [
