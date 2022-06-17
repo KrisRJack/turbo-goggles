@@ -17,5 +17,5 @@ https://user-images.githubusercontent.com/35638500/171153351-050062aa-1524-478f-
 
 
 
-## Feed - [Listing Cell](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Shared/PostKit) (🛠 WORK IN PROGRESS - More updates soon 🛠)
+## [Feed](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Features/Feed) - [Listing Cell](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Shared/PostKit) (🛠 WORK IN PROGRESS - More updates soon 🛠)
 <img width="1792" alt="Listing Cell" src="https://user-images.githubusercontent.com/35638500/173811580-90396a93-9245-4f08-98de-c8a49968d5dc.png">
