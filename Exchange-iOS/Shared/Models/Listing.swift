@@ -81,7 +81,7 @@ struct Listing {
     init(withData data: [String: Any]) {
         
         let item_id = data[DatabaseKeys.Listing.item_id.rawValue] as? [String] ?? []
-        let item_description = data[DatabaseKeys.Listing.item_description.rawValue] as? [String] ?? []
+        let item_description = data[DatabaseKeys.Listing.item_description.rawValue] as? [String?] ?? []
         
         var metadata: [ImageMetadata] = []
         for (index, id) in item_id.enumerated() {
