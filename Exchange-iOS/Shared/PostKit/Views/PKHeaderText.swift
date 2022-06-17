@@ -11,7 +11,7 @@ open class PKHeaderText: UIView {
     
     struct Model {
         let header: PKHeader.Model
-        let text: String
+        let text: String?
     }
     
     private lazy var stackView: UIStackView = {

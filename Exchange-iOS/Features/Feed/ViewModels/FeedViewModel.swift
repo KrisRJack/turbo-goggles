@@ -11,6 +11,8 @@ final class FeedViewModel {
     
     public var reloadData: (() -> Void)?
     public var error: ((_ string: String) -> Void)?
+    public var numberOfSections: Int = 1
+    public var numberOfRowsInSection: [Int:Int] { [0: listedItems.count] }
     
     private var batchSize = 10
     private var listedItems: [Listing] = []
@@ -75,7 +77,10 @@ final class FeedViewModel {
                     return
                 }
                 
-                guard let snapshot = snapshot, !snapshot.isEmpty else { return }
+                guard let snapshot = snapshot, !snapshot.isEmpty else {
+                    self.reloadData?()
+                    return
+                }
                 
                 self.newestDocument = snapshot.documents.last
                 let newData: [Listing] = snapshot.documents.reversed().map({ document in
@@ -106,7 +111,10 @@ final class FeedViewModel {
                     return
                 }
                 
-                guard let snapshot = snapshot, !snapshot.isEmpty else { return }
+                guard let snapshot = snapshot, !snapshot.isEmpty else {
+                    self.reloadData?()
+                    return
+                }
                 
                 self.oldestDocument = snapshot.documents.last
                 self.didGetOldestDocument = snapshot.documents.count < self.batchSize
@@ -118,6 +126,10 @@ final class FeedViewModel {
                 self.listedItems = self.listedItems + olderData
                 self.reloadData?()
             }
+    }
+    
+    public func listingForCell(at indexPath: IndexPath) -> Listing {
+        return listedItems[indexPath.row]
     }
 
 }

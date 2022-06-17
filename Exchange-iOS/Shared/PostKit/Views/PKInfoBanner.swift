@@ -10,11 +10,11 @@ import UIKit
 open class PKInfoBanner: UIView {
     
     public struct Model {
-        let price: Int
+        let price: String
         let title: String
-        let size: String
-        let condition: String
-        let category: String
+        let size: String?
+        let condition: String?
+        let category: String?
     }
     
     private lazy var stackView: UIStackView = {
@@ -58,9 +58,16 @@ open class PKInfoBanner: UIView {
     }
     
     private func setUpText(model: Model) {
-        priceLabel.text = "$\(model.price)"
+        priceLabel.text = model.price
         titleLabel.text = model.title
-        additionalLabel.text = "\(model.size) • \(model.condition) • \(model.category)"
+        
+        let additionalInfo: [String] = [
+            model.size,
+            model.condition,
+            model.category
+        ].compactMap({ $0 })
+        
+        additionalLabel.text = additionalInfo.joined(separator: " • ")
     }
     
 }
