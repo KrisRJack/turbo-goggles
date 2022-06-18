@@ -39,10 +39,13 @@ struct Listing {
     }
     
     var formattedPrice: String {
+        guard price != 0 else { return NSLocalizedString("Free", comment: "Subheader") }
         let price = NSDecimalNumber(decimal: price)
         let formatter = NumberFormatter()
         formatter.locale = Locale.current
         formatter.numberStyle = .currency
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 2
         return formatter.string(from: price) ?? formatter.string(from: 0)!
     }
     
@@ -112,7 +115,7 @@ struct Listing {
             description: data[DatabaseKeys.Listing.description.rawValue] as? String ?? "",
             userID: data[DatabaseKeys.Listing.userID.rawValue] as? String ?? "",
             header: data[DatabaseKeys.Listing.header.rawValue] as? String ?? "",
-            price: data[DatabaseKeys.Listing.price.rawValue] as? Decimal ?? 0,
+            price: (data[DatabaseKeys.Listing.price.rawValue] as? NSNumber ?? 0).decimalValue,
             size: data[DatabaseKeys.Listing.size.rawValue] as? String ?? "",
             condition: data[DatabaseKeys.Listing.condition.rawValue] as? String ?? "",
             category: data[DatabaseKeys.Listing.category.rawValue] as? String ?? "",
