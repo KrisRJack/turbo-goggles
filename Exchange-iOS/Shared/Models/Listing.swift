@@ -22,6 +22,8 @@ struct Listing {
     let created: Date
     let description: String?
     let userID: String
+    let displayName: String
+    let username: String
     let header: String
     let price: Decimal
     let size: String?
@@ -32,6 +34,10 @@ struct Listing {
     
     var userReference: DocumentReference {
         DatabaseService.collection(.users).document(userID)
+    }
+    
+    var userImageReference: StorageReference {
+        StorageService.reference(.users).child("\(userID).\(String.jpegExtensionFormat)")
     }
     
     var imageReferences: [StorageReference] {
@@ -57,6 +63,8 @@ struct Listing {
                 DatabaseKeys.Listing.created.rawValue: created,
                 DatabaseKeys.Listing.description.rawValue: description ?? NSNull(),
                 DatabaseKeys.Listing.userID.rawValue: userID,
+                DatabaseKeys.Listing.displayName.rawValue: displayName,
+                DatabaseKeys.Listing.username.rawValue: username,
                 DatabaseKeys.Listing.header.rawValue: header,
                 DatabaseKeys.Listing.price.rawValue: price,
                 DatabaseKeys.Listing.size.rawValue: size ?? NSNull(),
@@ -75,6 +83,8 @@ struct Listing {
         created: Date,
         description: String?,
         userID: String,
+        displayName: String,
+        username: String,
         header: String,
         price: Decimal,
         size: String?,
@@ -88,6 +98,8 @@ struct Listing {
         self.created = created
         self.description = description
         self.userID = userID
+        self.displayName = displayName
+        self.username = username
         self.header = header
         self.price = price
         self.size = size
@@ -114,6 +126,8 @@ struct Listing {
             created: (data[DatabaseKeys.Listing.created.rawValue] as? Timestamp)?.dateValue() ?? Date(),
             description: data[DatabaseKeys.Listing.description.rawValue] as? String ?? "",
             userID: data[DatabaseKeys.Listing.userID.rawValue] as? String ?? "",
+            displayName: data[DatabaseKeys.Listing.displayName.rawValue] as? String ?? "",
+            username: data[DatabaseKeys.Listing.username.rawValue] as? String ?? "",
             header: data[DatabaseKeys.Listing.header.rawValue] as? String ?? "",
             price: (data[DatabaseKeys.Listing.price.rawValue] as? NSNumber ?? 0).decimalValue,
             size: data[DatabaseKeys.Listing.size.rawValue] as? String ?? "",

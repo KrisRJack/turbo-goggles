@@ -35,7 +35,7 @@ final class NewListingViewModel {
     }
     
     public func postButtonPressed() {
-        guard let user = Auth.auth().currentUser else {
+        guard let user = UserStore.current else {
             error?("User must be signed in to create a new listing.")
             return
         }
@@ -66,7 +66,9 @@ final class NewListingViewModel {
             id: reference.documentID,
             created: Date(),
             description: formatOptionalString(inputListener.description?()),
-            userID: user.uid,
+            userID: user._id,
+            displayName: user.displayName,
+            username: user.username,
             header: titleString,
             price: price,
             size: formatOptionalString(inputListener.size?()),
@@ -76,7 +78,7 @@ final class NewListingViewModel {
             metadata: allImageMetadata
         )
         
-        let userReference = DatabaseService.collection(.users).document(user.uid)
+        let userReference = DatabaseService.collection(.users).document(user._id)
         let userListingsReference = userReference.collection(.market)
         
         userListingsReference.document(reference.documentID).setData(listing.toDictionary, merge: true) { [weak self] error in

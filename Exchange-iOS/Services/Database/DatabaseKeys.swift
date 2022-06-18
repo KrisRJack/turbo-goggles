@@ -28,6 +28,8 @@ public struct DatabaseKeys {
     enum Listing: String, CaseIterable {
         case id = "id"
         case userID = "userID"
+        case displayName = "displayName"
+        case username = "username"
         case sold = "sold"
         case header = "header"
         case price = "price"

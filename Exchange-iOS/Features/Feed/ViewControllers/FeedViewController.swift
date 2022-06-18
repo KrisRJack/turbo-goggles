@@ -89,10 +89,10 @@ extension FeedViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: PKListingCell.reuseIdentifier, for: indexPath)
         
         let header = PKHeader.Model(
-            displayName: "Kristopher Jackson", // TODO: Get user data
-            username: "KrisRJack", // TODO: Get user data
+            displayName: listing.displayName,
+            username: listing.username,
             datePosted: listing.created,
-            imageReference: StorageService.reference(.users).child("") // TODO: Get user data
+            imageReference: listing.userImageReference
         )
         
         let headerText = PKHeaderText.Model(
