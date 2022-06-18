@@ -326,14 +326,14 @@
 			path = Coodinators;
 			sourceTree = "<group>";
 		};
-		180072B928325B6700731C17 /* Listing */ = {
+		180072B928325B6700731C17 /* CreateListing */ = {
 			isa = PBXGroup;
 			children = (
 				1876F899283A67DC001811F7 /* Cells */,
 				1876F89E283A6C28001811F7 /* ViewModels */,
 				180072BE28325D9A00731C17 /* ViewControllers */,
 			);
-			path = Listing;
+			path = CreateListing;
 			sourceTree = "<group>";
 		};
 		180072BE28325D9A00731C17 /* ViewControllers */ = {
@@ -770,10 +770,10 @@
 			isa = PBXGroup;
 			children = (
 				18CC2B702834149F00E609CD /* Camera */,
+				180072B928325B6700731C17 /* CreateListing */,
 				1876AFEE283116D7001E89F4 /* Feed */,
 				180072AD2831EF9000731C17 /* ForgotPassword */,
 				18CC2B6F2833CF9600E609CD /* Home */,
-				180072B928325B6700731C17 /* Listing */,
 				185EBA82280DAF9800DB2017 /* Login */,
 				185EBAB1280DB98A00DB2017 /* Onboard */,
 				185EBA4F280DAAB900DB2017 /* Opening */,
