@@ -1,5 +1,5 @@
 # Exchange: Marketplace App
-Facebook Marketplace styled selling app. Worked on and completed this project in college using interface builder (screenshots can be found [here](https://portfolio.krisrjack.com)). Rebuilding from scratch using better coding practices and without using interface builder. Using [Firebase](https://firebase.google.com), [Algolia](https://www.algolia.com), [Realm](https://realm.io), and [Stripe](https://stripe.com)
+Facebook Marketplace styled selling app. Worked on this project in college using interface builder (screenshots can be found [here](https://portfolio.krisrjack.com)). Rebuilding from scratch using [Firebase](https://firebase.google.com), [Algolia](https://www.algolia.com), [Realm](https://realm.io), and [Stripe](https://stripe.com)
 
 
 ## [Sign Up](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Features/SignUp)
