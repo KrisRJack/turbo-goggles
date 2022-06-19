@@ -49,6 +49,7 @@ final class PKListingCell: UITableViewCell {
         headerText.layoutMargins = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         
         let photosContainerView = UIView()
+        photosContainerView.isUserInteractionEnabled = false
         photosContainerView.backgroundColor = .systemBackground
         photosContainerView.heightAnchor.constraint(equalTo: photosContainerView.widthAnchor).activate()
         addPhotosToContainerView(photosContainerView, photoRefs: model.photoReferences, parentViewController: parentController)

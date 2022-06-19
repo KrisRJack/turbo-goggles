@@ -8,6 +8,7 @@
 import UIKit
 
 protocol FeedNavigationDelegate {
+    func goToListingDetails(from viewController: FeedViewController, with listing: Listing)
     func presentError(from viewController: FeedViewController, withMessage message: String)
 }
 
@@ -47,7 +48,7 @@ final class FeedViewController: UITableViewController {
     
     private func configureTableView() {
         tableView.separatorStyle = .none
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
         tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .secondarySystemBackground
         tableView.register(PKListingCell.self, forCellReuseIdentifier: PKListingCell.reuseIdentifier)
@@ -115,6 +116,17 @@ extension FeedViewController {
         ), from: self)
         
         return cell
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+
+extension FeedViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let listing = viewModel.listingForCell(at: indexPath)
+        navigationDelegate?.goToListingDetails(from: self, with: listing)
     }
     
 }

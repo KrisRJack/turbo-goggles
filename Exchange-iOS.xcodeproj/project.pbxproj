@@ -109,6 +109,7 @@
 		18CC2B6A2833BDCB00E609CD /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B692833BDCB00E609CD /* UINavigationController.swift */; };
 		18CC2B752834151600E609CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B742834151600E609CD /* CameraViewController.swift */; };
 		18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */; };
+		18FB133D285DF90100DF898B /* ListingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB133C285DF90100DF898B /* ListingDetailsViewController.swift */; };
 		18FF94072834F37C0003907B /* BlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF94062834F37C0003907B /* BlurButton.swift */; };
 		18FF940A2834F4070003907B /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF94092834F4070003907B /* BlurView.swift */; };
 		18FF940F2835DDEA0003907B /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF940E2835DDEA0003907B /* CameraViewModel.swift */; };
@@ -230,6 +231,7 @@
 		18CC2B692833BDCB00E609CD /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		18CC2B742834151600E609CD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCoordinator.swift; sourceTree = "<group>"; };
+		18FB133C285DF90100DF898B /* ListingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsViewController.swift; sourceTree = "<group>"; };
 		18FF94062834F37C0003907B /* BlurButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurButton.swift; sourceTree = "<group>"; };
 		18FF94092834F4070003907B /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		18FF940E2835DDEA0003907B /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
@@ -774,6 +776,7 @@
 				1876AFEE283116D7001E89F4 /* Feed */,
 				180072AD2831EF9000731C17 /* ForgotPassword */,
 				18CC2B6F2833CF9600E609CD /* Home */,
+				18FB133B285DF8EC00DF898B /* ListingDetails */,
 				185EBA82280DAF9800DB2017 /* Login */,
 				185EBAB1280DB98A00DB2017 /* Onboard */,
 				185EBA4F280DAAB900DB2017 /* Opening */,
@@ -804,6 +807,22 @@
 			children = (
 				18CC2B742834151600E609CD /* CameraViewController.swift */,
 				18724E5228372B2000B666C4 /* ImagePreviewViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		18FB133B285DF8EC00DF898B /* ListingDetails */ = {
+			isa = PBXGroup;
+			children = (
+				18FB133E285DF90400DF898B /* ViewControllers */,
+			);
+			path = ListingDetails;
+			sourceTree = "<group>";
+		};
+		18FB133E285DF90400DF898B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				18FB133C285DF90100DF898B /* ListingDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1181,6 +1200,7 @@
 				1876F8B8284132B9001811F7 /* Categories.swift in Sources */,
 				1876F8902838FF3A001811F7 /* NewListingViewController.swift in Sources */,
 				183F28262814285C00F70501 /* AuthResult.swift in Sources */,
+				18FB133D285DF90100DF898B /* ListingDetailsViewController.swift in Sources */,
 				18566DDE2855FB1E00F1ADC0 /* ImageViewCell.swift in Sources */,
 				180072B628324C8600731C17 /* ForgotPasswordViewModel.swift in Sources */,
 				18C39E7628573CE3004FCF9D /* PKInfoBanner.swift in Sources */,
