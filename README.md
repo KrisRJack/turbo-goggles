@@ -18,4 +18,4 @@ https://user-images.githubusercontent.com/35638500/171153351-050062aa-1524-478f-
 
 
 ## [Feed](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Features/Feed) - [Listing Cell](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Shared/PostKit) (🛠 WORK IN PROGRESS - More updates soon 🛠)
-<img width="1792" alt="Screen Shot 2022-06-18 at 7 47 26 AM" src="https://user-images.githubusercontent.com/35638500/174436101-04285164-2694-487a-987f-92010f52b970.png">
+<img width="1792" alt="Screen Shot 2022-06-20 at 6 50 44 AM" src="https://user-images.githubusercontent.com/35638500/174587029-219709a0-3b18-4c7a-9d1f-dcfd38ef91a6.png">
