@@ -12,10 +12,23 @@ protocol FeedNavigationDelegate {
     func presentError(from viewController: FeedViewController, withMessage message: String)
 }
 
-final class FeedViewController: UITableViewController {
+final class FeedViewController: UIViewController {
     
     public var navigationDelegate: FeedNavigationDelegate?
     private var viewModel: FeedViewModel
+    
+    private lazy var tableView: UITableView = .build { tableView in
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = true
+        tableView.showsVerticalScrollIndicator = false
+        tableView.backgroundColor = .secondarySystemBackground
+        tableView.register(PKListingCell.self, forCellReuseIdentifier: PKListingCell.reuseIdentifier)
+        // Add refresh control
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(self.pullToRefresh), for: .valueChanged)
+    }
     
     init() {
         viewModel = FeedViewModel()
@@ -25,13 +38,13 @@ final class FeedViewController: UITableViewController {
         viewModel.reloadData = { [weak self] in
             guard let self = self else { return }
             self.tableView.reloadData()
-            self.refreshControl?.endRefreshing()
+            self.tableView.refreshControl?.endRefreshing()
         }
         
         viewModel.error = { [weak self] error in
             guard let self = self else { return }
             self.navigationDelegate?.presentError(from: self, withMessage: error)
-            self.refreshControl?.endRefreshing()
+            self.tableView.refreshControl?.endRefreshing()
         }
     }
     
@@ -41,17 +54,18 @@ final class FeedViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTableView()
-        configureRefresh()
+        addTableViewToView()
         viewModel.loadInitialBatch()
+        view.backgroundColor = .systemBackground
     }
     
-    private func configureTableView() {
-        tableView.separatorStyle = .none
-        tableView.allowsSelection = true
-        tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .secondarySystemBackground
-        tableView.register(PKListingCell.self, forCellReuseIdentifier: PKListingCell.reuseIdentifier)
+    private func addTableViewToView() {
+        view.addSubviews(tableView)
+        [tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+         tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+        ].activate()
     }
     
     private func setUpTabBarItem() {
@@ -62,11 +76,6 @@ final class FeedViewController: UITableViewController {
         )
     }
     
-    private func configureRefresh() {
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
-    }
-    
     @objc private func pullToRefresh() {
         viewModel.paginateNewerBatch()
     }
@@ -75,17 +84,17 @@ final class FeedViewController: UITableViewController {
 
 // MARK: - UITableViewDataSource
 
-extension FeedViewController {
+extension FeedViewController: UITableViewDataSource {
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection[section] ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let listing = viewModel.listingForCell(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: PKListingCell.reuseIdentifier, for: indexPath)
         
@@ -122,9 +131,9 @@ extension FeedViewController {
 
 // MARK: - UITableViewDelegate
 
-extension FeedViewController {
+extension FeedViewController: UITableViewDelegate {
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let listing = viewModel.listingForCell(at: indexPath)
         navigationDelegate?.goToListingDetails(from: self, with: listing)
     }
