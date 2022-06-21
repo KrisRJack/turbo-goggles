@@ -124,16 +124,16 @@ struct Listing {
             id: data[DatabaseKeys.Listing.id.rawValue] as? String ?? "",
             sold: data[DatabaseKeys.Listing.sold.rawValue] as? Bool ?? false,
             created: (data[DatabaseKeys.Listing.created.rawValue] as? Timestamp)?.dateValue() ?? Date(),
-            description: data[DatabaseKeys.Listing.description.rawValue] as? String ?? "",
+            description: data[DatabaseKeys.Listing.description.rawValue] as? String,
             userID: data[DatabaseKeys.Listing.userID.rawValue] as? String ?? "",
             displayName: data[DatabaseKeys.Listing.displayName.rawValue] as? String ?? "",
             username: data[DatabaseKeys.Listing.username.rawValue] as? String ?? "",
             header: data[DatabaseKeys.Listing.header.rawValue] as? String ?? "",
             price: (data[DatabaseKeys.Listing.price.rawValue] as? NSNumber ?? 0).decimalValue,
-            size: data[DatabaseKeys.Listing.size.rawValue] as? String ?? "",
-            condition: data[DatabaseKeys.Listing.condition.rawValue] as? String ?? "",
-            category: data[DatabaseKeys.Listing.category.rawValue] as? String ?? "",
-            tags: data[DatabaseKeys.Listing.tags.rawValue] as? [String] ?? [],
+            size: data[DatabaseKeys.Listing.size.rawValue] as? String,
+            condition: data[DatabaseKeys.Listing.condition.rawValue] as? String,
+            category: data[DatabaseKeys.Listing.category.rawValue] as? String,
+            tags: data[DatabaseKeys.Listing.tags.rawValue] as? [String],
             metadata: metadata
         )
     }

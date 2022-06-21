@@ -54,13 +54,15 @@ open class PKInfoBanner: UIView {
         priceLabel.text = model.price
         titleLabel.text = model.title
         
-        let additionalInfo: [String] = [
-            model.size,
-            model.condition,
-            model.category
-        ].compactMap({ $0 })
+        /// Using `KeyValuePairs` to keep custom order of Collection
+        let additionalInfo: KeyValuePairs = [
+            "Size" : model.size,
+            "Condition" : model.condition,
+            "Category" : model.category
+        ]
         
-        additionalLabel.text = additionalInfo.joined(separator: " • ")
+        let itemInfo = additionalInfo.map ({ $1 != nil ? "\($0): \($1!)" : nil })
+        additionalLabel.text = itemInfo.compactMap({ $0 }).joined(separator: " • ")
     }
     
     public func prepareForReuse() {
