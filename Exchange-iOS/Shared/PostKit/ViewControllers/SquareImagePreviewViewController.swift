@@ -11,10 +11,11 @@ import FirebaseStorageUI
 final class SquareImagePreviewViewController: UICollectionViewController {
     
     private let spacing: CGFloat = 3
-    private let imageRefs: [StorageReference]
+    private var imageRefs: [StorageReference] = [] {
+        willSet { collectionView.reloadData() }
+    }
     
-    init(imageReferences: [StorageReference]) {
-        imageRefs = imageReferences
+    init() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
@@ -40,6 +41,10 @@ final class SquareImagePreviewViewController: UICollectionViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(ImageViewCell.self, forCellWithReuseIdentifier: ImageViewCell.reuseIdentifier)
         collectionView.register(MultipleImageViewCell.self, forCellWithReuseIdentifier: MultipleImageViewCell.reuseIdentifier)
+    }
+    
+    public func setImages(with imageReferences: [StorageReference]) {
+        imageRefs = imageReferences
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -11,12 +11,7 @@ import FirebaseStorageUI
 
 open class PKHeader: UIView {
     
-    struct Model {
-        let displayName: String
-        let username: String
-        let datePosted: Date
-        let imageReference: StorageReference
-    }
+    public typealias Model = (displayName: String, username: String, datePosted: Date, imageReference: StorageReference)
     
     private let imageSize: CGFloat = 42
     public var didTapMoreButton: ((_ sender: UIButton) -> Void)?
@@ -43,24 +38,24 @@ open class PKHeader: UIView {
         return stackView
     }()
     
-    public lazy var imageView: UIImageView = .build { imageView in
+    private lazy var imageView: UIImageView = .build { imageView in
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = self.imageSize.halfOf
         imageView.backgroundColor = .secondarySystemBackground
     }
     
-    public let primaryLabel: UILabel = .build { label in
+    private let primaryLabel: UILabel = .build { label in
         label.textColor = .label
         label.font = .systemFont(ofSize: 17, weight: .semibold)
     }
     
-    public let secondaryLabel: UILabel = .build { label in
+    private let secondaryLabel: UILabel = .build { label in
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 16, weight: .regular)
     }
     
-    public lazy var moreButton: UIButton = {
+    private lazy var moreButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .secondaryLabel
         button.contentHorizontalAlignment = .right
@@ -71,14 +66,25 @@ open class PKHeader: UIView {
         return button
     }()
     
-    init(model: Model) {
+    init() {
         super.init(frame: .zero)
         setUpViews()
-        setUp(model: model)
     }
     
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func configure(with model: Model) {
+        primaryLabel.text = model.displayName
+        secondaryLabel.text = "@\(model.username) • \(model.datePosted.getElapsedInterval())"
+        imageView.sd_setImage(with: model.imageReference)
+    }
+    
+    public func prepareForReuse() {
+        primaryLabel.text = nil
+        secondaryLabel.text = nil
+        imageView.image = nil
     }
     
     private func setUpViews() {
@@ -88,12 +94,6 @@ open class PKHeader: UIView {
          moreButton.heightAnchor.constraint(equalTo: stackView.heightAnchor),
          moreButton.widthAnchor.constraint(equalTo: moreButton.heightAnchor),
         ].activate()
-    }
-    
-    private func setUp(model: Model) {
-        primaryLabel.text = model.displayName
-        secondaryLabel.text = "@\(model.username) • \(model.datePosted.getElapsedInterval())"
-        imageView.sd_setImage(with: model.imageReference)
     }
     
     @objc private func didTapMore(_ sender: UIButton) {

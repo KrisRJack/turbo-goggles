@@ -37,8 +37,10 @@ final class FeedViewController: UIViewController {
         
         viewModel.reloadData = { [weak self] in
             guard let self = self else { return }
-            self.tableView.reloadData()
-            self.tableView.refreshControl?.endRefreshing()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.tableView.refreshControl?.endRefreshing()
+            }
         }
         
         viewModel.error = { [weak self] error in
@@ -118,11 +120,12 @@ extension FeedViewController: UITableViewDataSource {
             category: listing.category
         )
         
+        (cell as? PKListingCell)?.setParentViewController(to: self)
         (cell as? PKListingCell)?.configure(with: PKListingCell.Model(
             headerText: headerText,
             infoBanner: itemInfo,
             photoReferences: listing.imageReferences
-        ), from: self)
+        ))
         
         return cell
     }
