@@ -65,18 +65,17 @@ class HomeTabBarController: UITabBarController {
     }
     
     private func setUpTabBarAppearance() {
+        tabBar.clipsToBounds = true
+        tabBar.isTranslucent = true
+        tabBar.backgroundColor = .systemBackground
         let appearance = tabBar.standardAppearance
-        appearance.backgroundColor = .systemBackground
+        appearance.shadowImage = nil
+        appearance.shadowColor = nil
         appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.stackedLayoutAppearance.normal.iconColor = .black
         appearance.stackedLayoutAppearance.selected.iconColor = .black
         tabBar.standardAppearance = appearance
-        tabBar.layer.borderWidth = 0.2
-        tabBar.layer.borderColor = UIColor.separator.cgColor
-        tabBar.clipsToBounds = true
-        tabBar.isTranslucent = false
-        tabBar.backgroundColor = .systemBackground
     }
     
     private func configureBarButtonItems() {
@@ -87,9 +86,9 @@ class HomeTabBarController: UITabBarController {
     
     private func setUpNavigationBarAppearance() {
         navigationController?.navigationBar.tintColor = .label
-        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.backgroundColor = .systemBackground
         navigationController?.navigationBar.backgroundColor = .systemBackground
     }
     
