@@ -44,6 +44,10 @@ struct Listing {
         metadata.map({ $0.imageReference })
     }
     
+    var imageDescriptions: [String?] {
+        metadata.map({ $0.description })
+    }
+    
     var formattedPrice: String {
         guard price != 0 else { return NSLocalizedString("Free", comment: "Subheader") }
         let price = NSDecimalNumber(decimal: price)

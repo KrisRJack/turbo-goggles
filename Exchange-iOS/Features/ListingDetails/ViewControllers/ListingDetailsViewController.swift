@@ -9,7 +9,7 @@ import UIKit
 
 final class ListingDetailsViewController: UIViewController {
     
-    private let listing: Listing
+    private let viewModel: ListingDetailsViewModel
     
     private lazy var tableView: UITableView = .build { tableView in
         tableView.dataSource = self
@@ -18,11 +18,18 @@ final class ListingDetailsViewController: UIViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .secondarySystemBackground
         tableView.register(ListingDetailsHeaderCell.self, forCellReuseIdentifier: ListingDetailsHeaderCell.reuseIdentifier)
+        tableView.register(ListingDetailsImageCell.self, forCellReuseIdentifier: ListingDetailsImageCell.reuseIdentifier)
     }
     
     init(model: Listing) {
-        listing = model
+        viewModel = ListingDetailsViewModel(model: model)
         super.init(nibName: nil, bundle: nil)
+        viewModel.reloadData = { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -31,15 +38,14 @@ final class ListingDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = listing.header
+        title = viewModel.title
         view.backgroundColor = .systemBackground
         addTableViewToView()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        guard let header = tableView.tableHeaderView else { return }
-        header.frame.size.height = header.systemLayoutSizeFitting(CGSize(width: view.bounds.width, height: .zero)).height
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        viewModel.viewDidLayoutSubviews()
     }
     
     private func addTableViewToView() {
@@ -58,30 +64,21 @@ final class ListingDetailsViewController: UIViewController {
 extension ListingDetailsViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.numberOfRowsInSection[section] ?? .zero
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ListingDetailsHeaderCell.reuseIdentifier, for: indexPath)
-        (cell as? ListingDetailsHeaderCell)?.configure(with: ListingDetailsHeaderView.Model(
-            header: PKHeader.Model(
-                displayName: listing.displayName,
-                username: listing.username,
-                datePosted: listing.created,
-                imageReference: listing.userImageReference
-            ),
-            formattedPrice: listing.formattedPrice,
-            title: listing.header,
-            description: listing.description,
-            size: listing.size,
-            condition: listing.condition,
-            category: listing.category,
-            tags: listing.tags
-        ), parentViewController: self)
+        if indexPath.item.isFirstIndex {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ListingDetailsHeaderCell.reuseIdentifier, for: indexPath)
+            (cell as? ListingDetailsHeaderCell)?.configure(with: viewModel.headerModel, parentViewController: self)
+            return cell
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: ListingDetailsImageCell.reuseIdentifier, for: indexPath)
+        (cell as? ListingDetailsImageCell)?.configure(with: viewModel.generateModel(forItemAtIndex: indexPath.item - 1))
         return cell
     }
     
