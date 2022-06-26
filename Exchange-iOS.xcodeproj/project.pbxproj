@@ -17,6 +17,9 @@
 		183F282C28144FDC00F70501 /* UsernameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282B28144FDC00F70501 /* UsernameService.swift */; };
 		183F282E2814A77200F70501 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282D2814A77200F70501 /* Username.swift */; };
 		183F28302814B1F200F70501 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183F282F2814B1F200F70501 /* GoogleService-Info.plist */; };
+		184A63642866979100253C0B /* ListingDetailsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A63632866979100253C0B /* ListingDetailsHeaderCell.swift */; };
+		184A63662866A21A00253C0B /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A63652866A21A00253C0B /* TagsViewController.swift */; };
+		184A63682867FCF600253C0B /* TagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A63672867FCF600253C0B /* TagsCell.swift */; };
 		18566DDB2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DDA2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift */; };
 		18566DDE2855FB1E00F1ADC0 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DDD2855FB1E00F1ADC0 /* ImageViewCell.swift */; };
 		18566DE028563FC300F1ADC0 /* MultipleImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DDF28563FC300F1ADC0 /* MultipleImageViewCell.swift */; };
@@ -110,6 +113,9 @@
 		18CC2B752834151600E609CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B742834151600E609CD /* CameraViewController.swift */; };
 		18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */; };
 		18FB133D285DF90100DF898B /* ListingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB133C285DF90100DF898B /* ListingDetailsViewController.swift */; };
+		18FB134128631AA400DF898B /* ListingDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB134028631AA400DF898B /* ListingDetailsHeaderView.swift */; };
+		18FB1343286329CB00DF898B /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1342286329CB00DF898B /* NSMutableAttributedString.swift */; };
+		18FB134528638FBA00DF898B /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB134428638FBA00DF898B /* Sequence.swift */; };
 		18FF94072834F37C0003907B /* BlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF94062834F37C0003907B /* BlurButton.swift */; };
 		18FF940A2834F4070003907B /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF94092834F4070003907B /* BlurView.swift */; };
 		18FF940F2835DDEA0003907B /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF940E2835DDEA0003907B /* CameraViewModel.swift */; };
@@ -144,6 +150,9 @@
 		183F282B28144FDC00F70501 /* UsernameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameService.swift; sourceTree = "<group>"; };
 		183F282D2814A77200F70501 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
 		183F282F2814B1F200F70501 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		184A63632866979100253C0B /* ListingDetailsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsHeaderCell.swift; sourceTree = "<group>"; };
+		184A63652866A21A00253C0B /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
+		184A63672867FCF600253C0B /* TagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCell.swift; sourceTree = "<group>"; };
 		18566DDA2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareImagePreviewViewController.swift; sourceTree = "<group>"; };
 		18566DDD2855FB1E00F1ADC0 /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
 		18566DDF28563FC300F1ADC0 /* MultipleImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImageViewCell.swift; sourceTree = "<group>"; };
@@ -232,6 +241,9 @@
 		18CC2B742834151600E609CD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCoordinator.swift; sourceTree = "<group>"; };
 		18FB133C285DF90100DF898B /* ListingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsViewController.swift; sourceTree = "<group>"; };
+		18FB134028631AA400DF898B /* ListingDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsHeaderView.swift; sourceTree = "<group>"; };
+		18FB1342286329CB00DF898B /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
+		18FB134428638FBA00DF898B /* Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
 		18FF94062834F37C0003907B /* BlurButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurButton.swift; sourceTree = "<group>"; };
 		18FF94092834F4070003907B /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		18FF940E2835DDEA0003907B /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
@@ -357,6 +369,14 @@
 			path = Username;
 			sourceTree = "<group>";
 		};
+		184A63622866972300253C0B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				184A63632866979100253C0B /* ListingDetailsHeaderCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		185EBA4C280DAA1A00DB2017 /* PropertyLists */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +424,8 @@
 				18C39E872858A963004FCF9D /* Date.swift */,
 				18724E502836BFDA00B666C4 /* Float.swift */,
 				185EBA72280DAF3300DB2017 /* NSLayoutConstraint.swift */,
+				18FB1342286329CB00DF898B /* NSMutableAttributedString.swift */,
+				18FB134428638FBA00DF898B /* Sequence.swift */,
 				1876AFE628307ED0001E89F4 /* String.swift */,
 				1876F8BF2844F20C001811F7 /* UIButton.swift */,
 				185EBA89280DB01E00DB2017 /* UICollectionViewCell.swift */,
@@ -610,6 +632,7 @@
 				1876F8B32841235D001811F7 /* MaterialPickerCell.swift */,
 				1876F8B1283E33DA001811F7 /* MaterialTextViewCell.swift */,
 				18566DDF28563FC300F1ADC0 /* MultipleImageViewCell.swift */,
+				184A63672867FCF600253C0B /* TagsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -764,6 +787,7 @@
 			isa = PBXGroup;
 			children = (
 				185EBA94280DB14100DB2017 /* AuthBaseController.swift */,
+				184A63652866A21A00253C0B /* TagsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -814,6 +838,8 @@
 		18FB133B285DF8EC00DF898B /* ListingDetails */ = {
 			isa = PBXGroup;
 			children = (
+				184A63622866972300253C0B /* Cells */,
+				18FB133F28631A8900DF898B /* Views */,
 				18FB133E285DF90400DF898B /* ViewControllers */,
 			);
 			path = ListingDetails;
@@ -825,6 +851,14 @@
 				18FB133C285DF90100DF898B /* ListingDetailsViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		18FB133F28631A8900DF898B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18FB134028631AA400DF898B /* ListingDetailsHeaderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		18FF94082834F3830003907B /* Views */ = {
@@ -1142,6 +1176,7 @@
 				1876F8AE283C6BC0001811F7 /* ListingImage.swift in Sources */,
 				185EBA8B280DB01E00DB2017 /* UICollectionViewCell.swift in Sources */,
 				18724E5728388E9100B666C4 /* LabelIconBlurButton.swift in Sources */,
+				18FB134528638FBA00DF898B /* Sequence.swift in Sources */,
 				18CC2B6A2833BDCB00E609CD /* UINavigationController.swift in Sources */,
 				1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */,
 				185EBAAA280DB43200DB2017 /* DatabaseService.swift in Sources */,
@@ -1150,6 +1185,7 @@
 				1876F89B283A6801001811F7 /* ListingPhotosViewController.swift in Sources */,
 				1876F8B42841235D001811F7 /* MaterialPickerCell.swift in Sources */,
 				18566DE028563FC300F1ADC0 /* MultipleImageViewCell.swift in Sources */,
+				18FB134128631AA400DF898B /* ListingDetailsHeaderView.swift in Sources */,
 				183F282C28144FDC00F70501 /* UsernameService.swift in Sources */,
 				1876F8A8283B0FFB001811F7 /* EditImageCell.swift in Sources */,
 				185EBAAE280DB57300DB2017 /* DatabaseKeyType.swift in Sources */,
@@ -1160,6 +1196,8 @@
 				1868B13F2811701000ACA238 /* OnboardViewModel.swift in Sources */,
 				185EBA9B280DB22900DB2017 /* Coodinator.swift in Sources */,
 				183F282E2814A77200F70501 /* Username.swift in Sources */,
+				184A63662866A21A00253C0B /* TagsViewController.swift in Sources */,
+				184A63642866979100253C0B /* ListingDetailsHeaderCell.swift in Sources */,
 				185EBAAC280DB51E00DB2017 /* StorageService.swift in Sources */,
 				185EBA91280DB0F600DB2017 /* LoginViewModel.swift in Sources */,
 				180072B32831EFF400731C17 /* ForgotPasswordTableViewCell.swift in Sources */,
@@ -1173,6 +1211,7 @@
 				1876F8AC283B1E2F001811F7 /* TextView.swift in Sources */,
 				1876F8A0283A6C3E001811F7 /* ListingPhotosViewModel.swift in Sources */,
 				18566DE228568DA400F1ADC0 /* PKEngagementBar.swift in Sources */,
+				18FB1343286329CB00DF898B /* NSMutableAttributedString.swift in Sources */,
 				180072B12831EFBD00731C17 /* ForgotPasswordViewController.swift in Sources */,
 				18FF94072834F37C0003907B /* BlurButton.swift in Sources */,
 				180072AC2831EDB900731C17 /* UIViewController.swift in Sources */,
@@ -1185,6 +1224,7 @@
 				18FF940F2835DDEA0003907B /* CameraViewModel.swift in Sources */,
 				185EBA80280DAF3300DB2017 /* UIView.swift in Sources */,
 				185EBA95280DB14100DB2017 /* AuthBaseController.swift in Sources */,
+				184A63682867FCF600253C0B /* TagsCell.swift in Sources */,
 				18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */,
 				1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */,
 				1876AFF32831193A001E89F4 /* AppCoodinator.swift in Sources */,

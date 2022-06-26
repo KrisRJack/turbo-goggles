@@ -10,7 +10,7 @@ import UIKit
 extension NSMutableAttributedString {
     
     @discardableResult
-    func append(_ text: String, withFont font: UIFont, withColor color: UIColor = .label) -> NSMutableAttributedString {
+    func append(_ text: String, withFont font: UIFont, color: UIColor = .label) -> NSMutableAttributedString {
         let attrs: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: color]
         let string = NSMutableAttributedString(string:text, attributes: attrs)
         append(string)
