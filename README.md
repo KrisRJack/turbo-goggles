@@ -4,7 +4,13 @@ Facebook Marketplace styled selling app. Worked on this project in college using
 
 
 ## [Feed](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Features/Feed) - [Listing Cell](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Shared/PostKit) (🛠 WORK IN PROGRESS - More updates soon 🛠)
-<img width="1792" alt="Screen Shot 2022-06-23 at 5 30 31 AM" src="https://user-images.githubusercontent.com/35638500/175273536-604ebabc-7b73-4fb7-b984-66e4a8d2c16e.png">
+<img width="1792" alt="Feed" src="https://user-images.githubusercontent.com/35638500/175273536-604ebabc-7b73-4fb7-b984-66e4a8d2c16e.png">
+
+
+
+## [Listing Details - Expanded](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Features/ListingDetails)
+<img width="1792" alt="Listing Details 1" src="https://user-images.githubusercontent.com/35638500/175810366-0bd13df0-7179-4f8f-af1c-03d587b1bbc1.png">
+<img width="1792" alt="Listing Details 2" src="https://user-images.githubusercontent.com/35638500/175810368-9a9d6c0d-afe9-4492-b625-2d87045ae5d8.png">
 
 
 
