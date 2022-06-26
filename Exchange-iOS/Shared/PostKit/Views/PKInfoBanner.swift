@@ -61,8 +61,14 @@ open class PKInfoBanner: UIView {
             "Category" : model.category
         ]
         
-        let itemInfo = additionalInfo.map ({ $1 != nil ? "\($0): \($1!)" : nil })
-        additionalLabel.text = itemInfo.compactMap({ $0 }).joined(separator: " • ")
+        let itemInfo: [NSAttributedString?] = additionalInfo.map ({
+            guard $1 != nil else { return nil }
+            return NSMutableAttributedString()
+                .append("\($0): ", withFont: .systemFont(ofSize: 14, weight: .bold))
+                .append("\($1!)", withFont: .systemFont(ofSize: 14, weight: .regular))
+        })
+        
+        additionalLabel.attributedText = itemInfo.compactMap({ $0 }).joined(separator: " • ")
     }
     
     public func prepareForReuse() {
