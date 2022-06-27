@@ -1,5 +1,5 @@
 //
-//  HomeCoodinator.swift
+//  HomeCoordinator.swift
 //  Exchange-iOS
 //
 //  Created by Kristopher Jackson on 5/15/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeCoodinator: Coordinator {
+class HomeCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController?
@@ -36,7 +36,7 @@ class HomeCoodinator: Coordinator {
     
 }
 
-extension HomeCoodinator: HomeTabBarControllerNavigationDelegate {
+extension HomeCoordinator: HomeTabBarControllerNavigationDelegate {
     
     func navigateToCreateListing() {
         let listingNavigationController = UINavigationController()
@@ -50,7 +50,7 @@ extension HomeCoodinator: HomeTabBarControllerNavigationDelegate {
     
 }
 
-extension HomeCoodinator: ListingCoordinatorDelegate {
+extension HomeCoordinator: ListingCoordinatorDelegate {
     
     func didFinish(from coordinator: ListingCoordinator) {
         navigationController?.dismiss(animated: true)
@@ -59,7 +59,7 @@ extension HomeCoodinator: ListingCoordinatorDelegate {
     
 }
 
-extension HomeCoodinator: FeedNavigationDelegate {
+extension HomeCoordinator: FeedNavigationDelegate {
     
     func goToListingDetails(from viewController: FeedViewController, with listing: Listing) {
         let viewController = ListingDetailsViewController(model: listing)

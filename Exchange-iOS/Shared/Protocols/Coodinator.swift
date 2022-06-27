@@ -1,5 +1,5 @@
 //
-//  Coodinator.swift
+//  Coordinator.swift
 //  Exchange-iOS
 //
 //  Created by Kristopher Jackson on 4/18/22.

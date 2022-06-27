@@ -38,7 +38,7 @@
 		185EBA64280DAD7800DB2017 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 185EBA63280DAD7800DB2017 /* Realm */; };
 		185EBA66280DAD7800DB2017 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 185EBA65280DAD7800DB2017 /* RealmSwift */; };
 		185EBA69280DADB800DB2017 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 185EBA68280DADB800DB2017 /* SDWebImage */; };
-		185EBA6B280DADDD00DB2017 /* AuthCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBA6A280DADDD00DB2017 /* AuthCoodinator.swift */; };
+		185EBA6B280DADDD00DB2017 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBA6A280DADDD00DB2017 /* AuthCoordinator.swift */; };
 		185EBA7A280DAF3300DB2017 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBA71280DAF3300DB2017 /* Array.swift */; };
 		185EBA7B280DAF3300DB2017 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBA72280DAF3300DB2017 /* NSLayoutConstraint.swift */; };
 		185EBA7C280DAF3300DB2017 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBA73280DAF3300DB2017 /* UIColor.swift */; };
@@ -72,9 +72,9 @@
 		1876AFE728307ED0001E89F4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFE628307ED0001E89F4 /* String.swift */; };
 		1876AFED2831163F001E89F4 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFEC2831163F001E89F4 /* HomeTabBarController.swift */; };
 		1876AFF1283116EB001E89F4 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFF0283116EB001E89F4 /* FeedViewController.swift */; };
-		1876AFF32831193A001E89F4 /* AppCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFF22831193A001E89F4 /* AppCoodinator.swift */; };
+		1876AFF32831193A001E89F4 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFF22831193A001E89F4 /* AppCoordinator.swift */; };
 		1876AFF52831207C001E89F4 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFF42831207C001E89F4 /* AppViewModel.swift */; };
-		1876AFF7283129AB001E89F4 /* HomeCoodinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFF6283129AB001E89F4 /* HomeCoodinator.swift */; };
+		1876AFF7283129AB001E89F4 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876AFF6283129AB001E89F4 /* HomeCoordinator.swift */; };
 		1876F8902838FF3A001811F7 /* NewListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F88F2838FF3A001811F7 /* NewListingViewController.swift */; };
 		1876F898283A569E001811F7 /* ReferenceArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F897283A569E001811F7 /* ReferenceArray.swift */; };
 		1876F89B283A6801001811F7 /* ListingPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F89A283A6801001811F7 /* ListingPhotosViewController.swift */; };
@@ -165,7 +165,7 @@
 		18566DE128568DA400F1ADC0 /* PKEngagementBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKEngagementBar.swift; sourceTree = "<group>"; };
 		18566DE32856938900F1ADC0 /* PKListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKListingCell.swift; sourceTree = "<group>"; };
 		185EBA52280DAAEE00DB2017 /* OpeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
-		185EBA6A280DADDD00DB2017 /* AuthCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoodinator.swift; sourceTree = "<group>"; };
+		185EBA6A280DADDD00DB2017 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		185EBA71280DAF3300DB2017 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		185EBA72280DAF3300DB2017 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
 		185EBA73280DAF3300DB2017 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -199,9 +199,9 @@
 		1876AFE628307ED0001E89F4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		1876AFEC2831163F001E89F4 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		1876AFF0283116EB001E89F4 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		1876AFF22831193A001E89F4 /* AppCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoodinator.swift; sourceTree = "<group>"; };
+		1876AFF22831193A001E89F4 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		1876AFF42831207C001E89F4 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
-		1876AFF6283129AB001E89F4 /* HomeCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoodinator.swift; sourceTree = "<group>"; };
+		1876AFF6283129AB001E89F4 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		1876F88F2838FF3A001811F7 /* NewListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListingViewController.swift; sourceTree = "<group>"; };
 		1876F897283A569E001811F7 /* ReferenceArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceArray.swift; sourceTree = "<group>"; };
 		1876F89A283A6801001811F7 /* ListingPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingPhotosViewController.swift; sourceTree = "<group>"; };
@@ -338,9 +338,9 @@
 		180072B828325A5C00731C17 /* Coodinators */ = {
 			isa = PBXGroup;
 			children = (
-				1876AFF22831193A001E89F4 /* AppCoodinator.swift */,
-				185EBA6A280DADDD00DB2017 /* AuthCoodinator.swift */,
-				1876AFF6283129AB001E89F4 /* HomeCoodinator.swift */,
+				1876AFF22831193A001E89F4 /* AppCoordinator.swift */,
+				185EBA6A280DADDD00DB2017 /* AuthCoordinator.swift */,
+				1876AFF6283129AB001E89F4 /* HomeCoordinator.swift */,
 				18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */,
 			);
 			path = Coodinators;
@@ -1210,7 +1210,7 @@
 				18566DE42856938900F1ADC0 /* PKListingCell.swift in Sources */,
 				18566DDB2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift in Sources */,
 				185EBA7B280DAF3300DB2017 /* NSLayoutConstraint.swift in Sources */,
-				1876AFF7283129AB001E89F4 /* HomeCoodinator.swift in Sources */,
+				1876AFF7283129AB001E89F4 /* HomeCoordinator.swift in Sources */,
 				184A636D28685D4600253C0B /* ListingDetailsImageCell.swift in Sources */,
 				1868B13F2811701000ACA238 /* OnboardViewModel.swift in Sources */,
 				185EBA9B280DB22900DB2017 /* Coodinator.swift in Sources */,
@@ -1247,11 +1247,11 @@
 				184A63682867FCF600253C0B /* TagsCell.swift in Sources */,
 				18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */,
 				1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */,
-				1876AFF32831193A001E89F4 /* AppCoodinator.swift in Sources */,
+				1876AFF32831193A001E89F4 /* AppCoordinator.swift in Sources */,
 				185EBA8F280DB0ED00DB2017 /* LoginViewController.swift in Sources */,
 				1876AFE728307ED0001E89F4 /* String.swift in Sources */,
 				185EBAB3280DB9A500DB2017 /* OnboardViewController.swift in Sources */,
-				185EBA6B280DADDD00DB2017 /* AuthCoodinator.swift in Sources */,
+				185EBA6B280DADDD00DB2017 /* AuthCoordinator.swift in Sources */,
 				185EBAA5280DB31600DB2017 /* SignUpTableViewCell.swift in Sources */,
 				1876F8B0283CE302001811F7 /* ListingEditImageViewModel.swift in Sources */,
 				1876F8A4283AA323001811F7 /* UIResponder.swift in Sources */,

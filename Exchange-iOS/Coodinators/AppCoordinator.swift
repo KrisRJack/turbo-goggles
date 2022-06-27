@@ -1,5 +1,5 @@
 //
-//  AppCoodinator.swift
+//  AppCoordinator.swift
 //  Exchange-iOS
 //
 //  Created by Kristopher Jackson on 5/15/22.
@@ -29,9 +29,9 @@ final class AppCoordinator: Coordinator {
         case .home:
             
             guard let navigationController = navigationController else { return }
-            let homeCoodinator = HomeCoodinator(navigationController)
-            homeCoodinator.start()
-            childCoordinators = [homeCoodinator]
+            let homeCoordinator = HomeCoordinator(navigationController)
+            homeCoordinator.start()
+            childCoordinators = [homeCoordinator]
             
         }
     }
@@ -43,9 +43,9 @@ extension AppCoordinator: AuthCoordinatorDelegate {
     func navigateToHomeCoordinator(from coordinator: AuthCoordinator) {
         
         guard let navigationController = navigationController else { return }
-        let homeCoodinator = HomeCoodinator(navigationController)
-        homeCoodinator.start()
-        childCoordinators = [homeCoodinator]
+        let homeCoordinator = HomeCoordinator(navigationController)
+        homeCoordinator.start()
+        childCoordinators = [homeCoordinator]
         
     }
     

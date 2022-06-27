@@ -1,5 +1,5 @@
 //
-//  AuthCoodinator.swift
+//  AuthCoordinator.swift
 //  Exchange
 //
 //  Created by Kristopher Jackson on 4/10/22.
