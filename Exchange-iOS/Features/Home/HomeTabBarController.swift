@@ -36,12 +36,13 @@ class HomeTabBarController: UITabBarController {
     }
     
     private func setUpTabBarAppearance() {
+        tabBar.isOpaque = true
         tabBar.clipsToBounds = true
-        tabBar.isTranslucent = true
         tabBar.backgroundColor = .systemBackground
         let appearance = tabBar.standardAppearance
         appearance.shadowImage = nil
         appearance.shadowColor = nil
+        appearance.backgroundColor = .systemBackground
         appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.stackedLayoutAppearance.normal.iconColor = .black
