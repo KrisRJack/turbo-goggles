@@ -17,6 +17,34 @@ final class FeedViewController: UIViewController {
     public var navigationDelegate: FeedNavigationDelegate?
     private var viewModel: FeedViewModel
     
+    private lazy var leftBarItem = UIBarButtonItem(
+        image: UIImage(
+            systemName: "paperplane",
+            withConfiguration: UIImage.SymbolConfiguration(weight: .medium)
+        ),
+        style: .plain,
+        target: self,
+        action: nil
+    )
+    
+    private lazy var rightBarItem = UIBarButtonItem(
+        image: UIImage(
+            systemName: "bag",
+            withConfiguration: UIImage.SymbolConfiguration(weight: .medium)
+        ),
+        style: .plain,
+        target: self,
+        action: nil
+    )
+    
+    private let logo: UIImageView = .build { imageView in
+        let inset: CGFloat = -4
+        imageView.tintColor = .darkThemeColor
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "Logo-Text")?
+            .withAlignmentRectInsets(UIEdgeInsets(top: inset, left: 0, bottom: inset, right: 0))
+    }
+    
     private lazy var tableView: UITableView = .build { tableView in
         tableView.delegate = self
         tableView.dataSource = self
@@ -57,6 +85,8 @@ final class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addTableViewToView()
+        configureBarButtonItems()
+        setUpNavigationBarAppearance()
         viewModel.loadInitialBatch()
         view.backgroundColor = .systemBackground
     }
@@ -76,6 +106,20 @@ final class FeedViewController: UIViewController {
             image: UIImage(systemName: "house"),
             selectedImage: UIImage(systemName: "house.fill")
         )
+    }
+    
+    private func configureBarButtonItems() {
+        navigationItem.leftBarButtonItem = leftBarItem
+        navigationItem.rightBarButtonItem = rightBarItem
+        navigationItem.titleView = logo
+    }
+    
+    private func setUpNavigationBarAppearance() {
+        navigationController?.navigationBar.tintColor = .label
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.backgroundColor = .systemBackground
     }
     
     @objc private func pullToRefresh() {

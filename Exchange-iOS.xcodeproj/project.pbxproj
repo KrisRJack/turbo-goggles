@@ -65,6 +65,7 @@
 		185EBABB280E37AC00DB2017 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185EBABA280E37AC00DB2017 /* UserStore.swift */; };
 		1868B13C28116FF100ACA238 /* OnboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1868B13B28116FF100ACA238 /* OnboardTableViewCell.swift */; };
 		1868B13F2811701000ACA238 /* OnboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1868B13E2811701000ACA238 /* OnboardViewModel.swift */; };
+		1868DC432869C7B4001C4D6A /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1868DC422869C7B4001C4D6A /* FeedCoordinator.swift */; };
 		18724E512836BFDA00B666C4 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18724E502836BFDA00B666C4 /* Float.swift */; };
 		18724E5328372B2000B666C4 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18724E5228372B2000B666C4 /* ImagePreviewViewController.swift */; };
 		18724E5728388E9100B666C4 /* LabelIconBlurButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18724E5628388E9100B666C4 /* LabelIconBlurButton.swift */; };
@@ -192,6 +193,7 @@
 		185EBABA280E37AC00DB2017 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		1868B13B28116FF100ACA238 /* OnboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardTableViewCell.swift; sourceTree = "<group>"; };
 		1868B13E2811701000ACA238 /* OnboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewModel.swift; sourceTree = "<group>"; };
+		1868DC422869C7B4001C4D6A /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		18724E502836BFDA00B666C4 /* Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
 		18724E5228372B2000B666C4 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
 		18724E5628388E9100B666C4 /* LabelIconBlurButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelIconBlurButton.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			children = (
 				1876AFF22831193A001E89F4 /* AppCoordinator.swift */,
 				185EBA6A280DADDD00DB2017 /* AuthCoordinator.swift */,
+				1868DC422869C7B4001C4D6A /* FeedCoordinator.swift */,
 				1876AFF6283129AB001E89F4 /* HomeCoordinator.swift */,
 				18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */,
 			);
@@ -1221,6 +1224,7 @@
 				185EBA91280DB0F600DB2017 /* LoginViewModel.swift in Sources */,
 				180072B32831EFF400731C17 /* ForgotPasswordTableViewCell.swift in Sources */,
 				18C39E882858A963004FCF9D /* Date.swift in Sources */,
+				1868DC432869C7B4001C4D6A /* FeedCoordinator.swift in Sources */,
 				185EBA81280DAF3300DB2017 /* CharacterSet.swift in Sources */,
 				18C39E8D285B4CD2004FCF9D /* FeedViewModel.swift in Sources */,
 				1876F89D283A6836001811F7 /* ListingImageCell.swift in Sources */,

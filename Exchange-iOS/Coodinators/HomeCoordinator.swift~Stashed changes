@@ -1,5 +1,5 @@
 //
-//  HomeCoordinator.swift
+//  HomeCoodinator.swift
 //  Exchange-iOS
 //
 //  Created by Kristopher Jackson on 5/15/22.
@@ -12,6 +12,8 @@ class HomeCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController?
     
+    let listingViewController = ListingTabBarViewController()
+    
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -19,10 +21,7 @@ class HomeCoordinator: Coordinator {
     func start() {
         let tabBarController = HomeTabBarController()
         tabBarController.navigationDelegate = self
-        tabBarController.viewControllers = [
-            configureFeedCoordinator(),
-            ListingTabBarViewController(),
-        ]
+        tabBarController.viewControllers = [configureFeedCoordinator(), listingViewController]
         navigationController?.rootTransitionAnimation()
         navigationController?.setViewControllers([tabBarController], animated: false)
     }
@@ -68,5 +67,5 @@ extension HomeCoordinator: ListingCoordinatorDelegate {
 }
 
 extension HomeCoordinator: FeedCoordinatorDelegate {
-    // MARK: Intentionally empty
+    // MARK: Intentionally left empty
 }

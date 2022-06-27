@@ -12,17 +12,18 @@ class HomeCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController?
     
+    let feedViewController = FeedViewController()
+    let listingViewController = ListingTabBarViewController()
+    
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
+        feedViewController.navigationDelegate = self
     }
     
     func start() {
         let tabBarController = HomeTabBarController()
         tabBarController.navigationDelegate = self
-        tabBarController.viewControllers = [
-            configureFeedCoordinator(),
-            ListingTabBarViewController(),
-        ]
+        tabBarController.viewControllers = [feedViewController, listingViewController]
         navigationController?.rootTransitionAnimation()
         navigationController?.setViewControllers([tabBarController], animated: false)
     }
@@ -31,15 +32,6 @@ class HomeCoordinator: Coordinator {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Done", style: .default))
         navigationController?.present(alertController, animated: true)
-    }
-    
-    private func configureFeedCoordinator() -> UINavigationController {
-        let navigationController = UINavigationController()
-        let coordinator = FeedCoordinator(navigationController)
-        coordinator.delegate = self
-        coordinator.start()
-        childCoordinators.append(coordinator)
-        return navigationController
     }
     
 }
@@ -67,6 +59,15 @@ extension HomeCoordinator: ListingCoordinatorDelegate {
     
 }
 
-extension HomeCoordinator: FeedCoordinatorDelegate {
-    // MARK: Intentionally empty
+extension HomeCoordinator: FeedNavigationDelegate {
+    
+    func goToListingDetails(from viewController: FeedViewController, with listing: Listing) {
+        let viewController = ListingDetailsViewController(model: listing)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func presentError(from viewController: FeedViewController, withMessage message: String) {
+        displayError(withMessage: message)
+    }
+    
 }

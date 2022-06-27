@@ -15,34 +15,6 @@ class HomeTabBarController: UITabBarController {
     
     var navigationDelegate: HomeTabBarControllerNavigationDelegate?
     
-    private lazy var leftBarButtonItem = UIBarButtonItem(
-        image: UIImage(
-            systemName: "paperplane",
-            withConfiguration: UIImage.SymbolConfiguration(weight: .medium)
-        ),
-        style: .plain,
-        target: self,
-        action: nil
-    )
-    
-    private lazy var rightBarButtonItem = UIBarButtonItem(
-        image: UIImage(
-            systemName: "bag",
-            withConfiguration: UIImage.SymbolConfiguration(weight: .medium)
-        ),
-        style: .plain,
-        target: self,
-        action: nil
-    )
-    
-    private let logo: UIImageView = .build { imageView in
-        let inset: CGFloat = -4
-        imageView.tintColor = .darkThemeColor
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "Logo-Text")?
-            .withAlignmentRectInsets(UIEdgeInsets(top: inset, left: 0, bottom: inset, right: 0))
-    }
-    
     init() {
         super.init(nibName: nil, bundle: nil)
         viewControllers = []
@@ -56,12 +28,11 @@ class HomeTabBarController: UITabBarController {
         super.viewDidLoad()
         delegate = self
         setUpTabBarAppearance()
-        configureBarButtonItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setUpNavigationBarAppearance()
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func setUpTabBarAppearance() {
@@ -76,20 +47,6 @@ class HomeTabBarController: UITabBarController {
         appearance.stackedLayoutAppearance.normal.iconColor = .black
         appearance.stackedLayoutAppearance.selected.iconColor = .black
         tabBar.standardAppearance = appearance
-    }
-    
-    private func configureBarButtonItems() {
-        navigationItem.titleView = logo
-        navigationItem.leftBarButtonItem = leftBarButtonItem
-        navigationItem.rightBarButtonItem = rightBarButtonItem
-    }
-    
-    private func setUpNavigationBarAppearance() {
-        navigationController?.navigationBar.tintColor = .label
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.backgroundColor = .systemBackground
     }
     
 }
