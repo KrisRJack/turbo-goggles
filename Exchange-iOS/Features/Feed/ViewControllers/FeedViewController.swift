@@ -8,6 +8,7 @@
 import UIKit
 
 protocol FeedNavigationDelegate {
+    func goToMessaging(from viewController: FeedViewController, with listing: Listing)
     func goToListingDetails(from viewController: FeedViewController, with listing: Listing)
     func presentError(from viewController: FeedViewController, withMessage message: String)
 }
@@ -168,6 +169,17 @@ extension FeedViewController: UITableViewDataSource {
             infoBanner: itemInfo,
             photoReferences: listing.imageReferences
         ))
+        
+        (cell as? PKListingCell)?.didTapEngagementButton = { [weak self] button, buttonType in
+            guard let self = self else { return }
+            switch buttonType {
+            case .message:
+                self.navigationDelegate?.goToMessaging(from: self, with: listing)
+            default:
+                // TODO: Add the rest of the button types
+                break
+            }
+        }
         
         return cell
     }

@@ -7,9 +7,13 @@
 
 import UIKit
 
+protocol PKEngagementBarDelegate {
+    func didTapButton(_ button: UIButton, ofType type: PKEngagementBar.ButtonType)
+}
+
 final class PKEngagementBar: UIView {
     
-    enum ButtonType: Int {
+    public enum ButtonType: Int {
         case like = 0
         case repost = 1
         case comment = 2
@@ -17,7 +21,7 @@ final class PKEngagementBar: UIView {
         case buySold = 4
     }
     
-    public var buttonPressed: ((_ button: UIButton, _ type: ButtonType) -> Void)?
+    public var delegate: PKEngagementBarDelegate?
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
@@ -126,23 +130,23 @@ final class PKEngagementBar: UIView {
     }
     
     @objc private func likeButtonTapped(_ sender: UIButton) {
-        buttonPressed?(sender, .like)
+        delegate?.didTapButton(sender, ofType: .like)
     }
     
     @objc private func repostButtonTapped(_ sender: UIButton) {
-        buttonPressed?(sender, .repost)
+        delegate?.didTapButton(sender, ofType: .repost)
     }
     
     @objc private func commentButtonTap(_ sender: UIButton) {
-        buttonPressed?(sender, .comment)
+        delegate?.didTapButton(sender, ofType: .comment)
     }
     
     @objc private func messageButtonTap(_ sender: UIButton) {
-        buttonPressed?(sender, .message)
+        delegate?.didTapButton(sender, ofType: .message)
     }
     
     @objc private func buySoldButtonTap(_ sender: UIButton) {
-        buttonPressed?(sender, .buySold)
+        delegate?.didTapButton(sender, ofType: .buySold)
     }
     
 }

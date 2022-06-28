@@ -12,6 +12,8 @@ final class PKListingCell: UITableViewCell {
     
     public typealias Model = (headerText: PKHeaderText.Model, infoBanner: PKInfoBanner.Model, photoReferences: [StorageReference])
     
+    public var didTapEngagementButton: ((_ button: UIButton, _ type: PKEngagementBar.ButtonType) -> Void)?
+    
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             headerText,
@@ -38,7 +40,8 @@ final class PKListingCell: UITableViewCell {
         itemInfoBanner.layoutMargins = UIEdgeInsets(top: 12, left: 15, bottom: 12, right: 15)
     }
     
-    private let engagementBar: PKEngagementBar = .build { engagementBar in
+    private lazy var engagementBar: PKEngagementBar = .build { engagementBar in
+        engagementBar.delegate = self
         engagementBar.backgroundColor = .systemBackground
         engagementBar.layoutMargins = UIEdgeInsets(top: 12, left: 15, bottom: 12, right: 15)
     }
@@ -78,6 +81,14 @@ final class PKListingCell: UITableViewCell {
     public func setParentViewController(to parentViewController: UIViewController) {
         parentViewController.addChild(imagePreviewViewController)
         imagePreviewViewController.didMove(toParent: parentViewController)
+    }
+    
+}
+
+extension PKListingCell: PKEngagementBarDelegate {
+    
+    func didTapButton(_ button: UIButton, ofType type: PKEngagementBar.ButtonType) {
+        didTapEngagementButton?(button, type)
     }
     
 }
