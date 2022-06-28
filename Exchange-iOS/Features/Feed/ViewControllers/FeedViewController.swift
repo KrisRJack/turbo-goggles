@@ -93,10 +93,10 @@ final class FeedViewController: UIViewController {
     
     private func addTableViewToView() {
         view.addSubviews(tableView)
-        [tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        [tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
          tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
          tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+         tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
         ].activate()
     }
     
@@ -118,8 +118,6 @@ final class FeedViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .label
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.backgroundColor = .systemBackground
     }
     
     @objc private func pullToRefresh() {

@@ -53,7 +53,7 @@ final class PKListingCell: UITableViewCell {
         [stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
          stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
          stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-         stackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+         stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2),
          photosContainerView.heightAnchor.constraint(equalTo: photosContainerView.widthAnchor)
         ].activate()
     }

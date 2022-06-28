@@ -21,6 +21,7 @@ final class AppCoordinator: Coordinator {
         case .auth:
         
             guard let navigationController = navigationController else { return }
+            navigationController.overrideUserInterfaceStyle = .light
             let authCoordinator = AuthCoordinator(navigationController)
             authCoordinator.delegate = self
             authCoordinator.start()
@@ -29,6 +30,7 @@ final class AppCoordinator: Coordinator {
         case .home:
             
             guard let navigationController = navigationController else { return }
+            navigationController.overrideUserInterfaceStyle = .unspecified
             let homeCoordinator = HomeCoordinator(navigationController)
             homeCoordinator.start()
             childCoordinators = [homeCoordinator]
@@ -43,6 +45,7 @@ extension AppCoordinator: AuthCoordinatorDelegate {
     func navigateToHomeCoordinator(from coordinator: AuthCoordinator) {
         
         guard let navigationController = navigationController else { return }
+        navigationController.overrideUserInterfaceStyle = .unspecified
         let homeCoordinator = HomeCoordinator(navigationController)
         homeCoordinator.start()
         childCoordinators = [homeCoordinator]

@@ -36,17 +36,15 @@ class HomeTabBarController: UITabBarController {
     }
     
     private func setUpTabBarAppearance() {
-        tabBar.isOpaque = true
+//        tabBar.isOpaque = true
         tabBar.clipsToBounds = true
-        tabBar.backgroundColor = .systemBackground
         let appearance = tabBar.standardAppearance
         appearance.shadowImage = nil
         appearance.shadowColor = nil
-        appearance.backgroundColor = .systemBackground
-        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.stackedLayoutAppearance.normal.iconColor = .black
-        appearance.stackedLayoutAppearance.selected.iconColor = .black
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.label]
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.label]
+        appearance.stackedLayoutAppearance.normal.iconColor = .label
+        appearance.stackedLayoutAppearance.selected.iconColor = .label
         tabBar.standardAppearance = appearance
     }
     

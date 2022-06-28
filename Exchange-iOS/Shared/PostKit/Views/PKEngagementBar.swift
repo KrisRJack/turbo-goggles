@@ -34,7 +34,7 @@ final class PKEngagementBar: UIView {
     
     private lazy var likeButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.tintColor = .black
+        button.tintColor = .label
         button.tag = ButtonType.like.rawValue
         button.setImage(UIImage(
             systemName: "heart",
@@ -50,7 +50,7 @@ final class PKEngagementBar: UIView {
     
     private lazy var repostButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.tintColor = .black
+        button.tintColor = .label
         button.tag = ButtonType.repost.rawValue
         button.setImage(UIImage(
             systemName: "arrow.triangle.2.circlepath",
@@ -62,7 +62,7 @@ final class PKEngagementBar: UIView {
     
     private lazy var commentButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.tintColor = .black
+        button.tintColor = .label
         button.tag = ButtonType.comment.rawValue
         button.setImage(UIImage(
             systemName: "message",
@@ -74,7 +74,7 @@ final class PKEngagementBar: UIView {
     
     private lazy var messageButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.tintColor = .black
+        button.tintColor = .label
         button.tag = ButtonType.message.rawValue
         button.setImage(UIImage(
             systemName: "paperplane",
@@ -86,7 +86,7 @@ final class PKEngagementBar: UIView {
     
     private lazy var buySoldButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.tintColor = .black
+        button.tintColor = .label
         button.tag = ButtonType.buySold.rawValue
         button.setImage(UIImage(
             systemName: "bag.badge.plus",

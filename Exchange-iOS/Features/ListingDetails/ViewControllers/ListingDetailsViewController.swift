@@ -50,10 +50,10 @@ final class ListingDetailsViewController: UIViewController {
     
     private func addTableViewToView() {
         view.addSubviews(tableView)
-        [tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        [tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
          tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
          tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+         tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
         ].activate()
     }
     

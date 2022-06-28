@@ -13,7 +13,7 @@ final class TagsCell: UICollectionViewCell {
         get { return label.textColor }
         set {
             label.textColor = newValue
-            contentView.backgroundColor = newValue.withAlphaComponent(0.12)
+            contentView.backgroundColor = traitCollection.userInterfaceStyle == .light ? newValue.withAlphaComponent(0.12) : .secondarySystemBackground
         }
     }
     
@@ -35,6 +35,11 @@ final class TagsCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        contentView.backgroundColor = traitCollection.userInterfaceStyle == .light ? color.withAlphaComponent(0.12) : .secondarySystemBackground
     }
     
 }
