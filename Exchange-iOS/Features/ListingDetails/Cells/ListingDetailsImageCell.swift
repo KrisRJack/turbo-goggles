@@ -69,7 +69,9 @@ final class ListingDetailsImageCell: UITableViewCell {
     
     public func configure(with model: Model) {
         label.text = model.description
-        scaledHeightImageView.sd_setImage(with: model.imageReference)
+        DispatchQueue.main.async {
+            self.scaledHeightImageView.sd_setImage(with: model.imageReference)
+        }
     }
     
 }
