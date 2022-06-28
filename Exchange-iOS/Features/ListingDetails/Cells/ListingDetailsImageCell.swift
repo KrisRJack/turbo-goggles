@@ -12,6 +12,19 @@ final class ListingDetailsImageCell: UITableViewCell {
     
     public typealias Model = (imageReference: StorageReference, description: String?)
     
+    private let spacing: CGFloat = 15
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [
+            label,
+            separatorView,
+            engagementBar
+        ])
+        stackView.spacing = spacing
+        stackView.axis = .vertical
+        return stackView
+    }()
+    
     private let containerView: UIView = .build { view in
         view.backgroundColor = .systemBackground
     }
@@ -41,7 +54,7 @@ final class ListingDetailsImageCell: UITableViewCell {
     
     private func setUpViews() {
         contentView.addSubviews(containerView)
-        containerView.addSubviews(scaledHeightImageView, label, separatorView, engagementBar)
+        containerView.addSubviews(scaledHeightImageView, stackView)
         [containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
          containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
          containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -51,19 +64,12 @@ final class ListingDetailsImageCell: UITableViewCell {
          scaledHeightImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
          scaledHeightImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
          
-         label.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-         label.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15),
-         label.topAnchor.constraint(equalTo: scaledHeightImageView.bottomAnchor, constant: 15),
+         stackView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+         stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: spacing),
+         stackView.topAnchor.constraint(equalTo: scaledHeightImageView.bottomAnchor, constant: spacing),
+         stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -spacing),
          
-         separatorView.heightAnchor.constraint(equalToConstant: 1),
-         separatorView.centerXAnchor.constraint(equalTo: label.centerXAnchor),
-         separatorView.leadingAnchor.constraint(equalTo: label.leadingAnchor),
-         separatorView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 15),
-         
-         engagementBar.centerXAnchor.constraint(equalTo: label.centerXAnchor),
-         engagementBar.leadingAnchor.constraint(equalTo: label.leadingAnchor),
-         engagementBar.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 15),
-         engagementBar.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -15),
+         separatorView.heightAnchor.constraint(equalToConstant: 1)
         ].activate()
     }
     
