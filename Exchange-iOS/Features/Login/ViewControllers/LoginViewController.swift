@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginNavigationDelegate {
-    func navigateToHome(from viewController: LoginViewController)
+    func navigateToHome(from viewController: LoginViewController, withUser user: UserStore)
     func navigateToSignUp(from viewController: LoginViewController)
     func navigateToForgotPassword(from viewController: LoginViewController)
     func presentError(from viewController: LoginViewController, withMessage message: String)
@@ -43,9 +43,9 @@ final class LoginViewController: AuthBaseController {
         
         viewModel = LoginViewModel(credentials: credentials)
         
-        viewModel.didLogInWithUser = { [weak self] in
+        viewModel.didLogInWithUser = { [weak self] user in
             guard let self = self else { return }
-            self.navigationDelegate?.navigateToHome(from: self)
+            self.navigationDelegate?.navigateToHome(from: self, withUser: user)
         }
         
         viewModel.didLogInWithoutUser = { [weak self] result in

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol OnboardNavigationDelegate {
-    func navigateToHome(from viewController: OnboardViewController)
+    func navigateToHome(from viewController: OnboardViewController, withUser user: UserStore)
     func presentError(from viewController: OnboardViewController, withMessage message: String)
 }
 
@@ -46,9 +46,9 @@ final class OnboardViewController: AuthBaseController {
         
         viewModel = OnboardViewModel(authResult: authResult, input: input)
         
-        viewModel.didOnboard = { [weak self] in
+        viewModel.didOnboard = { [weak self] user in
             guard let self = self else { return }
-            self.navigationDelegate?.navigateToHome(from: self)
+            self.navigationDelegate?.navigateToHome(from: self, withUser: user)
         }
         
         viewModel.error = { [weak self] error in

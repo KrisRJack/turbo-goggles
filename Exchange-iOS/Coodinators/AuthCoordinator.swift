@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AuthCoordinatorDelegate {
-    func navigateToHomeCoordinator(from coordinator: AuthCoordinator)
+    func navigateToHomeCoordinator(from coordinator: AuthCoordinator, withUser user: UserStore)
 }
 
 class AuthCoordinator: Coordinator {
@@ -54,8 +54,8 @@ extension AuthCoordinator: OpeningNavigationDelegate {
 
 extension AuthCoordinator: LoginNavigationDelegate {
     
-    func navigateToHome(from viewController: LoginViewController) {
-        delegate?.navigateToHomeCoordinator(from: self)
+    func navigateToHome(from viewController: LoginViewController, withUser user: UserStore) {
+        delegate?.navigateToHomeCoordinator(from: self, withUser: user)
     }
     
     func navigateToOnboard(from viewController: LoginViewController, withResult result: AuthResult) {
@@ -109,8 +109,8 @@ extension AuthCoordinator: SignUpNavigationDelegate {
 
 extension AuthCoordinator: OnboardNavigationDelegate {
     
-    func navigateToHome(from viewController: OnboardViewController) {
-        delegate?.navigateToHomeCoordinator(from: self)
+    func navigateToHome(from viewController: OnboardViewController, withUser user: UserStore) {
+        delegate?.navigateToHomeCoordinator(from: self, withUser: user)
     }
     
     func presentError(from viewController: OnboardViewController, withMessage message: String) {

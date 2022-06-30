@@ -16,7 +16,7 @@ final class LoginViewModel {
     }
     
     public var numberOfSections: Int { 1 }
-    public var didLogInWithUser: (() -> Void)?
+    public var didLogInWithUser: ((_ user: UserStore) -> Void)?
     public var numberOfRowsInSection: Int { 1 }
     public var didLogInWithoutUser: ((_ result: AuthResult) -> Void)?
     public var error: ((_ string: String) -> Void)?
@@ -79,7 +79,7 @@ final class LoginViewModel {
                 do {
                     
                     try user.saveToDisk()
-                    self.didLogInWithUser?()
+                    self.didLogInWithUser?(user)
                     
                 } catch (let error) {
                     

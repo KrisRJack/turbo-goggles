@@ -19,7 +19,7 @@ final class OnboardViewModel {
     public var numberOfSections: Int { 1 }
     public var numberOfRowsInSection: Int { 1 }
     public var error: ((_ string: String) -> Void)?
-    public var didOnboard: (() -> Void)?
+    public var didOnboard: ((_ user: UserStore) -> Void)?
     
     private let inputListener: Input!
     private let authResult: AuthResult!
@@ -140,7 +140,7 @@ final class OnboardViewModel {
                 do {
                     
                     try user.saveToDisk()
-                    self.didOnboard?()
+                    self.didOnboard?(user)
                     
                 } catch (let error) {
                     

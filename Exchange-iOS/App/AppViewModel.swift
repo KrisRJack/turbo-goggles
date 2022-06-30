@@ -12,7 +12,7 @@ final class AppViewModel {
     
     enum AppScenes {
         case auth
-        case home
+        case home(user: UserStore)
     }
     
     public static func currentScene() -> AppScenes {
@@ -27,7 +27,7 @@ final class AppViewModel {
                 return .auth
             }
             
-            return .home
+            return .home(user: user)
             
         } catch {
             
