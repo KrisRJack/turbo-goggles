@@ -21,12 +21,16 @@ class UserStore: Object {
     
     override static func primaryKey() -> String? { "_id" }
     
+    public var imageReference: StorageReference {
+        StorageService.reference(.users).child("\(_id).\(String.jpegExtensionFormat)")
+    }
+    
     public static var current: UserStore? {
         guard let currentUser = Auth.auth().currentUser else { return nil }
         do {
             
             let realm = try Realm()
-            return realm.objects(UserStore.self).first(where: { $0._id == currentUser.uid })
+            return realm.object(ofType: UserStore.self, forPrimaryKey: currentUser.uid)
             
         } catch {
             
