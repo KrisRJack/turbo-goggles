@@ -11,14 +11,13 @@ final class ChatService {
     
     static func configure(forUser user: UserStore, _ completion: ((_ error: Error?) -> Void)? = nil) {
         user.imageReference.downloadURL { url, error in
+            
             if let error = error {
                 completion?(error)
                 return
             }
             
-            let config = ChatClientConfig(apiKey: .init(APIKeys.Stream.appAccessKey))
-            ChatClient.shared = ChatClient(config: config)
-            
+            // Configures the current user
             ChatClient.shared.connectUser(
                 userInfo: UserInfo(
                     id: user._id,
