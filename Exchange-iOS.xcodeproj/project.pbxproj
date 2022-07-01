@@ -101,6 +101,7 @@
 		1876F8BE2843F3E8001811F7 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8BD2843F3E8001811F7 /* Listing.swift */; };
 		1876F8C02844F20C001811F7 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8BF2844F20C001811F7 /* UIButton.swift */; };
 		1876F8C22848C3C9001811F7 /* Vibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8C12848C3C8001811F7 /* Vibration.swift */; };
+		188A9F41286F866A0007EB55 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A9F40286F866A0007EB55 /* MessageView.swift */; };
 		1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E929280D9B4D00FCFE7E /* AppDelegate.swift */; };
 		1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */; };
 		1895E933280D9B4E00FCFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1895E932280D9B4E00FCFE7E /* Assets.xcassets */; };
@@ -121,6 +122,7 @@
 		18CC2B752834151600E609CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B742834151600E609CD /* CameraViewController.swift */; };
 		18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */; };
 		18CC7D12286C582D005AC859 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC7D11286C582D005AC859 /* ChatService.swift */; };
+		18EF17CF286DBB5800F01C9B /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF17CE286DBB5800F01C9B /* APIKeys.swift */; };
 		18FB133D285DF90100DF898B /* ListingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB133C285DF90100DF898B /* ListingDetailsViewController.swift */; };
 		18FB134128631AA400DF898B /* ListingDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB134028631AA400DF898B /* ListingDetailsHeaderView.swift */; };
 		18FB1343286329CB00DF898B /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB1342286329CB00DF898B /* NSMutableAttributedString.swift */; };
@@ -232,6 +234,7 @@
 		1876F8BD2843F3E8001811F7 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		1876F8BF2844F20C001811F7 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		1876F8C12848C3C8001811F7 /* Vibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibration.swift; sourceTree = "<group>"; };
+		188A9F40286F866A0007EB55 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		1895E926280D9B4D00FCFE7E /* Exchange-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exchange-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895E929280D9B4D00FCFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +259,7 @@
 		18CC2B742834151600E609CD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCoordinator.swift; sourceTree = "<group>"; };
 		18CC7D11286C582D005AC859 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		18EF17CE286DBB5800F01C9B /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		18FB133C285DF90100DF898B /* ListingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsViewController.swift; sourceTree = "<group>"; };
 		18FB134028631AA400DF898B /* ListingDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsHeaderView.swift; sourceTree = "<group>"; };
 		18FB1342286329CB00DF898B /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
@@ -525,6 +529,7 @@
 			children = (
 				18C39E7D285899E0004FCF9D /* ExchangeKit */,
 				185EBAB9280E378400DB2017 /* Globals */,
+				188A9F3F286F86520007EB55 /* MessageKit */,
 				185EBAB6280E375D00DB2017 /* Models */,
 				18C39E79285897C4004FCF9D /* PostKit */,
 				185EBAB8280E377900DB2017 /* Protocols */,
@@ -721,6 +726,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		188A9F3F286F86520007EB55 /* MessageKit */ = {
+			isa = PBXGroup;
+			children = (
+				188A9F40286F866A0007EB55 /* MessageView.swift */,
+			);
+			path = MessageKit;
+			sourceTree = "<group>";
+		};
 		1895E91D280D9B4C00FCFE7E = {
 			isa = PBXGroup;
 			children = (
@@ -753,6 +766,7 @@
 				185EBA6E280DAEC800DB2017 /* Miscellaneous */,
 				185EBA4C280DAA1A00DB2017 /* PropertyLists */,
 				185EBAA6280DB3D700DB2017 /* Services */,
+				18EF17CD286DBB4300F01C9B /* Secrets */,
 				185EBA96280DB16700DB2017 /* Shared */,
 			);
 			path = "Exchange-iOS";
@@ -889,6 +903,14 @@
 				18CC7D11286C582D005AC859 /* ChatService.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		18EF17CD286DBB4300F01C9B /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				18EF17CE286DBB5800F01C9B /* APIKeys.swift */,
+			);
+			path = Secrets;
 			sourceTree = "<group>";
 		};
 		18FB133B285DF8EC00DF898B /* ListingDetails */ = {
@@ -1250,6 +1272,7 @@
 				183F282C28144FDC00F70501 /* UsernameService.swift in Sources */,
 				1876F8A8283B0FFB001811F7 /* EditImageCell.swift in Sources */,
 				185EBAAE280DB57300DB2017 /* DatabaseKeyType.swift in Sources */,
+				18EF17CF286DBB5800F01C9B /* APIKeys.swift in Sources */,
 				18566DE42856938900F1ADC0 /* PKListingCell.swift in Sources */,
 				18566DDB2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift in Sources */,
 				185EBA7B280DAF3300DB2017 /* NSLayoutConstraint.swift in Sources */,
@@ -1287,6 +1310,7 @@
 				1876F898283A569E001811F7 /* ReferenceArray.swift in Sources */,
 				1868B13C28116FF100ACA238 /* OnboardTableViewCell.swift in Sources */,
 				185EBA7F280DAF3300DB2017 /* UIFont.swift in Sources */,
+				188A9F41286F866A0007EB55 /* MessageView.swift in Sources */,
 				18FF940F2835DDEA0003907B /* CameraViewModel.swift in Sources */,
 				185EBA80280DAF3300DB2017 /* UIView.swift in Sources */,
 				185EBA95280DB14100DB2017 /* AuthBaseController.swift in Sources */,
