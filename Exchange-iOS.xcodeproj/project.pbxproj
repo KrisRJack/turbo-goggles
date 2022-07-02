@@ -113,6 +113,7 @@
 		1895E95F280D9C5400FCFE7E /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95A280D9C5400FCFE7E /* background.jpg */; };
 		1895E960280D9C5400FCFE7E /* profile_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95B280D9C5400FCFE7E /* profile_2.jpg */; };
 		1895E961280D9C5400FCFE7E /* profile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95C280D9C5400FCFE7E /* profile.jpg */; };
+		18A61E8728704C6F003897D9 /* MessagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A61E8628704C6F003897D9 /* MessagingViewModel.swift */; };
 		18C39E7628573CE3004FCF9D /* PKInfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E7528573CE3004FCF9D /* PKInfoBanner.swift */; };
 		18C39E7F28589A6F004FCF9D /* PKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E7E28589A6F004FCF9D /* PKHeader.swift */; };
 		18C39E842858A656004FCF9D /* PKHeaderText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E832858A656004FCF9D /* PKHeaderText.swift */; };
@@ -250,6 +251,7 @@
 		1895E95A280D9C5400FCFE7E /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		1895E95B280D9C5400FCFE7E /* profile_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile_2.jpg; sourceTree = "<group>"; };
 		1895E95C280D9C5400FCFE7E /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
+		18A61E8628704C6F003897D9 /* MessagingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewModel.swift; sourceTree = "<group>"; };
 		18C39E7528573CE3004FCF9D /* PKInfoBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKInfoBanner.swift; sourceTree = "<group>"; };
 		18C39E7E28589A6F004FCF9D /* PKHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHeader.swift; sourceTree = "<group>"; };
 		18C39E832858A656004FCF9D /* PKHeaderText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKHeaderText.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 		184EB07A286B0EB400682EC9 /* Messaging */ = {
 			isa = PBXGroup;
 			children = (
+				18A61E8528704C55003897D9 /* ViewModel */,
 				184EB07B286B0EBF00682EC9 /* ViewController */,
 			);
 			path = Messaging;
@@ -787,6 +790,14 @@
 				1895E94C280D9B4E00FCFE7E /* Exchange_iOSUITestsLaunchTests.swift */,
 			);
 			path = "Exchange-iOSUITests";
+			sourceTree = "<group>";
+		};
+		18A61E8528704C55003897D9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18A61E8628704C6F003897D9 /* MessagingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		18C39E79285897C4004FCF9D /* PostKit */ = {
@@ -1317,6 +1328,7 @@
 				184A63682867FCF600253C0B /* TagsCell.swift in Sources */,
 				18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */,
 				1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */,
+				18A61E8728704C6F003897D9 /* MessagingViewModel.swift in Sources */,
 				1876AFF32831193A001E89F4 /* AppCoordinator.swift in Sources */,
 				185EBA8F280DB0ED00DB2017 /* LoginViewController.swift in Sources */,
 				1876AFE728307ED0001E89F4 /* String.swift in Sources */,

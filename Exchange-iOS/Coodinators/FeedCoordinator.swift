@@ -36,7 +36,7 @@ class FeedCoordinator: Coordinator {
 extension FeedCoordinator: FeedNavigationDelegate {
     
     func goToMessaging(from viewController: FeedViewController, with listing: Listing) {
-        let viewController = MessagingViewController()
+        let viewController = MessagingViewController(listing: listing)
         viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
     }

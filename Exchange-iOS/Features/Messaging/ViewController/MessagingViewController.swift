@@ -7,9 +7,16 @@
 
 import UIKit
 
-final class MessagingViewController: UIViewController {
+protocol MessagingNavigationDelegate {
+    func presentError(from viewController: MessagingViewController, withMessage message: String)
+}
+
+final class MessagingViewController: UITableViewController {
     
-    var textViewBottomAnchor: NSLayoutConstraint?
+    public var navigationDelegate: MessagingNavigationDelegate?
+    
+    private var viewModel: MessagingViewModel!
+    private var textViewBottomAnchor: NSLayoutConstraint?
     
     private let containerView: UIView = .build { view in
         view.cornerRadius(12)
@@ -21,8 +28,28 @@ final class MessagingViewController: UIViewController {
         view.sendButton.tintColor = .darkThemeColor
     }
     
-    init() {
+    init(listing: Listing) {
+        viewModel = MessagingViewModel(with: listing)
         super.init(nibName: nil, bundle: nil)
+        
+        viewModel.getText = { [weak self] in
+            return self?.messageTextView.textView.text
+        }
+        
+        viewModel.error = { [weak self] message in
+            guard let self = self else { return }
+            self.navigationDelegate?.presentError(from: self, withMessage: message)
+        }
+    
+        viewModel.reloadData = { [weak self] in
+            guard let self = self else { return }
+            self.tableView.reloadData()
+        }
+        
+        viewModel.navigationTitle = { [weak self] setTo in
+            guard let self = self else { return }
+            self.title = setTo
+        }
     }
     
     required init?(coder: NSCoder) {
