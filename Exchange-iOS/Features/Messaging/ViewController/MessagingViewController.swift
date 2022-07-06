@@ -11,7 +11,7 @@ protocol MessagingNavigationDelegate {
     func presentError(from viewController: MessagingViewController, withMessage message: String)
 }
 
-final class MessagingViewController: UITableViewController {
+final class MessagingViewController: UIViewController {
     
     public var navigationDelegate: MessagingNavigationDelegate?
     
@@ -23,9 +23,13 @@ final class MessagingViewController: UITableViewController {
         view.backgroundColor = .secondarySystemBackground
     }
     
-    let messageTextView: MessageView = .build { view in
+    private let messageTextView: MessageView = .build { view in
         view.textView.tintColor = .darkThemeColor
         view.sendButton.tintColor = .darkThemeColor
+    }
+    
+    private let tableView: UITableView = .build { tableView in
+        tableView.backgroundColor = .systemBackground
     }
     
     init(listing: Listing) {
@@ -45,11 +49,6 @@ final class MessagingViewController: UITableViewController {
             guard let self = self else { return }
             self.tableView.reloadData()
         }
-        
-        viewModel.navigationTitle = { [weak self] setTo in
-            guard let self = self else { return }
-            self.title = setTo
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -58,6 +57,7 @@ final class MessagingViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = viewModel.navigationTitle
         view.backgroundColor = .systemBackground
         configureMesssageTextView()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
@@ -140,7 +140,7 @@ final class MessagingViewController: UITableViewController {
     }
     
     private func configureMesssageTextView() {
-        view.addSubviews(containerView)
+        view.addSubviews(tableView, containerView)
         containerView.addSubviews(messageTextView)
         
         [containerView.leftAnchor.constraint(equalTo: view.leftAnchor),
@@ -149,7 +149,12 @@ final class MessagingViewController: UITableViewController {
          
          messageTextView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 12),
          messageTextView.leftAnchor.constraint(equalTo: containerView.layoutMarginsGuide.leftAnchor),
-         messageTextView.rightAnchor.constraint(equalTo: containerView.layoutMarginsGuide.rightAnchor)
+         messageTextView.rightAnchor.constraint(equalTo: containerView.layoutMarginsGuide.rightAnchor),
+         
+         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+         tableView.bottomAnchor.constraint(equalTo: containerView.topAnchor),
+         tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
         ].activate()
         
         textViewBottomAnchor = messageTextView.bottomAnchor.constraint(equalTo: containerView.layoutMarginsGuide.bottomAnchor, constant: -4)
