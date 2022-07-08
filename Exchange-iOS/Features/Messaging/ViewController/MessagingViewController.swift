@@ -23,7 +23,8 @@ final class MessagingViewController: UIViewController {
         view.backgroundColor = .secondarySystemBackground
     }
     
-    private let messageTextView: MessageView = .build { view in
+    private lazy var messageTextView: MessageView = .build { view in
+        view.delegate = self
         view.textView.tintColor = .darkThemeColor
         view.sendButton.tintColor = .darkThemeColor
     }
@@ -36,10 +37,6 @@ final class MessagingViewController: UIViewController {
         viewModel = MessagingViewModel(with: listing)
         super.init(nibName: nil, bundle: nil)
         
-        viewModel.getText = { [weak self] in
-            return self?.messageTextView.textView.text
-        }
-        
         viewModel.error = { [weak self] message in
             guard let self = self else { return }
             self.navigationDelegate?.presentError(from: self, withMessage: message)
@@ -48,6 +45,11 @@ final class MessagingViewController: UIViewController {
         viewModel.reloadData = { [weak self] in
             guard let self = self else { return }
             self.tableView.reloadData()
+        }
+        
+        viewModel.didSendMessage = { [weak self] in
+            guard let self = self else { return }
+            self.messageTextView.clearText()
         }
     }
     
@@ -163,3 +165,10 @@ final class MessagingViewController: UIViewController {
     
 }
 
+extension MessagingViewController: MessageViewDelegate {
+    
+    func didTapSendButton(_ button: UIButton, text: String?) {
+        viewModel.didTapSend(text: text)
+    }
+    
+}

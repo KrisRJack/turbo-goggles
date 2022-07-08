@@ -10,13 +10,13 @@ import StreamChat
 
 final class MessagingViewModel {
     
-    typealias GetTextClosure = () -> String?
     typealias ReloadDataClosure = () -> Void
+    typealias DidSendMessageClosure = () -> Void
     typealias ShowErrorMessageClosure = (_ error: String) -> Void
     
-    public var getText: GetTextClosure?
     public var reloadData: ReloadDataClosure?
     public var error: ShowErrorMessageClosure?
+    public var didSendMessage: DidSendMessageClosure?
     public var navigationTitle: String { listing.displayName }
     
     private let listing: Listing
@@ -26,6 +26,19 @@ final class MessagingViewModel {
         self.listing = listing
         guard let currentUser = UserStore.current else { return }
         configureChannelController(with: channelID(forUsers: [listing.userID, currentUser._id]))
+    }
+    
+    public func didTapSend(text: String?) {
+        guard let text = text?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty else { return }
+        channelController?.createNewMessage(text: text) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .failure(let error):
+                self.error?(error.localizedDescription)
+            default:
+                self.didSendMessage?()
+            }
+        }
     }
     
     private func configureChannelController(with channelID: String) {
