@@ -21,7 +21,7 @@ final class ListingDetailsHeaderCell: UITableViewCell {
         [view.topAnchor.constraint(equalTo: contentView.topAnchor),
          view.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
          view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-         view.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+         view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1),
         ].activate()
     }
     

@@ -58,7 +58,7 @@ final class ListingDetailsImageCell: UITableViewCell {
         [containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
          containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
          containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-         containerView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+         containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1),
          
          scaledHeightImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
          scaledHeightImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
