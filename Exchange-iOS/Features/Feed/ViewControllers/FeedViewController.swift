@@ -52,7 +52,7 @@ final class FeedViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.allowsSelection = true
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .secondarySystemBackground
+        tableView.backgroundColor = .systemBackground
         tableView.register(PKListingCell.self, forCellReuseIdentifier: PKListingCell.reuseIdentifier)
         // Add refresh control
         tableView.refreshControl = UIRefreshControl()

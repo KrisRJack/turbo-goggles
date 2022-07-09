@@ -16,7 +16,7 @@ final class ListingDetailsViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .secondarySystemBackground
+        tableView.backgroundColor = .systemBackground
         tableView.register(ListingDetailsHeaderCell.self, forCellReuseIdentifier: ListingDetailsHeaderCell.reuseIdentifier)
         tableView.register(ListingDetailsImageCell.self, forCellReuseIdentifier: ListingDetailsImageCell.reuseIdentifier)
     }

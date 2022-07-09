@@ -13,18 +13,18 @@ final class TagsCell: UICollectionViewCell {
         get { return label.textColor }
         set {
             label.textColor = newValue
-            contentView.backgroundColor = traitCollection.userInterfaceStyle == .light ? newValue.withAlphaComponent(0.12) : .secondarySystemBackground
+            contentView.backgroundColor = .systemGray5
         }
     }
     
     let label: UILabel = .build { label in
-        label.font = .systemFont(ofSize: 14, weight: .bold)
+        label.font = .systemFont(ofSize: 14, weight: .heavy)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = true
-        color = .darkThemeColor
+        color = .label
         contentView.addSubviews(label)
         [label.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
          label.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
@@ -35,11 +35,6 @@ final class TagsCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        contentView.backgroundColor = traitCollection.userInterfaceStyle == .light ? color.withAlphaComponent(0.12) : .secondarySystemBackground
     }
     
 }

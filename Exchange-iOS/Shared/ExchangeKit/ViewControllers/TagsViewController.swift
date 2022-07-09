@@ -47,7 +47,6 @@ open class TagsViewController: UICollectionViewController {
     open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagsCell.reuseIdentifier, for: indexPath)
         (cell as? TagsCell)?.cornerRadius(8)
-        (cell as? TagsCell)?.color = .darkThemeColor
         (cell as? TagsCell)?.label.text = "#\(tagsArray[indexPath.item])"
         return cell
     }
