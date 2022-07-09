@@ -59,9 +59,10 @@ final class MessagingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureMesssageTextView()
+        viewModel.loadBatch()
         title = viewModel.navigationTitle
         view.backgroundColor = .systemBackground
-        configureMesssageTextView()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
     }
     

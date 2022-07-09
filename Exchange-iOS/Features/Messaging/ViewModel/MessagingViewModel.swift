@@ -28,6 +28,17 @@ final class MessagingViewModel {
         configureChannelController(with: channelID(forUsers: [listing.userID, currentUser._id]))
     }
     
+    public func loadBatch() {
+        channelController?.loadNextMessages(limit: 25) { [weak self] error in
+            guard let self = self else { return }
+            if let error = error {
+                self.error?(error.localizedDescription)
+                return
+            }
+            self.reloadData?()
+        }
+    }
+    
     public func didTapSend(text: String?) {
         guard let text = text?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty else { return }
         channelController?.createNewMessage(text: text) { [weak self] result in
