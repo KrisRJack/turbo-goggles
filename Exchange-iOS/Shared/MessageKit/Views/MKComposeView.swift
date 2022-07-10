@@ -1,5 +1,5 @@
 //
-//  MessageView.swift
+//  MKComposeView.swift
 //  Exchange-iOS
 //
 //  Created by Kristopher Jackson on 7/1/22.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol MessageViewDelegate {
+protocol MKComposeViewDelegate {
     func didTapSendButton(_ button: UIButton, text: String?)
 }
 
-final class MessageView: UIView {
+final class MKComposeView: UIView {
     
-    public var delegate: MessageViewDelegate?
+    public var delegate: MKComposeViewDelegate?
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [

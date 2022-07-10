@@ -23,7 +23,7 @@ final class MessagingViewController: UIViewController {
         view.backgroundColor = .secondarySystemBackground
     }
     
-    private lazy var messageTextView: MessageView = .build { view in
+    private lazy var messageTextView: MKComposeView = .build { view in
         view.delegate = self
         view.textView.tintColor = .darkThemeColor
         view.sendButton.tintColor = .darkThemeColor
@@ -166,7 +166,7 @@ final class MessagingViewController: UIViewController {
     
 }
 
-extension MessagingViewController: MessageViewDelegate {
+extension MessagingViewController: MKComposeViewDelegate {
     
     func didTapSendButton(_ button: UIButton, text: String?) {
         viewModel.didTapSend(text: text)
