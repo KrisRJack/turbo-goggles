@@ -8,7 +8,7 @@ Facebook Marketplace styled selling app. Worked on this project in college using
 
 
 
-## [Listing Detals - Expanded](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Features/ListingDetails)
+## [Listing Details - Expanded](https://github.com/KrisRJack/turbo-goggles/tree/main/Exchange-iOS/Features/ListingDetails)
 <img width="1792" alt="Listing Details 1" src="https://user-images.githubusercontent.com/35638500/176143299-232eaaa5-1f36-45c1-bb2f-58aad0cd8204.png">
 <img width="1792" alt="Listing Details 2" src="https://user-images.githubusercontent.com/35638500/176143309-7089368b-11b3-4db9-8717-8c85ad42287c.png">
 
