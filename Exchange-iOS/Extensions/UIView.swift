@@ -43,12 +43,60 @@ extension UIView {
         layer.maskedCorners = maskedCorners
     }
     
-    func center(in view: UIView) {
-        view.addSubview(self)
-        [centerXAnchor.constraint(equalTo: view.centerXAnchor),
-         centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ].activate()
+    /// Makes the edge constraints (`topAnchor`, `bottomAnchor`, `leadingAnchor`, `trailingAnchor`) of a view equaled to the edge constraints of another view.
+     /// - Parameters:
+     ///   - view: The view that we are constraining the current view's edges to.
+     ///   For example : `currentView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true`
+     ///   - padding: An equal amount of spacing between each edge of the current view  and `view`.
+     ///   In a superview and subview relationship, `padding` is the equal space that surrounds the subview inside of the superview.
+     func edges(equalTo view: UIView, padding: CGFloat = 0) {
+         NSLayoutConstraint.activate([
+             topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
+             bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
+             leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+             trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding)
+         ])
+     }
+    
+    /// Makes the edge constraints (`topAnchor`, `bottomAnchor`, `leadingAnchor`, `trailingAnchor`) of a view equaled to the layout margins of another view.
+     /// - Parameters:
+     ///   - view: The view that we are constraining the current view's edges to.
+     ///   For example : `currentView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true`
+     ///   - padding: An equal amount of spacing between each edge of the current view  and `view`.
+     ///   In a superview and subview relationship, `padding` is the equal space that surrounds the subview inside of the superview.
+    func edges(equalToLayoutMarginIn view: UIView, padding: CGFloat = 0) {
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: padding),
+            bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -padding),
+            leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: padding),
+            trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -padding)
+        ])
     }
+    
+    /// Makes the edge constraints (`topAnchor`, `bottomAnchor`, `leadingAnchor`, `trailingAnchor`) of a view equaled to the safe area of another view.
+     /// - Parameters:
+     ///   - view: The view that we are constraining the current view's edges to.
+     ///   For example : `currentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true`
+     ///   - padding: An equal amount of spacing between each edge of the current view  and `view`.
+     ///   In a superview and subview relationship, `padding` is the equal space that surrounds the subview inside of the superview.
+    func edges(equalToSafeAreaIn view: UIView, padding: CGFloat = 0) {
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding),
+            leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
+            trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding)
+        ])
+    }
+    
+     /// Makes the center x and y anchors of a view equaled to the center x and y anchors of another view.
+     /// - Parameter view: The view that we're constraining the current view's center anchors to.
+     /// For example : `currentView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true`
+     func center(equalTo view: UIView) {
+         NSLayoutConstraint.activate([
+             centerXAnchor.constraint(equalTo: view.centerXAnchor),
+             centerYAnchor.constraint(equalTo: view.centerYAnchor)
+         ])
+     }
     
     func fill(with view: UIView, spacing: CGFloat = 0, considerMargins: Bool = false) {
         let topAnchor = considerMargins ? layoutMarginsGuide.topAnchor : topAnchor
