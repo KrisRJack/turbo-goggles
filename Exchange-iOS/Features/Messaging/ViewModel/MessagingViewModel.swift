@@ -17,7 +17,10 @@ final class MessagingViewModel {
     public var reloadData: ReloadDataClosure?
     public var error: ShowErrorMessageClosure?
     public var didSendMessage: DidSendMessageClosure?
+    
     public var navigationTitle: String { listing.displayName }
+    public var numberOfSections: Int { 1 }
+    public var numberOfRowsInSection: [Int] { [channelController?.messages.count ?? 0] }
     
     private let listing: Listing
     private var channelController: ChatChannelController?
@@ -26,6 +29,13 @@ final class MessagingViewModel {
         self.listing = listing
         guard let currentUser = UserStore.current else { return }
         configureChannelController(with: channelID(forUsers: [listing.userID, currentUser._id]))
+    }
+    
+    public func message(forItemAtIndex index: Int) -> ChatMessage {
+        guard let channelController = channelController else {
+            fatalError("Channel controller not implemented.")
+        }
+        return channelController.messages[index]
     }
     
     public func loadBatch() {
@@ -48,13 +58,14 @@ final class MessagingViewModel {
                 self.error?(error.localizedDescription)
             default:
                 self.didSendMessage?()
+                self.reloadData?()
             }
         }
     }
     
     private func configureChannelController(with channelID: String) {
         let channelId = ChannelId(type: .messaging, id: channelID)
-        channelController = ChatClient.shared.channelController(for: channelId)
+        channelController = ChatClient.shared.channelController(for: channelId, messageOrdering: .bottomToTop)
         channelController?.synchronize { [weak self] error in
             guard let self = self else { return }
             if let error = error {

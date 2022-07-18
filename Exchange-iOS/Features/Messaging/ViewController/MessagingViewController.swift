@@ -29,8 +29,12 @@ final class MessagingViewController: UIViewController {
         view.sendButton.tintColor = .darkThemeColor
     }
     
-    private let tableView: UITableView = .build { tableView in
+    private lazy var tableView: UITableView = .build { tableView in
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
         tableView.backgroundColor = .systemBackground
+        tableView.register(MKPrimaryMessageCell.self, forCellReuseIdentifier: MKPrimaryMessageCell.reuseIdentifier)
+        tableView.register(MKSecondaryMessageCell.self, forCellReuseIdentifier: MKSecondaryMessageCell.reuseIdentifier)
     }
     
     init(listing: Listing) {
@@ -59,7 +63,7 @@ final class MessagingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureMesssageTextView()
+        configureMessageTextView()
         viewModel.loadBatch()
         title = viewModel.navigationTitle
         view.backgroundColor = .systemBackground
@@ -142,7 +146,7 @@ final class MessagingViewController: UIViewController {
         )
     }
     
-    private func configureMesssageTextView() {
+    private func configureMessageTextView() {
         view.addSubviews(tableView, containerView)
         containerView.addSubviews(messageTextView)
         
@@ -165,6 +169,46 @@ final class MessagingViewController: UIViewController {
     }
     
 }
+
+// MARK: - UITableViewDataSource
+
+extension MessagingViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRowsInSection[section]
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let message = viewModel.message(forItemAtIndex: indexPath.item)
+        if !message.isSentByCurrentUser {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: MKPrimaryMessageCell.reuseIdentifier, for: indexPath)
+            (cell as? MKPrimaryMessageCell)?.configure(with: MKPrimaryMessageCell.Model(
+                text: message.text,
+                date: message.createdAt
+            ))
+            return cell
+            
+        } else {
+        
+            let cell = tableView.dequeueReusableCell(withIdentifier: MKSecondaryMessageCell.reuseIdentifier, for: indexPath)
+            (cell as? MKSecondaryMessageCell)?.configure(with: MKSecondaryMessageCell.Model(
+                text: message.text,
+                date: message.createdAt,
+                imageReference: StorageService.reference(.users).child(message.author.id + "." + .jpegExtensionFormat)
+            ))
+            return cell
+            
+        }
+    }
+    
+}
+
+// MARK: - MKComposeViewDelegate
 
 extension MessagingViewController: MKComposeViewDelegate {
     

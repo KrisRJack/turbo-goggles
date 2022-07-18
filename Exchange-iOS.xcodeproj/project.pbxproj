@@ -101,6 +101,9 @@
 		1876F8BE2843F3E8001811F7 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8BD2843F3E8001811F7 /* Listing.swift */; };
 		1876F8C02844F20C001811F7 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8BF2844F20C001811F7 /* UIButton.swift */; };
 		1876F8C22848C3C9001811F7 /* Vibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876F8C12848C3C8001811F7 /* Vibration.swift */; };
+		188311C4288185FA00D2F421 /* MKSecondaryMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188311C3288185FA00D2F421 /* MKSecondaryMessageCell.swift */; };
+		188311C62882CF5F00D2F421 /* MKMessageBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188311C52882CF5F00D2F421 /* MKMessageBubbleView.swift */; };
+		188311C82883349800D2F421 /* MKPrimaryMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188311C72883349800D2F421 /* MKPrimaryMessageCell.swift */; };
 		188A9F41286F866A0007EB55 /* MKComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A9F40286F866A0007EB55 /* MKComposeView.swift */; };
 		1895E92A280D9B4D00FCFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E929280D9B4D00FCFE7E /* AppDelegate.swift */; };
 		1895E92C280D9B4D00FCFE7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E92B280D9B4D00FCFE7E /* SceneDelegate.swift */; };
@@ -235,6 +238,9 @@
 		1876F8BD2843F3E8001811F7 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		1876F8BF2844F20C001811F7 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		1876F8C12848C3C8001811F7 /* Vibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibration.swift; sourceTree = "<group>"; };
+		188311C3288185FA00D2F421 /* MKSecondaryMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKSecondaryMessageCell.swift; sourceTree = "<group>"; };
+		188311C52882CF5F00D2F421 /* MKMessageBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMessageBubbleView.swift; sourceTree = "<group>"; };
+		188311C72883349800D2F421 /* MKPrimaryMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPrimaryMessageCell.swift; sourceTree = "<group>"; };
 		188A9F40286F866A0007EB55 /* MKComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKComposeView.swift; sourceTree = "<group>"; };
 		1895E926280D9B4D00FCFE7E /* Exchange-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exchange-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1895E929280D9B4D00FCFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -432,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				188A9F40286F866A0007EB55 /* MKComposeView.swift */,
+				188311C52882CF5F00D2F421 /* MKMessageBubbleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -737,9 +744,19 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		188311C2288185E400D2F421 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				188311C72883349800D2F421 /* MKPrimaryMessageCell.swift */,
+				188311C3288185FA00D2F421 /* MKSecondaryMessageCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		188A9F3F286F86520007EB55 /* MessageKit */ = {
 			isa = PBXGroup;
 			children = (
+				188311C2288185E400D2F421 /* Cells */,
 				18590302287A1795008FD08D /* Views */,
 			);
 			path = MessageKit;
@@ -1293,6 +1310,7 @@
 				185EBAAE280DB57300DB2017 /* DatabaseKeyType.swift in Sources */,
 				18EF17CF286DBB5800F01C9B /* APIKeys.swift in Sources */,
 				18566DE42856938900F1ADC0 /* PKListingCell.swift in Sources */,
+				188311C82883349800D2F421 /* MKPrimaryMessageCell.swift in Sources */,
 				18566DDB2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift in Sources */,
 				185EBA7B280DAF3300DB2017 /* NSLayoutConstraint.swift in Sources */,
 				1876AFF7283129AB001E89F4 /* HomeCoordinator.swift in Sources */,
@@ -1310,6 +1328,7 @@
 				18C39E882858A963004FCF9D /* Date.swift in Sources */,
 				1868DC432869C7B4001C4D6A /* FeedCoordinator.swift in Sources */,
 				185EBA81280DAF3300DB2017 /* CharacterSet.swift in Sources */,
+				188311C4288185FA00D2F421 /* MKSecondaryMessageCell.swift in Sources */,
 				18C39E8D285B4CD2004FCF9D /* FeedViewModel.swift in Sources */,
 				1876F89D283A6836001811F7 /* ListingImageCell.swift in Sources */,
 				185EBA7A280DAF3300DB2017 /* Array.swift in Sources */,
@@ -1328,6 +1347,7 @@
 				18CC2B752834151600E609CD /* CameraViewController.swift in Sources */,
 				1876F898283A569E001811F7 /* ReferenceArray.swift in Sources */,
 				1868B13C28116FF100ACA238 /* OnboardTableViewCell.swift in Sources */,
+				188311C62882CF5F00D2F421 /* MKMessageBubbleView.swift in Sources */,
 				185EBA7F280DAF3300DB2017 /* UIFont.swift in Sources */,
 				188A9F41286F866A0007EB55 /* MKComposeView.swift in Sources */,
 				18FF940F2835DDEA0003907B /* CameraViewModel.swift in Sources */,
