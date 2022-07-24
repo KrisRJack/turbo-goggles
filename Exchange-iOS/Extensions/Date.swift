@@ -5,9 +5,12 @@
 //  Created by Kristopher Jackson on 6/14/22.
 //
 
+import Firebase
 import Foundation
 
 extension Date {
+    
+    var timestamp: Timestamp { Timestamp(date: self) }
     
     func getElapsedInterval() -> String {
         
