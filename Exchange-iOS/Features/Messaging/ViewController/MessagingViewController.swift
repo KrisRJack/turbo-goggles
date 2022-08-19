@@ -64,7 +64,7 @@ final class MessagingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMessageTextView()
-        viewModel.loadBatch()
+        viewModel.viewDidLoad()
         title = viewModel.navigationTitle
         view.backgroundColor = .systemBackground
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
@@ -184,12 +184,12 @@ extension MessagingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = viewModel.message(forItemAtIndex: indexPath.item)
-        if !message.isSentByCurrentUser {
+        if message.isSentByCurrentUser {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: MKPrimaryMessageCell.reuseIdentifier, for: indexPath)
             (cell as? MKPrimaryMessageCell)?.configure(with: MKPrimaryMessageCell.Model(
                 text: message.text,
-                date: message.createdAt
+                date: message.date
             ))
             return cell
             
@@ -198,8 +198,8 @@ extension MessagingViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: MKSecondaryMessageCell.reuseIdentifier, for: indexPath)
             (cell as? MKSecondaryMessageCell)?.configure(with: MKSecondaryMessageCell.Model(
                 text: message.text,
-                date: message.createdAt,
-                imageReference: StorageService.reference(.users).child(message.author.id + "." + .jpegExtensionFormat)
+                date: message.date,
+                imageReference: StorageService.reference(.users).child(message.fromUserID + "." + .jpegExtensionFormat)
             ))
             return cell
             

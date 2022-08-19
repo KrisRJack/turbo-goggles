@@ -25,7 +25,7 @@ public struct DatabaseKeys {
         case username = "username"
     }
     
-    enum Listing: String, CaseIterable {
+    enum Listing: String, DatabaseKeyType {
         case id = "id"
         case userID = "userID"
         case displayName = "displayName"
@@ -42,6 +42,26 @@ public struct DatabaseKeys {
         case item_id = "item_id"
         case item_imageName = "item_imageName"
         case item_description = "item_description"
+    }
+    
+    enum Channel: String, DatabaseKeyType {
+        case id = "id"
+        case created = "create"
+        case message_id = "message_id"
+        case message_channelID = "message_channelID"
+        case message_fromUserID = "message_fromUserID"
+        case message_text = "message_text"
+        case message_date = "message_date"
+        case message_type = "message_type"
+    }
+    
+    enum Message: String, DatabaseKeyType {
+        case id = "id"
+        case channelID = "channelID"
+        case fromUserID = "fromUserID"
+        case text = "text"
+        case date = "date"
+        case type = "type"
     }
 
 }

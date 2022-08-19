@@ -17,8 +17,7 @@ extension UIColor {
     
     static var darkThemeColor: UIColor {
         get {
-            return .systemPink
-//            return UIColor(rgb: 0xEF4456)
+            return UIColor(rgb: 0xEF4456)
         }
     }
     

@@ -40,16 +40,24 @@ class UserStore: Object {
         }
     }
     
-    public var dictionary: [String: Any] {
+    public var reference: DocumentReference {
+        return DatabaseService.collection(.users).document(_id)
+    }
+    
+    public var channelReference: CollectionReference {
+        return reference.collection(.channels)
+    }
+    
+    public var dictionary: [DatabaseKeys.User: Any] {
         [
-            DatabaseKeys.User.uid.rawValue: _id,
-            DatabaseKeys.User.email.rawValue: email,
-            DatabaseKeys.User.firstName.rawValue: firstName,
-            DatabaseKeys.User.lastName.rawValue: lastName,
-            DatabaseKeys.User.username.rawValue: username,
-            DatabaseKeys.User.displayName.rawValue: displayName,
-            DatabaseKeys.User.created.rawValue: created,
-            DatabaseKeys.User.dateOfBirth.rawValue: dateOfBirth
+            DatabaseKeys.User.uid: _id,
+            DatabaseKeys.User.email: email,
+            DatabaseKeys.User.firstName: firstName,
+            DatabaseKeys.User.lastName: lastName,
+            DatabaseKeys.User.username: username,
+            DatabaseKeys.User.displayName: displayName,
+            DatabaseKeys.User.created: created,
+            DatabaseKeys.User.dateOfBirth: dateOfBirth
         ]
     }
     
