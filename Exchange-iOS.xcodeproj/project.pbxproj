@@ -13,6 +13,7 @@
 		180072B32831EFF400731C17 /* ForgotPasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B22831EFF400731C17 /* ForgotPasswordTableViewCell.swift */; };
 		180072B628324C8600731C17 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072B528324C8600731C17 /* ForgotPasswordViewModel.swift */; };
 		180072C028325DE500731C17 /* ListingTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180072BF28325DE500731C17 /* ListingTabBarViewController.swift */; };
+		183C219D28B507F3008A3623 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183C219C28B507F3008A3623 /* InboxViewController.swift */; };
 		183F28262814285C00F70501 /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F28252814285C00F70501 /* AuthResult.swift */; };
 		183F282C28144FDC00F70501 /* UsernameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282B28144FDC00F70501 /* UsernameService.swift */; };
 		183F282E2814A77200F70501 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F282D2814A77200F70501 /* Username.swift */; };
@@ -24,9 +25,6 @@
 		184A636D28685D4600253C0B /* ListingDetailsImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A636C28685D4600253C0B /* ListingDetailsImageCell.swift */; };
 		184A636F28685EA600253C0B /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184A636E28685EA600253C0B /* Int.swift */; };
 		184EB07D286B0EDC00682EC9 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184EB07C286B0EDC00682EC9 /* MessagingViewController.swift */; };
-		184EB083286B22DE00682EC9 /* StreamChat in Frameworks */ = {isa = PBXBuildFile; productRef = 184EB082286B22DE00682EC9 /* StreamChat */; };
-		184EB085286B22DE00682EC9 /* StreamChatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 184EB084286B22DE00682EC9 /* StreamChatUI */; };
-		184EB087286B22FA00682EC9 /* ChatClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184EB086286B22FA00682EC9 /* ChatClient.swift */; };
 		18566DDB2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DDA2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift */; };
 		18566DDE2855FB1E00F1ADC0 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DDD2855FB1E00F1ADC0 /* ImageViewCell.swift */; };
 		18566DE028563FC300F1ADC0 /* MultipleImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18566DDF28563FC300F1ADC0 /* MultipleImageViewCell.swift */; };
@@ -128,7 +126,7 @@
 		18CC2B6A2833BDCB00E609CD /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B692833BDCB00E609CD /* UINavigationController.swift */; };
 		18CC2B752834151600E609CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B742834151600E609CD /* CameraViewController.swift */; };
 		18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */; };
-		18CC7D12286C582D005AC859 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC7D11286C582D005AC859 /* ChatService.swift */; };
+		18D2254128B50E1500CE3154 /* InboxCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2254028B50E1500CE3154 /* InboxCoordinator.swift */; };
 		18EF17CF286DBB5800F01C9B /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF17CE286DBB5800F01C9B /* APIKeys.swift */; };
 		18FB133D285DF90100DF898B /* ListingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB133C285DF90100DF898B /* ListingDetailsViewController.swift */; };
 		18FB134128631AA400DF898B /* ListingDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB134028631AA400DF898B /* ListingDetailsHeaderView.swift */; };
@@ -164,6 +162,7 @@
 		180072B22831EFF400731C17 /* ForgotPasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordTableViewCell.swift; sourceTree = "<group>"; };
 		180072B528324C8600731C17 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		180072BF28325DE500731C17 /* ListingTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingTabBarViewController.swift; sourceTree = "<group>"; };
+		183C219C28B507F3008A3623 /* InboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		183F28252814285C00F70501 /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		183F282B28144FDC00F70501 /* UsernameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameService.swift; sourceTree = "<group>"; };
 		183F282D2814A77200F70501 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
@@ -175,7 +174,6 @@
 		184A636C28685D4600253C0B /* ListingDetailsImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsImageCell.swift; sourceTree = "<group>"; };
 		184A636E28685EA600253C0B /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		184EB07C286B0EDC00682EC9 /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
-		184EB086286B22FA00682EC9 /* ChatClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatClient.swift; sourceTree = "<group>"; };
 		18566DDA2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareImagePreviewViewController.swift; sourceTree = "<group>"; };
 		18566DDD2855FB1E00F1ADC0 /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
 		18566DDF28563FC300F1ADC0 /* MultipleImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleImageViewCell.swift; sourceTree = "<group>"; };
@@ -272,7 +270,7 @@
 		18CC2B692833BDCB00E609CD /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		18CC2B742834151600E609CD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCoordinator.swift; sourceTree = "<group>"; };
-		18CC7D11286C582D005AC859 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		18D2254028B50E1500CE3154 /* InboxCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxCoordinator.swift; sourceTree = "<group>"; };
 		18EF17CE286DBB5800F01C9B /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		18FB133C285DF90100DF898B /* ListingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsViewController.swift; sourceTree = "<group>"; };
 		18FB134028631AA400DF898B /* ListingDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsHeaderView.swift; sourceTree = "<group>"; };
@@ -298,12 +296,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				185EBA56280DABB100DB2017 /* FirebaseAnalytics in Frameworks */,
-				184EB083286B22DE00682EC9 /* StreamChat in Frameworks */,
 				185EBA5F280DAC9900DB2017 /* FirebaseFirestoreUI in Frameworks */,
 				185EBA5A280DABB100DB2017 /* FirebaseFirestore in Frameworks */,
 				185EBA66280DAD7800DB2017 /* RealmSwift in Frameworks */,
 				185EBA69280DADB800DB2017 /* SDWebImage in Frameworks */,
-				184EB085286B22DE00682EC9 /* StreamChatUI in Frameworks */,
 				185EBA58280DABB100DB2017 /* FirebaseAuth in Frameworks */,
 				185EBA5C280DABB100DB2017 /* FirebaseStorage in Frameworks */,
 				185EBA61280DAC9900DB2017 /* FirebaseStorageUI in Frameworks */,
@@ -372,6 +368,7 @@
 				185EBA6A280DADDD00DB2017 /* AuthCoordinator.swift */,
 				1868DC422869C7B4001C4D6A /* FeedCoordinator.swift */,
 				1876AFF6283129AB001E89F4 /* HomeCoordinator.swift */,
+				18D2254028B50E1500CE3154 /* InboxCoordinator.swift */,
 				18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */,
 			);
 			path = Coodinators;
@@ -394,6 +391,22 @@
 				1876F89A283A6801001811F7 /* ListingPhotosViewController.swift */,
 				180072BF28325DE500731C17 /* ListingTabBarViewController.swift */,
 				1876F88F2838FF3A001811F7 /* NewListingViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		183C219A28B507CD008A3623 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				183C219B28B507E3008A3623 /* ViewControllers */,
+			);
+			path = Inbox;
+			sourceTree = "<group>";
+		};
+		183C219B28B507E3008A3623 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				183C219C28B507F3008A3623 /* InboxViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -493,7 +506,6 @@
 				185EBA71280DAF3300DB2017 /* Array.swift */,
 				185EBA74280DAF3300DB2017 /* CGFloat.swift */,
 				185EBA78280DAF3300DB2017 /* CharacterSet.swift */,
-				184EB086286B22FA00682EC9 /* ChatClient.swift */,
 				18C39E872858A963004FCF9D /* Date.swift */,
 				18607E2C288DBA3B00A28D3A /* Dictionary.swift */,
 				18724E502836BFDA00B666C4 /* Float.swift */,
@@ -609,7 +621,6 @@
 		185EBAA6280DB3D700DB2017 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				18CC7D10286C5819005AC859 /* Chat */,
 				185EBAA7280DB3FD00DB2017 /* Database */,
 				185EBAA8280DB40200DB2017 /* Storage */,
 				183F282A28144FC500F70501 /* Username */,
@@ -906,6 +917,7 @@
 				1876AFEE283116D7001E89F4 /* Feed */,
 				180072AD2831EF9000731C17 /* ForgotPassword */,
 				18CC2B6F2833CF9600E609CD /* Home */,
+				183C219A28B507CD008A3623 /* Inbox */,
 				18FB133B285DF8EC00DF898B /* ListingDetails */,
 				185EBA82280DAF9800DB2017 /* Login */,
 				184EB07A286B0EB400682EC9 /* Messaging */,
@@ -940,14 +952,6 @@
 				18724E5228372B2000B666C4 /* ImagePreviewViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		18CC7D10286C5819005AC859 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				18CC7D11286C582D005AC859 /* ChatService.swift */,
-			);
-			path = Chat;
 			sourceTree = "<group>";
 		};
 		18EF17CD286DBB4300F01C9B /* Secrets */ = {
@@ -1056,8 +1060,6 @@
 				185EBA63280DAD7800DB2017 /* Realm */,
 				185EBA65280DAD7800DB2017 /* RealmSwift */,
 				185EBA68280DADB800DB2017 /* SDWebImage */,
-				184EB082286B22DE00682EC9 /* StreamChat */,
-				184EB084286B22DE00682EC9 /* StreamChatUI */,
 			);
 			productName = "Exchange-iOS";
 			productReference = 1895E926280D9B4D00FCFE7E /* Exchange-iOS.app */;
@@ -1139,7 +1141,6 @@
 				185EBA5D280DAC9900DB2017 /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */,
 				185EBA62280DAD7800DB2017 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				185EBA67280DADB800DB2017 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				184EB081286B22DE00682EC9 /* XCRemoteSwiftPackageReference "stream-chat-swift" */,
 			);
 			productRefGroup = 1895E927280D9B4D00FCFE7E /* Products */;
 			projectDirPath = "";
@@ -1329,7 +1330,6 @@
 				184A636D28685D4600253C0B /* ListingDetailsImageCell.swift in Sources */,
 				1868B13F2811701000ACA238 /* OnboardViewModel.swift in Sources */,
 				185EBA9B280DB22900DB2017 /* Coodinator.swift in Sources */,
-				18CC7D12286C582D005AC859 /* ChatService.swift in Sources */,
 				183F282E2814A77200F70501 /* Username.swift in Sources */,
 				184EB07D286B0EDC00682EC9 /* MessagingViewController.swift in Sources */,
 				184A63662866A21A00253C0B /* TagsViewController.swift in Sources */,
@@ -1358,6 +1358,7 @@
 				1876F8BE2843F3E8001811F7 /* Listing.swift in Sources */,
 				18CC2B752834151600E609CD /* CameraViewController.swift in Sources */,
 				1876F898283A569E001811F7 /* ReferenceArray.swift in Sources */,
+				18D2254128B50E1500CE3154 /* InboxCoordinator.swift in Sources */,
 				1868B13C28116FF100ACA238 /* OnboardTableViewCell.swift in Sources */,
 				188311C62882CF5F00D2F421 /* MKMessageBubbleView.swift in Sources */,
 				185EBA7F280DAF3300DB2017 /* UIFont.swift in Sources */,
@@ -1391,7 +1392,7 @@
 				1876F8A2283A9888001811F7 /* ListingEmptyImageCell.swift in Sources */,
 				1876F8AA283B127E001811F7 /* ScaledHeightImageView.swift in Sources */,
 				18FF940A2834F4070003907B /* BlurView.swift in Sources */,
-				184EB087286B22FA00682EC9 /* ChatClient.swift in Sources */,
+				183C219D28B507F3008A3623 /* InboxViewController.swift in Sources */,
 				18724E512836BFDA00B666C4 /* Float.swift in Sources */,
 				185EBAB0280DB59D00DB2017 /* DatabaseKeys.swift in Sources */,
 				185EBA7C280DAF3300DB2017 /* UIColor.swift in Sources */,
@@ -1744,14 +1745,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		184EB081286B22DE00682EC9 /* XCRemoteSwiftPackageReference "stream-chat-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/getstream/stream-chat-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
 		185EBA54280DABB100DB2017 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1787,16 +1780,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		184EB082286B22DE00682EC9 /* StreamChat */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 184EB081286B22DE00682EC9 /* XCRemoteSwiftPackageReference "stream-chat-swift" */;
-			productName = StreamChat;
-		};
-		184EB084286B22DE00682EC9 /* StreamChatUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 184EB081286B22DE00682EC9 /* XCRemoteSwiftPackageReference "stream-chat-swift" */;
-			productName = StreamChatUI;
-		};
 		185EBA55280DABB100DB2017 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 185EBA54280DABB100DB2017 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

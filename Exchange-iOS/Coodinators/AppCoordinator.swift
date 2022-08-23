@@ -27,10 +27,7 @@ final class AppCoordinator: Coordinator {
             authCoordinator.start()
             childCoordinators = [authCoordinator]
             
-        case .home(let user):
-            
-            // TODO: Handle this error
-            ChatService.configure(forUser: user)
+        case .home:
             
             guard let navigationController = navigationController else { return }
             navigationController.overrideUserInterfaceStyle = .unspecified
@@ -46,9 +43,6 @@ final class AppCoordinator: Coordinator {
 extension AppCoordinator: AuthCoordinatorDelegate {
     
     func navigateToHomeCoordinator(from coordinator: AuthCoordinator, withUser user: UserStore) {
-        
-        // TODO: Handle this error
-        ChatService.configure(forUser: user)
         
         guard let navigationController = navigationController else { return }
         navigationController.overrideUserInterfaceStyle = .unspecified
