@@ -58,6 +58,10 @@ final class MessagingViewModel {
             id: newMessageReference.documentID,
             channelID: channelID,
             fromUserID: currentUser._id,
+            fromFirstName: currentUser.firstName,
+            fromLastName: currentUser.lastName,
+            fromDisplayName: currentUser.displayName,
+            fromUsername: currentUser.username,
             text: text,
             date: .init(),
             type: .direct
@@ -65,6 +69,7 @@ final class MessagingViewModel {
         
         let channel = Channel(
             id: channelID,
+            updated: message.date,
             lastMessage: message
         )
         

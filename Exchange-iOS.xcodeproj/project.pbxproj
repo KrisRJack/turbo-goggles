@@ -115,7 +115,6 @@
 		1895E94D280D9B4E00FCFE7E /* Exchange_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895E94C280D9B4E00FCFE7E /* Exchange_iOSUITestsLaunchTests.swift */; };
 		1895E95E280D9C5400FCFE7E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1895E959280D9C5400FCFE7E /* Localizable.strings */; };
 		1895E95F280D9C5400FCFE7E /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95A280D9C5400FCFE7E /* background.jpg */; };
-		1895E960280D9C5400FCFE7E /* profile_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95B280D9C5400FCFE7E /* profile_2.jpg */; };
 		1895E961280D9C5400FCFE7E /* profile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1895E95C280D9C5400FCFE7E /* profile.jpg */; };
 		18A61E8728704C6F003897D9 /* MessagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A61E8628704C6F003897D9 /* MessagingViewModel.swift */; };
 		18C39E7628573CE3004FCF9D /* PKInfoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C39E7528573CE3004FCF9D /* PKInfoBanner.swift */; };
@@ -126,7 +125,11 @@
 		18CC2B6A2833BDCB00E609CD /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B692833BDCB00E609CD /* UINavigationController.swift */; };
 		18CC2B752834151600E609CD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B742834151600E609CD /* CameraViewController.swift */; };
 		18CC2B7A28346FBF00E609CD /* ListingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */; };
-		18D2254128B50E1500CE3154 /* InboxCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2254028B50E1500CE3154 /* InboxCoordinator.swift */; };
+		18D2254428B51CF500CE3154 /* InboxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2254328B51CF500CE3154 /* InboxViewModel.swift */; };
+		18D2254728B7CA8300CE3154 /* InboxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2254628B7CA8300CE3154 /* InboxService.swift */; };
+		18D2254928B7E10A00CE3154 /* Inbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2254828B7E10A00CE3154 /* Inbox.swift */; };
+		18D2254C28B8EA5300CE3154 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2254B28B8EA5300CE3154 /* InboxView.swift */; };
+		18D2254F28B8F01900CE3154 /* InboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2254E28B8F01900CE3154 /* InboxCell.swift */; };
 		18EF17CF286DBB5800F01C9B /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF17CE286DBB5800F01C9B /* APIKeys.swift */; };
 		18FB133D285DF90100DF898B /* ListingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB133C285DF90100DF898B /* ListingDetailsViewController.swift */; };
 		18FB134128631AA400DF898B /* ListingDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB134028631AA400DF898B /* ListingDetailsHeaderView.swift */; };
@@ -259,7 +262,6 @@
 		1895E94C280D9B4E00FCFE7E /* Exchange_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1895E959280D9C5400FCFE7E /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		1895E95A280D9C5400FCFE7E /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
-		1895E95B280D9C5400FCFE7E /* profile_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile_2.jpg; sourceTree = "<group>"; };
 		1895E95C280D9C5400FCFE7E /* profile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profile.jpg; sourceTree = "<group>"; };
 		18A61E8628704C6F003897D9 /* MessagingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewModel.swift; sourceTree = "<group>"; };
 		18C39E7528573CE3004FCF9D /* PKInfoBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKInfoBanner.swift; sourceTree = "<group>"; };
@@ -270,7 +272,11 @@
 		18CC2B692833BDCB00E609CD /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		18CC2B742834151600E609CD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCoordinator.swift; sourceTree = "<group>"; };
-		18D2254028B50E1500CE3154 /* InboxCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxCoordinator.swift; sourceTree = "<group>"; };
+		18D2254328B51CF500CE3154 /* InboxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewModel.swift; sourceTree = "<group>"; };
+		18D2254628B7CA8300CE3154 /* InboxService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxService.swift; sourceTree = "<group>"; };
+		18D2254828B7E10A00CE3154 /* Inbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inbox.swift; sourceTree = "<group>"; };
+		18D2254B28B8EA5300CE3154 /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
+		18D2254E28B8F01900CE3154 /* InboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxCell.swift; sourceTree = "<group>"; };
 		18EF17CE286DBB5800F01C9B /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		18FB133C285DF90100DF898B /* ListingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsViewController.swift; sourceTree = "<group>"; };
 		18FB134028631AA400DF898B /* ListingDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsHeaderView.swift; sourceTree = "<group>"; };
@@ -368,7 +374,6 @@
 				185EBA6A280DADDD00DB2017 /* AuthCoordinator.swift */,
 				1868DC422869C7B4001C4D6A /* FeedCoordinator.swift */,
 				1876AFF6283129AB001E89F4 /* HomeCoordinator.swift */,
-				18D2254028B50E1500CE3154 /* InboxCoordinator.swift */,
 				18CC2B7928346FBF00E609CD /* ListingCoordinator.swift */,
 			);
 			path = Coodinators;
@@ -398,6 +403,9 @@
 		183C219A28B507CD008A3623 /* Inbox */ = {
 			isa = PBXGroup;
 			children = (
+				18D2254D28B8EFF700CE3154 /* Cells */,
+				18D2254A28B8EA4400CE3154 /* Views */,
+				18D2254228B51CE900CE3154 /* ViewModel */,
 				183C219B28B507E3008A3623 /* ViewControllers */,
 			);
 			path = Inbox;
@@ -494,7 +502,6 @@
 				1895E95A280D9C5400FCFE7E /* background.jpg */,
 				1895E934280D9B4E00FCFE7E /* LaunchScreen.storyboard */,
 				1895E959280D9C5400FCFE7E /* Localizable.strings */,
-				1895E95B280D9C5400FCFE7E /* profile_2.jpg */,
 				1895E95C280D9C5400FCFE7E /* profile.jpg */,
 			);
 			path = Miscellaneous;
@@ -621,6 +628,7 @@
 		185EBAA6280DB3D700DB2017 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				18D2254528B7CA7400CE3154 /* Inbox */,
 				185EBAA7280DB3FD00DB2017 /* Database */,
 				185EBAA8280DB40200DB2017 /* Storage */,
 				183F282A28144FC500F70501 /* Username */,
@@ -661,6 +669,7 @@
 			children = (
 				183F28252814285C00F70501 /* AuthResult.swift */,
 				18607E2A288DAF6200A28D3A /* Channel.swift */,
+				18D2254828B7E10A00CE3154 /* Inbox.swift */,
 				1876F8BD2843F3E8001811F7 /* Listing.swift */,
 				1876F8AD283C6BC0001811F7 /* ListingImage.swift */,
 				18607E28288DA06500A28D3A /* Message.swift */,
@@ -954,6 +963,38 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		18D2254228B51CE900CE3154 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18D2254328B51CF500CE3154 /* InboxViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18D2254528B7CA7400CE3154 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				18D2254628B7CA8300CE3154 /* InboxService.swift */,
+			);
+			path = Inbox;
+			sourceTree = "<group>";
+		};
+		18D2254A28B8EA4400CE3154 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18D2254B28B8EA5300CE3154 /* InboxView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		18D2254D28B8EFF700CE3154 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				18D2254E28B8F01900CE3154 /* InboxCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		18EF17CD286DBB4300F01C9B /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
@@ -1158,7 +1199,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1895E960280D9C5400FCFE7E /* profile_2.jpg in Resources */,
 				1895E936280D9B4E00FCFE7E /* LaunchScreen.storyboard in Resources */,
 				1895E95F280D9C5400FCFE7E /* background.jpg in Resources */,
 				183F28302814B1F200F70501 /* GoogleService-Info.plist in Resources */,
@@ -1302,6 +1342,7 @@
 				1876F8B2283E33DA001811F7 /* MaterialTextViewCell.swift in Sources */,
 				185EBA8A280DB01E00DB2017 /* UITableViewCell.swift in Sources */,
 				1876F8BA284132D0001811F7 /* Conditions.swift in Sources */,
+				18D2254F28B8F01900CE3154 /* InboxCell.swift in Sources */,
 				185EBA7D280DAF3300DB2017 /* CGFloat.swift in Sources */,
 				1876F8AE283C6BC0001811F7 /* ListingImage.swift in Sources */,
 				185EBA8B280DB01E00DB2017 /* UICollectionViewCell.swift in Sources */,
@@ -1323,6 +1364,7 @@
 				185EBAAE280DB57300DB2017 /* DatabaseKeyType.swift in Sources */,
 				18EF17CF286DBB5800F01C9B /* APIKeys.swift in Sources */,
 				18566DE42856938900F1ADC0 /* PKListingCell.swift in Sources */,
+				18D2254C28B8EA5300CE3154 /* InboxView.swift in Sources */,
 				188311C82883349800D2F421 /* MKPrimaryMessageCell.swift in Sources */,
 				18566DDB2855F41A00F1ADC0 /* SquareImagePreviewViewController.swift in Sources */,
 				185EBA7B280DAF3300DB2017 /* NSLayoutConstraint.swift in Sources */,
@@ -1330,6 +1372,7 @@
 				184A636D28685D4600253C0B /* ListingDetailsImageCell.swift in Sources */,
 				1868B13F2811701000ACA238 /* OnboardViewModel.swift in Sources */,
 				185EBA9B280DB22900DB2017 /* Coodinator.swift in Sources */,
+				18D2254928B7E10A00CE3154 /* Inbox.swift in Sources */,
 				183F282E2814A77200F70501 /* Username.swift in Sources */,
 				184EB07D286B0EDC00682EC9 /* MessagingViewController.swift in Sources */,
 				184A63662866A21A00253C0B /* TagsViewController.swift in Sources */,
@@ -1343,6 +1386,7 @@
 				188311C4288185FA00D2F421 /* MKSecondaryMessageCell.swift in Sources */,
 				18C39E8D285B4CD2004FCF9D /* FeedViewModel.swift in Sources */,
 				1876F89D283A6836001811F7 /* ListingImageCell.swift in Sources */,
+				18D2254428B51CF500CE3154 /* InboxViewModel.swift in Sources */,
 				185EBA7A280DAF3300DB2017 /* Array.swift in Sources */,
 				185EBAA3280DB29300DB2017 /* SignUpViewModel.swift in Sources */,
 				185EBA98280DB17300DB2017 /* Window.swift in Sources */,
@@ -1358,7 +1402,6 @@
 				1876F8BE2843F3E8001811F7 /* Listing.swift in Sources */,
 				18CC2B752834151600E609CD /* CameraViewController.swift in Sources */,
 				1876F898283A569E001811F7 /* ReferenceArray.swift in Sources */,
-				18D2254128B50E1500CE3154 /* InboxCoordinator.swift in Sources */,
 				1868B13C28116FF100ACA238 /* OnboardTableViewCell.swift in Sources */,
 				188311C62882CF5F00D2F421 /* MKMessageBubbleView.swift in Sources */,
 				185EBA7F280DAF3300DB2017 /* UIFont.swift in Sources */,
@@ -1380,6 +1423,7 @@
 				1876F8A4283AA323001811F7 /* UIResponder.swift in Sources */,
 				1876AFE528306384001E89F4 /* MaterialTextFieldCell.swift in Sources */,
 				185EBABB280E37AC00DB2017 /* UserStore.swift in Sources */,
+				18D2254728B7CA8300CE3154 /* InboxService.swift in Sources */,
 				1876F8B8284132B9001811F7 /* Categories.swift in Sources */,
 				1876F8902838FF3A001811F7 /* NewListingViewController.swift in Sources */,
 				183F28262814285C00F70501 /* AuthResult.swift in Sources */,

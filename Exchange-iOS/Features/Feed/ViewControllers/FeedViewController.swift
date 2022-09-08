@@ -8,6 +8,7 @@
 import UIKit
 
 protocol FeedNavigationDelegate {
+    func goToInbox(from viewController: FeedViewController)
     func goToMessaging(from viewController: FeedViewController, with listing: Listing)
     func goToListingDetails(from viewController: FeedViewController, with listing: Listing)
     func presentError(from viewController: FeedViewController, withMessage message: String)
@@ -25,7 +26,7 @@ final class FeedViewController: UIViewController {
         ),
         style: .plain,
         target: self,
-        action: nil
+        action: #selector(didTapLeftTabBarItem)
     )
     
     private lazy var rightBarItem = UIBarButtonItem(
@@ -123,6 +124,10 @@ final class FeedViewController: UIViewController {
     
     @objc private func pullToRefresh() {
         viewModel.paginateNewerBatch()
+    }
+    
+    @objc private func didTapLeftTabBarItem() {
+        navigationDelegate?.goToInbox(from: self)
     }
     
 }
